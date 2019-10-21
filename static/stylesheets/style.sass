@@ -12,8 +12,9 @@ $font-stack: 'Lato', sans-serif
 $alt-font-stack: 'Raleway', sans-serif
 
 .container
-	margin: 5px 15px
-	padding: 5px 15px
+	width: 1200px
+	max-width: 1920px
+	margin: 0 auto
 
 // Text Styles and Definitions
 h1
@@ -48,35 +49,61 @@ figure
 		font-family: $alt-font-stack
 		color: $light-grey
 		text-align: center
-
+		
 form
-	
+		
 	fieldset
-		border-width: 0px
-		border-style: none
-		border-color: none
-		border-image: none
+	border-width: 0px
+	border-style: none
+	border-color: none
+	border-image: none
+		
+ul
+	margin: 0
+	padding: 0
+	list-style: none
+
+// Flex Properties
+
+.flex-container
+	display: flex
+	padding: 0
+	list-style: none
+	display: -webkit-box
+	display: -moz-box
+	display: -ms-flexbox
+	display: -webkit-flex
+	display: flex
+	-webkit-flex-flow: row wrap
+	justify-content: space-between
+	flex-direction: row
+	flex-wrap: wrap
+
+.flex-item
+	
+	justify-content: space-between
+	margin: 10px
+	width: auto
 
 // Navigation
+.logo
+	background-image: url("../images/logo.svg")
+	background-repeat: no-repeat
+	background-size: contain
+	width: 100px
+	height: 80px
+	margin: 0px 20px
+	align-self: center
+
 nav
 	background-color: $lighter-grey
 	height: 100px
 	display: flex
 	justify-content: space-between
 	
-	#logo
-		background-image: url("../images/logo.svg")
-		background-repeat: no-repeat
-		background-size: contain
-		width: 100px
-		height: 80px
-		margin: 0px 20px
-		align-self: center
 
 	#mainMenu
 		align-self: center
-
-	ul
 	
 	li
 		display: inline
@@ -96,13 +123,14 @@ nav
 			color: $blue
 
 // Article
-article
 
-// Carrousel
+
+// Slideshow
 #slideshow
 	margin: 0
 	padding: 0
 	height: 400px
+	width: 100%
 
 // Description
 #description
@@ -114,48 +142,16 @@ article
 	.highlight
 		background-color: $lighter-grey
 
-	// Flex Properties
-	.flex-container
-		display: flex
-		padding: 0
-		margin: 0
-		list-style: none
-		display: -webkit-box
-		display: -moz-box
-		display: -ms-flexbox
-		display: -webkit-flex
-		display: flex
-		-webkit-flex-flow: row wrap
-		justify-content: space-around
-		flex-direction: row
-		flex-wrap: wrap
-
-	.flex-item
-		justify-content: space-between
-		margin: 10 px
-		width: auto
-
 // Tabs
-#tabs
+
 
 // Tiles
 #tiles
 
 	// Tile Flex Properties
-	.flex-container
-		padding: 0
-		margin: 0
-		list-style: none
-		display: -webkit-box
-		display: -moz-box
-		display: -ms-flexbox
-		display: -webkit-flex
-		display: flex
-		-webkit-flex-flow: row wrap
-		justify-content: space-around
-		flex-direction: row
 
-	.flex-item
+	.flex-item-tile
+		@extend .flex-item
 		background: $light-grey
 		padding: 2px
 		width: 200px
@@ -180,24 +176,13 @@ footer
 		float: left
 	#contactForm
 
-
 	#sitemap
 		
 		margin: auto
 
-		#logo
-		background-image: url("../images/logo.svg")
-		background-repeat: no-repeat
-		background-size: contain
-		width: 100px
-		height: 80px
-		margin: 0px 20px
-		align-self: center
+		.logoSM
+			@extend .logo
 
-		ul
-			margin: 0
-			padding: 0
-			list-style: none
 
 		a
 			color: $purple
