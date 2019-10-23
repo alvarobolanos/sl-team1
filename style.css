@@ -1,0 +1,195 @@
+.container {
+  width: 1200px;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-variant: light;
+  font-size: 24px;
+  font-family: "Lato", sans-serif;
+  color: #4b9cd6;
+}
+
+h2 {
+  font-variant: bold;
+  font-size: 19px;
+  font-family: "Lato", sans-serif;
+  color: #41bb93;
+}
+
+h3 {
+  font-variant: regular;
+  font-size: 17px;
+  font-family: "Lato", sans-serif;
+  color: #3754a5;
+}
+
+p {
+  font-variant: regular;
+  font-size: 12px;
+  font-family: "Raleway", sans-serif;
+  color: #7d7d7d;
+}
+
+body {
+  background-color: rgba(171, 171, 171, 0.125);
+  margin: auto;
+}
+
+figure figcaption {
+  font-size: 14px;
+  font-family: "Raleway", sans-serif;
+  color: #ababab;
+  text-align: center;
+}
+
+form {
+  border-width: 0px;
+  border-style: none;
+  border-color: none;
+  border-image: none;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.flex-container {
+  display: flex;
+  padding: 0;
+  list-style: none;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.flex-item, #tiles .flex-item-tile {
+  justify-content: space-between;
+  margin: 10px;
+  width: auto;
+}
+
+.logo, footer #sitemap .logoSM {
+  background-image: url("../images/logo.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100px;
+  height: 80px;
+  margin: 0px 20px;
+  align-self: center;
+}
+
+nav {
+  background-color: rgba(171, 171, 171, 0.125);
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+nav #mainMenu {
+  align-self: center;
+}
+nav li {
+  display: inline;
+  padding: 10px;
+}
+nav a {
+  color: #7d7d7d;
+  text-decoration: none;
+  font-variant: light;
+  font-size: 16px;
+  font-family: "Lato", sans-serif;
+}
+nav a:hover {
+  color: #41bb93;
+}
+nav a:active {
+  color: #4b9cd6;
+}
+
+#slideshow {
+  margin: 0;
+  padding: 0;
+  height: 400px;
+  width: 100%;
+}
+
+#description {
+  background-color: white;
+}
+
+#highlights .highlight {
+  background-color: rgba(171, 171, 171, 0.125);
+}
+
+#tiles .flex-item-tile {
+  background: #ababab;
+  padding: 2px;
+  width: 200px;
+  margin-top: 10px;
+  color: #7d7d7d;
+}
+
+#book {
+  background-color: white;
+}
+
+footer {
+  background-color: #4b9cd6;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-end;
+  align-content: space-around;
+}
+footer #contact {
+  float: left;
+}
+footer #sitemap {
+  margin: auto;
+}
+footer #sitemap a {
+  color: #3754a5;
+  text-decoration: none;
+  font-variant: bold;
+  font-size: 14px;
+  font-family: "Lato", sans-serif;
+  padding: 10px;
+}
+
+label, input, textarea{
+  display:block;
+}
+/*History */
+
+.container-history {
+	padding: 10px;
+	float: center;
+	width: 60%;
+	margin: 0 auto;
+}
+
+.grid-history {
+	display: grid;
+	grid-template-columns: 10fr 10fr 10fr;
+	grid-template-rows: 10fr 10fr 10fr;
+	grid-gap: 20px;
+}
+
+.card-history {
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+ 	transition: 0.3s;
+	width: 100%;
+  	border-radius: 5px; /* 5px rounded corners */
+}
+
+
+
+/*# sourceMappingURL=style.css.map */
