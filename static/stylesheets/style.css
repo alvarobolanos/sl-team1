@@ -164,4 +164,32 @@ footer #sitemap a {
   padding: 10px;
 }
 
+label, input, textarea{
+  display:block;
+}
+/*History */
+
+.container-history {
+	padding: 10px;
+	float: center;
+	width: 60%;
+	margin: 0 auto;
+}
+
+.grid-history {
+	display: grid;
+	grid-template-columns: 10fr 10fr 10fr;
+	grid-template-rows: 10fr 10fr 10fr;
+	grid-gap: 20px;
+}
+
+.card-history {
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+ 	transition: 0.3s;
+	width: 100%;
+  	border-radius: 5px; /* 5px rounded corners */
+}
+
+
+
 /*# sourceMappingURL=style.css.map */
