@@ -66,6 +66,9 @@ body {
 .button:hover {
   background-color: #41bb93;
 }
+.button:active {
+  background-color: #41bb93;
+}
 
 figure figcaption {
   font-size: 14px;
@@ -74,14 +77,20 @@ figure figcaption {
   text-align: center;
 }
 
-form {
-  border-width: 0px;
+form fieldset {
+  border-width: 0 none;
   border-style: none;
   border-color: none;
-  border-image: none;
 }
-filedset {
-  border: 0 none;
+form label {
+  display: inline-block;
+  width: 200px;
+}
+form input {
+  display: inline-block;
+}
+form input + label {
+  width: auto;
 }
 
 .flex-container {
@@ -230,6 +239,7 @@ nav a:active {
   background-color: inherit;
   cursor: pointer;
   padding: 15px;
+  transition: 0.3s;
 }
 .tabs button:hover {
   background-color: white;
@@ -243,6 +253,7 @@ nav a:active {
   border: 1px solid #ababab;
   padding: 6px 12px;
   display: none;
+  transition: 0.3s;
 }
 
 #tiles .flex-item-tile {

@@ -81,7 +81,9 @@ body
 
 	&:hover
 		background-color: $green
-		
+	
+	&:active
+		background-color: $green
 
 // Figures
 
@@ -98,13 +100,21 @@ figure
 form
 		
 	fieldset
-	border-width: 0px
-	border-style: none
-	border-color: none
-	border-image: none
+		border-width: 0 none
+		border-style: none
+		border-color: none
 
-filedset
-	border: 0 none
+	label
+		display: inline-block
+		width: 200px
+
+	input
+		display: inline-block
+		
+	input + label
+		width: auto
+	
+
 
 // Flex Properties
 
@@ -240,6 +250,7 @@ nav
 		background-color: inherit
 		cursor: pointer
 		padding: 15px
+		transition: 0.3s
 	
 		&:hover
 			background-color: $white
@@ -253,6 +264,7 @@ nav
 		border: 1px solid $light-grey
 		padding: 6px 12px
 		display: none
+		transition: 0.3s
 
 // Tiles
 #tiles
