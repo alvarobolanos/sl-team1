@@ -8,13 +8,12 @@
 	  * Course      : 202010-COP-2830C-15165 Valencia College
 	  * Facilitator : David Stendel
 	  * Description : A template for HTML for AJS9a
-	  * Team Members: Alvaro Bolanos, Ashley McCray, Raymond Ynoa
+	  * Team Members: Alvaro Bolanos, Ashley McCray, Raymond Ynoa, Israel Mendez Crespo
 	  * Date        : 2019-10-09
 		-->
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-
 	<!-- Stylesheet link. -->
 	<link rel="stylesheet" href="/static/stylesheets/style.css" />
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Raleway&display=swap" rel="stylesheet">
@@ -36,75 +35,144 @@
 					<li><a href="transportation.html" alt=transportation>Transportation</a></li>
 				</ul>
 			</div>
+
 		</div>
 	</nav>
 
 	<article>
-		
+
 		<!-- Description -->
-		<section id="description" class="container">
-			<h1>General Transportation Information .</h1>
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quae incidunt
-				quis est commodi expedita, sunt suscipit, eligendi voluptate ipsum iusto placeat
-				temporibus beatae corporis veniam excepturi, officiis cum provident.
-			</p>
-		</section>
-		<section id="gettingAround">
-		
+		<section id="description">
+			<div class="container">
+				<h1>Transportation Description</h1>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit fugit non saepe et maiores eaque
+					dignissimos ea mollitia! Incidunt, magnam quaerat ducimus at unde eum laboriosam natus minima ullam
+					ratione.</p>
+			</div>
 		</section>
 
-		<section id="book" class="flex-container">
-			<div class="flex-item">
-				<form action="" method="post" class="container" >
-					<fieldset>
-						<legend>
-							<h3>Book Your Flight.</h3>
-						</legend>
-						<label for="test">Test
-							<input type="text" name="test">
-						</label>
-					</fieldset>
-				</form>
-			</div>
-			<div class="flex-item">
-				<h3>Calculated Cost</h3>
-				<dl>
-					<dt>Test Term</dt>
-					<dd>Test Definition</dd>
-				</dl>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In blanditiis illum mollitia itaque assumenda amet, fuga, ut, illo ex quidem non repudiandae qui corporis nisi? Cupiditate laborum at nulla necessitatibus.lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime officiis illo laborum dicta amet facilis excepturi, et non iure soluta, aliquid iste vel laboriosam commodi! Iure facilis tempora explicabo voluptatem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, dignissimos sapiente ratione iure nemo, corrupti odit reprehenderit maiores quos doloribus illo excepturi quisquam quidem ducimus tempore et! Deserunt, quis eius.</p>
-			</div>
+		<!-- Getting Around -->
+		<section id="gettingAround" class="container">
+			<div class="tabs">
+				<!-- Tabs -->
+				<button class="tabLink" onclick="selectTab(event, 'carRental')">Car Rental</button>
+				<button class="tabLink" onclick="selectTab(event, 'publicTransportation')">Public Transportation</button>
+				<!-- Tabs Content -->
+
+				<!-- Car Rental Tab Content -->
+				<div id="carRental" class="tabContent flex-container">
+					<h2>Car Rental</h2>
+					<div>
+						<h3>Car Rental 1</h3>
+						<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo magni eveniet harum
+							officia blanditiis sequi voluptatum aspernatur eaque expedita ut aperiam quo dolorum
+							accusantium cumque alias sapiente, velit minus architecto.</p>
+					</div>
+					<div>
+						<figure>
+							<div id="carRentalImage1" class="tabImages"></div>
+							<figcaption>Car Rental Image 1</figcaption>
+						</figure>
+					</div>
+					<div>
+						<h3>Car Rental 2</h3>
+						<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo magni eveniet harum
+							officia blanditiis sequi voluptatum aspernatur eaque expedita ut aperiam quo dolorum
+							accusantium cumque alias sapiente, velit minus architecto.</p>
+					</div>
+					<div>
+						<figure>
+							<div id="carRentalImage2" class="tabImages"></div>
+							<figcaption>Car Rental Image 2</figcaption>
+						</figure>
+					</div>
+				</div>
+				<!-- Public Transporation Tab Content -->
+				<div id="publicTransportation" class="tabContent flex-container">
+					<h2>Public Transportation</h3>
+						<div>
+							<h3>Public Transportation 1</h3>
+							<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo magni eveniet
+								harum officia blanditiis sequi voluptatum aspernatur eaque expedita ut aperiam
+								quo dolorum accusantium cumque alias sapiente, velit minus architecto.</p>
+						</div>
+						<div>
+							<figure>
+								<div id="publicTransporationImage1" class="tabImages"></div>
+								<figcaption>Public Transportation Image 1</figcaption>
+							</figure>
+						</div>
+						<div>
+							<h3>Public Transportation 2</h3>
+							<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo magni eveniet
+								harum officia blanditiis sequi voluptatum aspernatur eaque expedita ut aperiam
+								quo dolorum accusantium cumque alias sapiente, velit minus architecto.</p>
+						</div>
+						<div>
+							<figure>
+								<div id="publicTransporationImage2" class="tabImages"></div>
+								<figcaption>Public Transportation Image 2</figcaption>
+							</figure>
+						</div>
+				</div>
+		</section>
+
+		<!-- Book -->
+		<section id="book">
+			<form action="" method="post" class="container">
+				<fieldset>
+					<legend>
+						<h3>Book</h3>
+					</legend>
+				</fieldset>
+			</form>
 		</section>
 
 	</article>
 	<!-- Footer -->
 	<footer>
-		<!-- Contact -->
-		<section id="contact" class="container">
-			<form id="contactForm" action="" method="post">
-				<fieldset>
-					<legend>
-						<h3>Contact Us</h3>
-					</legend>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Reprehenderit neque eum repellendus modi rem eligendi possimus
-						corrupti molestiae quisquam. Tenetur voluptates praesentium numquam
-						dolorum repellat sunt? Asperiores necessitatibus maxime vitae?
-					</p>
-				</fieldset>
-			</form>
-		</section>
-		<!-- Vertical Navigation -->
-		<section id="sitemap">
-			<div class="logoSM"></div>
-			<ul>
-				<li><a href="history.html" alt="history">History</a></li>
-				<li><a href="activities.html" alt="activities">Activities</a></li>
-				<li><a href="districts.html" alt="districts">Districts</a></li>
-				<li><a href="transportation.html" alt=transportation>Transportation</a></li>
-			</ul>
-		</section>
-	</footer>
+			<!-- Contact -->
+			<section id="contact" class="container">
+				<form id="contactForm" action="" method="post">
+					<fieldset>
+						<legend>
+							<h3>Contact Us</h3>
+						</legend>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+							Reprehenderit neque eum repellendus modi rem eligendi possimus
+							corrupti molestiae quisquam. Tenetur voluptates praesentium numquam
+							dolorum repellat sunt? Asperiores necessitatibus maxime vitae?
+						</p>
+					</fieldset>
+				</form>
+			</section>
+			<!-- Vertical Navigation -->
+			<section id="sitemap" class="container">
+				<div class="logoSM"></div>
+				<ul>
+					<li><a href="history.html" alt="history">History</a></li>
+					<li><a href="activities.html" alt="activities">Activities</a></li>
+					<li><a href="districts.html" alt="districts">Districts</a></li>
+					<li><a href="transportation.html" alt=transportation>Transportation</a></li>
+				</ul>
+			</section>
+		</footer>
+
+	<script>
+			function selectTab(evt, tabNumber) {
+			  var i, tabContent, tabLink;
+			  tabcontent = document.getElementsByClassName("tabcontent");
+			  for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = "none";
+			  }
+			  tablinks = document.getElementsByClassName("tabLink");
+			  for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(" active", "");
+			  }
+			  document.getElementById(tabNumber).style.display = "block";
+			  evt.currentTarget.className += " active";
+			}
+			</script>
 </body>
 
 </html>
