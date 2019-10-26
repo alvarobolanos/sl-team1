@@ -210,8 +210,46 @@ nav
 .highlight_image
 	width: 1200px
 	height: 250px
+
 // Tabs
 
+#carRentalImage1
+	background: url("../images/tabs_carRental1.png") no-repeat center
+#carRentalImage2
+	background: url("../images/tabs_carRental2.png") no-repeat center
+#publicTransporationImage1
+	background: url("../images/tabs_publicTransportation1.png") no-repeat center
+#publicTransporationImage2
+	background: url("../images/tabs_publicTransportation2.png") no-repeat center
+
+.tabImages
+	width: 600px
+	height: 300px
+
+.tabs
+	overflow: hidden
+	border: 1px solid $light-grey
+	
+	button
+		float: left
+		border: none
+		outline: none
+		background-color: inherit
+		cursor: pointer
+		padding: 15px
+	
+		&:hover
+			background-color: $white
+		
+		&.active
+			background-color: $dark-grey
+			color: $white
+
+	.tabContent
+		border-top: none
+		border: 1px solid $light-grey
+		padding: 6px 12px
+		display: none
 
 // Tiles
 #tiles
@@ -233,25 +271,29 @@ nav
 
 //Footer	
 footer
-
 	display: flex
+	background-color: $lighter-grey
+
+	section
+		justify-content: space-between
+		align-content: space-between
 
 	.logoSM
 		@extend .logo
 
-	background-color: $lighter-grey
-
 	#contact
-		width: 50%
+
 	#contactForm
 
 	#sitemap
-		width: 50%
 
-	a
-		font-family: $font-stack
-		font-size: 14px
-		font-variant: bold
-		text-decoration: none
-		color: $purple
+		li
+			text-align: right
+
+		a
+			font-family: $font-stack
+			font-size: 14px
+			font-variant: bold
+			color: $purple
+			text-decoration: none
 		
