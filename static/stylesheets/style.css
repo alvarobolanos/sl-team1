@@ -249,6 +249,28 @@ nav a:active {
   color: #7d7d7d;
 }
 
+.container-history {
+  padding: 10px;
+  float: center;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.grid-history {
+  display: grid;
+  grid-template-columns: 10fr 10fr 10fr;
+  grid-template-rows: 10fr 10fr 10fr;
+  grid-gap: 20px;
+}
+
+.card-history {
+  box-shadow: 0 4px 8px 0 black;
+  transition: 0.3s;
+  width: 100%;
+  border-radius: 5px;
+  padding: 5px;
+}
+
 #book {
   background-color: white;
 }
