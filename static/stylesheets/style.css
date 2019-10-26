@@ -56,6 +56,12 @@ ul {
   list-style: none;
 }
 
+dl {
+  display: flex;
+  width: 50%;
+  margin-left: auto;
+  width: 50%;
+}
 .flex-container {
   display: flex;
   padding: 0;
@@ -167,6 +173,10 @@ footer #sitemap a {
 label, input, textarea{
   display:block;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> bf847daba9bd4912dc0dca0cc8afef6ef2c796b2
 /*History */
 
 .container-history {
@@ -192,4 +202,8 @@ label, input, textarea{
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> bf847daba9bd4912dc0dca0cc8afef6ef2c796b2
 /*# sourceMappingURL=style.css.map */
