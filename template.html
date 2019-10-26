@@ -8,7 +8,7 @@
 	  * Course      : 202010-COP-2830C-15165 Valencia College
 	  * Facilitator : David Stendel
 	  * Description : A template for HTML for AJS9a
-	  * Team Members: Alvaro Bolanos, Ashley McCray, Raymond Ynoa
+	  * Team Members: Alvaro Bolanos, Ashley McCray, Raymond Ynoa, Israel Mendez Crespo
 	  * Date        : 2019-10-09
 		-->
 		<meta charset="UTF-8">
@@ -24,8 +24,8 @@
 
 	<body>
 		
-		<!-- Navigation -->
-		<nav>
+	<!-- Navigation -->
+	<nav>
 			<div class="container flex-container">
 				<div class="logo"></div>
 				<div id="mainMenu">
@@ -36,50 +36,79 @@
 						<li><a href="transportation.html" alt=transportation>Transportation</a></li>
 					</ul>
 				</div>
+	
 			</div>
 		</nav>
 
 		<article>
-			<!-- Slideshow -->
-			<section id="slideshow">
-				<div>
-					<img src="https://picsum.photos/id/1076/600/400" alt="">
+					<!-- Slideshow -->
+		<section id="slideshow">
+				<div class="container">
+					<div id="slide1" class="slide"></div>
+					<div id="slide2" class="slide"></div>
+					<div id="slide3" class="slide"></div>
+					<div id="slide4" class="slide"></div>
+	
 				</div>
 			</section>
 
-			<section id="description" class="container">
-				<h1>Description</h1>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quae incidunt
-					quis est commodi expedita, sunt suscipit, eligendi voluptate ipsum iusto placeat
-					temporibus beatae corporis veniam excepturi, officiis cum provident.
-				</p>
+			<!-- Description -->
+		<section id="description">
+				<div class="container">
+					<h1>Description</h1>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit fugit non saepe et maiores eaque
+						dignissimos ea mollitia! Incidunt, magnam quaerat ducimus at unde eum laboriosam natus minima ullam
+						ratione.</p>
+	
+				</div>
 			</section>
 
 			<!-- Highlights -->
-			<section id="highlights">
-				<h1 class="container">Highlights</h1>
-				<div class="highlight flex-container">
-					<figure id="highlightImage" class="flex-item-tile">
-						<!-- <img src="/static/images/highlight_activities.png" alt="highlight denver activities"> -->
-						<img src="https://picsum.photos/id/1035/300/200" alt="">
-						<figcaption class="flex-item-tile">Activities Highlight Image</figcaption>
+		<section id="highlights" class="container">
+				<h1>Highlights</h1>
+				<div class="flex-container">
+					<figure>
+						<div id="highlightActivities" class="highlight_image"></div>
+						<figcaption>Activities Highlight Image</figcaption>
 					</figure>
-					<div id="highlightContent" class="container flex-item-tile">
+					<div class="highlightContent">
 						<h2>Activities Highlight Title</h2>
 						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi veniam
 							aut ducimus tempore harum eaque earum sequi aliquam minus modi aliquid
 							esse debitis iste placeat provident, vitae cumque natus nisi.
 						</p>
+						<a href="activities.html" class="button">More Activities</a>
 					</div>
 				</div>
-			</section>
-
-			<section id="tabs" class="container">
-				<h1>Tabs</h1>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quae incidunt
-					quis est commodi expedita, sunt suscipit, eligendi voluptate ipsum iusto placeat
-					temporibus beatae corporis veniam excepturi, officiis cum provident.
-				</p>
+				<div>
+					<figure>
+						<div id="highlightDistricts" class="highlight_image"></div>
+						<figcaption>Districts Highlight Image</figcaption>
+					</figure>
+					<div class="highlightContent">
+						<h2>Districts Highlight Title</h2>
+						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi veniam
+							aut ducimus tempore harum eaque earum sequi aliquam minus modi aliquid
+							esse debitis iste placeat provident, vitae cumque natus nisi.
+						</p>
+						<a href="districts.html" class="button">Check Out The Districts</a>
+					</div>
+				</div>
+				<div>
+					<figure>
+						<div id="highlightHistory" class="highlight_image"></div>
+						<figcaption>History Highlight Image</figcaption>
+					</figure>
+					<div class="highlightContent">
+						<h2>History Highlight Title</h2>
+						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi veniam
+							aut ducimus tempore harum eaque earum sequi aliquam minus modi aliquid
+							esse debitis iste placeat provident, vitae cumque natus nisi.
+						</p>
+						<a href="history.html" class="button">Travel in Time</a>
+					</div>
+				</div>
+	
 			</section>
 
 			<!-- Tiles -->
@@ -184,7 +213,7 @@
 					</li>
 				</ul>
 			</section>
-
+			<!-- Book -->
 			<section id="book">
 				<form action="" method="post" class="container">
 					<fieldset>
