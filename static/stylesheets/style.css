@@ -28,7 +28,7 @@ h3 {
 
 p {
   font-variant: regular;
-  font-size: 12px;
+  font-size: 15px;
   font-family: "Raleway", sans-serif;
   color: #7d7d7d;
 }
@@ -39,12 +39,6 @@ ul {
   list-style: none;
 }
 
-dl {
-  display: flex;
-  width: 50%;
-  margin-left: auto;
-  width: 50%;
-}
 body {
   background-color: rgba(171, 171, 171, 0.125);
   margin: auto;
@@ -246,7 +240,6 @@ nav a:active {
 }
 .tabs button.active {
   background-color: #7d7d7d;
-  color: white;
 }
 .tabs .tabContent {
   border-top: none;
@@ -295,6 +288,12 @@ footer {
 footer section {
   justify-content: space-between;
   align-content: space-between;
+}
+footer #contact {
+  width: 70%;
+}
+footer #sitemap {
+  width: 30%;
 }
 footer #sitemap li {
   text-align: right;
