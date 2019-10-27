@@ -79,7 +79,7 @@ body
 figure
 
 	figcaption
-		font-size: 14px
+		font-size: 15px
 		font-family: $alt-font-stack
 		color: $light-grey
 		text-align: center
@@ -111,12 +111,11 @@ form
 	display: flex
 	padding: 0
 	list-style: none
-	display: -webkit-box
-	display: -moz-box
-	display: -ms-flexbox
-	display: -webkit-flex
-	display: flex
-	-webkit-flex-flow: row wrap
+	// display: -webkit-box
+	// display: -moz-box
+	// display: -ms-flexbox
+	// display: -webkit-flex
+	// -webkit-flex-flow: row wrap
 	justify-content: space-between
 	flex-direction: row
 	flex-wrap: wrap
@@ -133,7 +132,6 @@ form
 	background-size: contain
 	width: 100px
 	height: 80px
-	margin: 0px 20px
 	align-self: center
 
 nav
@@ -187,7 +185,6 @@ nav
 	background: url("../images/slideshow_transportation.png") no-repeat center
 	background-size: cover
 
-
 .slide
 	width: 100%
 	height: 400px
@@ -202,15 +199,46 @@ nav
 // Highlights
 #highlights
 
+	div.flex-container
+		margin: 20px 15px
+
+	.flex-container
+		flex-wrap: nowrap
+		
+	a
+		margin: 10px 0	
+	
+	div:nth-child(odd)
+		flex-direction: row
+
+		.highlightContent
+			text-align: end
+		
+		a
+			float: right		// TODO: Figure out a way to change this.
+
+
+	div:nth-child(even)
+		flex-direction: row-reverse
+		
+		.highlightContent
+			text-align: start
+
 #highlightActivities
-	background: url("../images/highlight_activities.png") no-repeat center
+	background: url("../images/highlight_activities.png") no-repeat
+	background-size: contain
+	background-position: center
 #highlightDistricts
-	background: url("../images/highlight_districts.png") no-repeat center
+	background: url("../images/highlight_districts.png") no-repeat
+	background-size: contain
+	background-position: center
 #highlightHistory
-	background: url("../images/highlight_history.png") no-repeat center
+	background: url("../images/highlight_history.png") no-repeat
+	background-size: contain
+	background-position: center
 
 .highlight_image
-	width: 1200px
+	width: 400px
 	height: 250px
 
 // Tabs
@@ -267,7 +295,6 @@ nav
 		margin-top: 10px
 		color: $dark-grey
 
-
 .container-history
 	padding: 10px
 	float: center
@@ -302,14 +329,19 @@ footer
 
 	.logoSM
 		@extend .logo
+		display: block
+		align-self: flex-end
+		margin: 10px 0px 20px
 
 	#contact
-		width: 70%
+		width: 80%
 
 	#contactForm
 
 	#sitemap
-		width: 30%
+		width: 20%
+		display: flex
+		flex-direction: column
 
 		li
 			text-align: right

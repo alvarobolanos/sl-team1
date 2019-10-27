@@ -65,7 +65,7 @@ body {
 }
 
 figure figcaption {
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Raleway", sans-serif;
   color: #ababab;
   text-align: center;
@@ -91,12 +91,6 @@ form input + label {
   display: flex;
   padding: 0;
   list-style: none;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-flow: row wrap;
   justify-content: space-between;
   flex-direction: row;
   flex-wrap: wrap;
@@ -113,7 +107,6 @@ form input + label {
   background-size: contain;
   width: 100px;
   height: 80px;
-  margin: 0px 20px;
   align-self: center;
 }
 
@@ -184,20 +177,51 @@ nav a:active {
   background-color: white;
 }
 
+#highlights div.flex-container {
+  margin: 20px 15px;
+}
+#highlights .flex-container {
+  flex-wrap: nowrap;
+}
+#highlights a {
+  margin: 10px 0;
+}
+#highlights div:nth-child(odd) {
+  flex-direction: row;
+}
+#highlights div:nth-child(odd) .highlightContent {
+  text-align: end;
+}
+#highlights div:nth-child(odd) a {
+  float: right;
+}
+#highlights div:nth-child(even) {
+  flex-direction: row-reverse;
+}
+#highlights div:nth-child(even) .highlightContent {
+  text-align: start;
+}
+
 #highlightActivities {
-  background: url("../images/highlight_activities.png") no-repeat center;
+  background: url("../images/highlight_activities.png") no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 #highlightDistricts {
-  background: url("../images/highlight_districts.png") no-repeat center;
+  background: url("../images/highlight_districts.png") no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 #highlightHistory {
-  background: url("../images/highlight_history.png") no-repeat center;
+  background: url("../images/highlight_history.png") no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 .highlight_image {
-  width: 1200px;
+  width: 400px;
   height: 250px;
 }
 
@@ -289,11 +313,18 @@ footer section {
   justify-content: space-between;
   align-content: space-between;
 }
+footer .logoSM {
+  display: block;
+  align-self: flex-end;
+  margin: 10px 0px 20px;
+}
 footer #contact {
-  width: 70%;
+  width: 80%;
 }
 footer #sitemap {
-  width: 30%;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
 }
 footer #sitemap li {
   text-align: right;
