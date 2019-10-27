@@ -14,7 +14,7 @@ $alt-font-stack: 'Raleway', sans-serif
 // Container
 
 .container
-	width: 1200px
+	width: 80%
 	max-width: 1920px
 	margin: 0 auto
 	padding: 2%
@@ -84,25 +84,36 @@ figure
 		color: $light-grey
 		text-align: center
 
-// Forms
+// Book Form
 
 form
-		
+	
+	width: 100%
+
 	fieldset
 		border-width: 0 none
 		border-style: none
 		border-color: none
 
 	label
+		text-align: left
 		display: inline-block
-		width: 200px
+		width: 150px
 
 	input
 		display: inline-block
-		
-	input + label
-		width: auto
-	
+		text-align: right
+		align-item: right
+		// width: 150px
+
+	#numTickets
+		width: 50px
+
+	#departureDate
+		width: 120px
+
+	#returnDate
+		width: 120px
 
 
 // Flex Properties
@@ -316,7 +327,31 @@ nav
 // Book
 
 #book
-	background-color: white
+	background-color: $white
+	width: 55%
+
+	.trip_button
+		margin: 0 0 15px
+		@extend .button
+		&:active
+			background-color: $green
+		&:inactive
+			background-color: $lighter-grey
+
+#cost
+	background-color: $lighter-grey
+	width: 35%
+
+	table
+		width: 100%
+
+		td:nth-child(2)
+			text-align: right
+
+	a	//TODO:fix this styling
+		float: right
+		margin: 20px
+		width: 80%
 
 //Footer	
 footer

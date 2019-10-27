@@ -1,5 +1,5 @@
 .container {
-  width: 1200px;
+  width: 80%;
   max-width: 1920px;
   margin: 0 auto;
   padding: 2%;
@@ -44,7 +44,7 @@ body {
   margin: auto;
 }
 
-.button {
+.button, #book .trip_button {
   display: block;
   padding: 10px 20px;
   border-radius: 5px;
@@ -57,10 +57,10 @@ body {
   width: 10em;
   transition: all 0.5s ease;
 }
-.button:hover {
+.button:hover, #book .trip_button:hover {
   background-color: #41bb93;
 }
-.button:active {
+.button:active, #book .trip_button:active {
   background-color: #41bb93;
 }
 
@@ -71,20 +71,32 @@ figure figcaption {
   text-align: center;
 }
 
+form {
+  width: 100%;
+}
 form fieldset {
   border-width: 0 none;
   border-style: none;
   border-color: none;
 }
 form label {
+  text-align: left;
   display: inline-block;
-  width: 200px;
+  width: 150px;
 }
 form input {
   display: inline-block;
+  text-align: right;
+  align-item: right;
 }
-form input + label {
-  width: auto;
+form #numTickets {
+  width: 50px;
+}
+form #departureDate {
+  width: 120px;
+}
+form #returnDate {
+  width: 120px;
 }
 
 .flex-container {
@@ -303,6 +315,32 @@ nav a:active {
 
 #book {
   background-color: white;
+  width: 55%;
+}
+#book .trip_button {
+  margin: 0 0 15px;
+}
+#book .trip_button:active {
+  background-color: #41bb93;
+}
+#book .trip_button:inactive {
+  background-color: rgba(171, 171, 171, 0.125);
+}
+
+#cost {
+  background-color: rgba(171, 171, 171, 0.125);
+  width: 35%;
+}
+#cost table {
+  width: 100%;
+}
+#cost table td:nth-child(2) {
+  text-align: right;
+}
+#cost a {
+  float: right;
+  margin: 20px;
+  width: 80%;
 }
 
 footer {
