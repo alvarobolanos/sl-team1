@@ -325,8 +325,12 @@
 							<div class="container">
 								<div class="container flex-container">
 
-									<input type="button" class="trip_button" value="Round Trip">
-									<input type="button" class="trip_button" value="One-Way">
+									<input name="tripType" type="radio" class="trip_button" value="Round Trip"
+										id="tripOne" checked>
+									<label for="tripOne">Round Trip</label>
+									<input name="tripType" type="radio" class="trip_button" value="One-Way"
+										id="tripTwo">
+									<label for="tripTwo">One Way</label>
 								</div>
 
 								<label for="numTickets">
@@ -426,11 +430,21 @@
 					<legend>
 						<h3>Contact Us</h3>
 					</legend>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Reprehenderit neque eum repellendus modi rem eligendi possimus
-						corrupti molestiae quisquam. Tenetur voluptates praesentium numquam
-						dolorum repellat sunt? Asperiores necessitatibus maxime vitae?
-					</p>
+					<label>
+						<p>Email:</p>
+						<input type="email" class="email" />
+					</label><br />
+					<label>
+						<p>Subject:</p>
+						<input type="text" class="subject" />
+					</label><br />
+					<label>
+						<p>Message:</p>
+						<textarea rows="5"></textarea>
+					</label><br />
+					<div class="status">
+					</div>
+					<button type="submit" class="button">Send</button>
 				</fieldset>
 			</form>
 		</section>
