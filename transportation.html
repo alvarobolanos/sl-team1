@@ -133,7 +133,7 @@
 									<label for="firstName">
 										<p>First Name:</p>
 									</label>
-									<input id="firstName" type="text" /><br />
+									<input id="firstName" type="text" required/><br />
 									<!-- <label for="middleName">
 										<p>Middle Name:</p>
 									</label>
@@ -141,11 +141,11 @@
 									<label for="lastName">
 										<p>Last Name:</p>
 									</label>
-									<input id="lastName" type="text" /><br />
+									<input id="lastName" type="text" required/><br />
 									<label for="email">
 										<p>Email:</p>
 									</label>
-									<input id="email" type="email" /><br />
+									<input id="email" type="email" required/><br />
 								</div>
 							</fieldset>
 	
@@ -155,10 +155,10 @@
 								</legend>
 								<div class="container">
 									<div class="container flex-container">
-	
+										<label for="tripOne">Round Trip</label>
 										<input name="tripType" type="radio" class="trip_button" value="Round Trip"
 											id="tripOne" checked>
-										<label for="tripOne">Round Trip</label>
+										
 										<input name="tripType" type="radio" class="trip_button" value="One-Way"
 											id="tripTwo">
 										<label for="tripTwo">One Way</label>
@@ -167,15 +167,19 @@
 									<label for="numTickets">
 										<p>Number of Tickets:</p>
 									</label>
-									<input id="numTickets" type="number" /><br />
+									<input id="numTickets" type="number" min=0 /><br />
+									<div id="numTicketsError" class="errorMessage">
+									</div>
+									
 									<label for="departureDate">
 										<p>Departure Date:</p>
 									</label>
 									<input id="departureDate" type="date" /><br />
+									
 									<label for="returnDate">
-										<p>Return Date:</p>
+										<p class="removeReturnDate">Return Date:</p>
 									</label>
-									<input id="returnDate" type="date" /><br />
+									<input id="returnDate" type="date" class="removeReturnDate"/><br />
 	
 								</div>
 							</fieldset>
@@ -188,7 +192,7 @@
 							</thead>
 							<tr>
 								<td colspan="2">
-									<h3># (Round Trip/One-way) Ticket(s)</h3>
+									<h3 id="summaryHeader"ary: </h3>
 								</td>
 							</tr>
 							<tr>
@@ -196,15 +200,15 @@
 									<h3>Departure Date:</h3>
 								</td>
 								<td>
-									<p>Departure date</p>
+									<p id="summaryDepartureDate"></p>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<h3>Return Date:</h3>
+									<h3 class="removeReturnDate">Return Date:</h3>
 								</td>
 								<td>
-									<p>Return date</p>
+									<p id="summaryReturnDate"></p>
 								</td>
 							</tr>
 							<tr>
@@ -212,7 +216,7 @@
 									<h3>Flat Fee per Ticket: </h3>
 								</td>
 								<td>
-									<p>$1.00</p>
+									<p>$150.00</p>
 								</td>
 							</tr>
 							<tr>
@@ -220,7 +224,7 @@
 									<h3>Number of Tickets: </h3>
 								</td>
 								<td>
-									<p>Number of Tickets</p>
+									<p id="summaryNumberOfTickets"></p>
 								</td>
 							</tr>
 							<tr>
@@ -228,7 +232,7 @@
 									<h3>Tax 10%:</h3>
 								</td>
 								<td>
-									<p>Number of Tickets</p>
+									<p id="summaryTax"></p>
 								</td>
 							</tr>
 							<tr>
@@ -241,7 +245,7 @@
 									<h3>Total Cost:</h3>
 								</td>
 								<td>
-									<p>Total Cost</p>
+									<p id="totalCost"></p>
 								</td>
 							</tr>
 						</table>
@@ -309,6 +313,7 @@
 			evt.currentTarget.className += " active";
 		}
 	</script>
+	<script src="bookFlight.js"></script>
 </body>
 
 </html>

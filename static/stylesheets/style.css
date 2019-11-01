@@ -63,7 +63,7 @@ body {
 .button:active, #book label[for=tripOne]:active, #book label[for=tripTwo]:active, #book .trip_button:active {
   background-color: #41bb93;
 }
-.button:selection, #book label[for=tripOne]:selection, #book label[for=tripTwo]:selection, #book .trip_button:selection {
+.button:checked, #book label[for=tripOne]:checked, #book label[for=tripTwo]:checked, #book .trip_button:checked {
   background-color: #41bb93;
 }
 
@@ -82,7 +82,7 @@ form fieldset {
   border-style: none;
   border-color: none;
 }
-form label {
+form label, form label#returnDate {
   text-align: left;
   display: inline-block;
   width: 150px;
@@ -348,6 +348,20 @@ nav a:active {
 }
 #book input[type=radio]:checked + label {
   background-color: #41bb93;
+}
+#book .errorMessage {
+  display: none;
+  width: 300px;
+  border: 1px solid #D8000C;
+  border-radius: 5px;
+  background-color: #FFBABA;
+}
+#book .errorMessage p {
+  font-size: 13px;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  color: #D8000C;
 }
 
 #cost {

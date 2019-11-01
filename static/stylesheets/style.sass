@@ -6,6 +6,8 @@ $white: white
 $purple: #3754a5
 $blue: #4b9cd6
 $green: #41bb93
+$errorTxt: #D8000C
+$errorBkg: #FFBABA
 
 // Fonts
 $font-stack: 'Lato', sans-serif
@@ -74,7 +76,7 @@ body
 	&:active
 		background-color: $green
 
-	&:selection
+	&:checked
 		background-color: $green
 
 // Figures
@@ -98,7 +100,7 @@ form
 		border-style: none
 		border-color: none
 
-	label
+	label, label#returnDate
 		text-align: left
 		display: inline-block
 		width: 150px
@@ -361,6 +363,19 @@ nav
 		display: none
 		&:checked+label
 			background-color: $green
+
+	.errorMessage
+		display: none
+		width: 300px
+		border: 1px solid $errorTxt
+		border-radius: 5px
+		background-color: $errorBkg
+		p
+			font-size: 13px
+			font-family: $alt-font-stack
+			font-weight: bold
+			text-align: center
+			color: $errorTxt
 
 #cost
 	background-color: $lighter-grey
