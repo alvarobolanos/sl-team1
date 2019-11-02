@@ -11,18 +11,15 @@
 //TODO: Summary header in calculated costs.
 //TODO: Round trip and one way should stay colored when selected.
 
-//!Bug: When one way is selected, the number of tickets returns to "".
-//!Bug: ReturnDate label is no longer hidden when one way is selected
-
 // Interpret Documents In Javascript Strict Mode.
 "use strict";
 
 // Global Variables
-var currentDate = new Date();			// Used to store current date.
-var formValidity = 0; 					// Used to verify form validity.
-var summaryArray = new Array();
-// Functions
+var currentDate = new Date();   // Used to store current date.
+var formValidity = 0;           // Used to verify form validity.
+var summaryArray = new Array(); // Used to store summary elements.
 
+// Functions
 /*
  * Name        : isRoundTrip()
  * Parameters  : none
@@ -31,8 +28,8 @@ var summaryArray = new Array();
  */
 function isRoundTrip() {
 	var roundTrip = document.getElementById("tripOne");
-	if (roundTrip.checked == true) {							// Checks if round trip is selected. 
-		placeReturnDate();										// Displays the return date label and input.
+	if (roundTrip.checked == true) { // Checks if round trip is selected. 
+		placeReturnDate();              // Displays the return date label and input.
 		resetTicketData();
 		summaryArray[1] = "Round Trip";
 		return true;
@@ -47,10 +44,10 @@ function isRoundTrip() {
  * Processes   : Checks if round trip input (input#tripTwo) is selected.
  * Return Value: Boolean: True if round trip (input#tripTwo) is selected, false otherwise.
  */
-function isOneWay(){
-	var oneWay = document.getElementById("tripTwo"); 
-	if (oneWay.checked == true) {								// Checks if one way is selected.
-		removeReturnDate();										// Hides the return date label and input.
+function isOneWay() {
+	var oneWay = document.getElementById("tripTwo");
+	if (oneWay.checked == true) { // Checks if one way is selected.
+		removeReturnDate();          // Hides the return date label and input.
 		resetTicketData();
 		summaryArray[1] = "One Way";
 		return true;
@@ -68,7 +65,7 @@ function isOneWay(){
 function removeReturnDate() {
 	var selectedElements = document.querySelectorAll(".removeReturnDate");
 	selectedElements.forEach(element => {
-		element.style.display = "none"		// Conditional to hide all elements with #returnDate in form.
+		element.style.display = "none" // Conditional to hide all elements with #returnDate in form.
 	});
 }
 
@@ -107,7 +104,7 @@ function numberOfTickets() {
 	var numError = document.getElementById("numTicketsError");
 	summaryNumberOfTickets.innerText = numberOfTickets;
 	try {
-		if (numberOfTickets <= 0){
+		if (numberOfTickets <= 0) {
 			// document.getElementById("numTickets").value = 1;
 			formValidity = 0;
 			throw "Minimum number of tickets should be 1.";
@@ -117,8 +114,7 @@ function numberOfTickets() {
 			updateSummaryHeader();
 			return numberOfTickets;
 		}
-	}
-	catch(msg) {
+	} catch (msg) {
 		numError.style.display = "block";
 		numError.innerHTML = "<p>" + msg + "</p>";
 		formValidity = false;
@@ -132,15 +128,25 @@ function numberOfTickets() {
  * Return Value: None.
  */
 function handlePastDate() {
-	var departureDate = document.getElementById("departureDate")
+	var departureDate = document.getElementById("departureDate");
+	var returnDate = document.getElementById("returnDate");
 	var summaryDepartureDate = document.getElementById("summaryDepartureDate");
+	var summaryReturnDate = document.getElementById("summaryReturnDate");
 	var departureDateObject = new Date(departureDate.value);
+	var returnDateObject = new Date(returnDate.value);
+
 	if (departureDateObject < currentDate) {
-		departureDate.value = currentDate.getFullYear() + "-" + currentDate.getMonth() + "-" + currentDate.getDate();
-		summaryDepartureDate.value = currentDate.getFullYear() + "-" + currentDate.getMonth() + "-" + currentDate.getDate();
+		var stringDeparturDate = currentDate.getFullYear() + "-" + (currentDate.getMonth() + 1) + "-" + (currentDate.getDate() < 10 ? "0" : "") + currentDate.getDate(); // Adds a zero to match browser format for single digit date: i.e. yyyy-mm-d -> yyyy-mm-"0"d.
+		departureDate.value = stringDeparturDate;
+		summaryDepartureDate.innerText = stringDeparturDate;
+	}
+
+	if (returnDateObject < departureDateObject) {
+		var stringReturnDate = currentDate.getFullYear() + "-" + (currentDate.getMonth() + 1) + "-" + ((currentDate.getDate() + 1) < 10 ? "0" : "") + currentDate.getDate();
+		returnDate.value = stringReturnDate;
+		summaryReturnDate.innerText = stringReturnDate;
 	}
 }
-
 
 /*
  * Name        : departureDateHandler()
@@ -149,10 +155,10 @@ function handlePastDate() {
  * Return Value: none
  */
 function departureDateHandler() {
-	var departureDate = document.getElementById("departureDate").value;
-	var summaryDepartureDate = document.getElementById("summaryDepartureDate");
-	summaryDepartureDate.innerText = departureDate;
-	// handlePastDate();
+	// var departureDate = document.getElementById("departureDate").value;
+	// var summaryDepartureDate = document.getElementById("summaryDepartureDate");
+	// summaryDepartureDate.innerText = departureDate;
+	handlePastDate();
 	dateInverter();
 }
 
@@ -163,9 +169,10 @@ function departureDateHandler() {
  * Return Value: none
  */
 function returnDateHandler() {
-	var returnDate = document.getElementById("returnDate").value;
-	var summaryReturnDate = document.getElementById("summaryReturnDate");
-	summaryReturnDate.innerText = returnDate;
+	// var returnDate = document.getElementById("returnDate").value;
+	// var summaryReturnDate = document.getElementById("summaryReturnDate");
+	// summaryReturnDate.innerText = returnDate;
+	handlePastDate();
 	dateInverter();
 }
 
@@ -178,12 +185,12 @@ function returnDateHandler() {
 function dateInverter() {
 	var departureDate = document.getElementById("departureDate");
 	var summaryDepartureDate = document.getElementById("summaryDepartureDate");
-	var departureDateObject = new Date(departureDate.value);		// Creates a Date element from departure date value.
+	var departureDateObject = new Date(departureDate.value); // Creates a Date element from departure date value.
 	var returnDate = document.getElementById("returnDate");
 	var summaryReturnDate = document.getElementById("summaryReturnDate");
-	var returnDateObject = new Date(returnDate.value);				// Creates a Date element from departure date value.
-	var tempDate = new Date();										// Temporary variable for the date swap.
-	if (returnDateObject < departureDateObject) {					// Return date is before departure date.
+	var returnDateObject = new Date(returnDate.value);       // Creates a Date element from departure date value.
+	var tempDate = new Date();                               // Temporary variable for the date swap.
+	if (returnDateObject < departureDateObject) {            // Return date is before departure date.
 		tempDate = departureDate.value;
 		departureDate.value = returnDate.value;
 		summaryDepartureDate.innerText = returnDate.value;
@@ -201,8 +208,8 @@ function dateInverter() {
  */
 function updateSummaryHeader() {
 	var summary = document.getElementById("summaryHeader");
-	summary.innerHTML = ("Summary: " + (summaryArray[0]>=1?summaryArray[0]:"") + " " + (summaryArray[1]!==undefined?summaryArray[1]:"" + " Ticket"));
-	(summaryArray[0]>1)?"s.":".";
+	summary.innerHTML = ("Summary: " + (summaryArray[0] >= 1 ? summaryArray[0] : "") + " " + (summaryArray[1] !== "" ? summaryArray[1] : "" + " Ticket"));
+	(summaryArray[0] > 1) ? "s." : ".";
 }
 
 /*
@@ -218,13 +225,17 @@ function calculateCost() {
 	var subTotal = 0.0;
 	var totalCost = 0.0;
 	subTotal = TICKETPRICE * numberOfTickets();
-	if(isOneWay()) {
-		subTotal /= 1.85;		// Price of ticket one way ticket would have a premium over the regular cost of a 2 way ticket.
+	if (isOneWay()) {
+		subTotal /= 1.85; // Price of ticket one way ticket would have a premium over the regular cost of a 2 way ticket.
 	}
 	tax = (subTotal * (TAX));
-	document.getElementById("summaryTax").innerText = "$" + tax.toLocaleString(undefined, {maximumFractionDigits: 2});
+	document.getElementById("summaryTax").innerText = "$" + tax.toLocaleString(undefined, {
+		maximumFractionDigits: 2
+	});
 	totalCost = subTotal + tax;
-	document.getElementById("totalCost").innerText = "$" + totalCost.toLocaleString(undefined, {maximumFractionDigits: 2});
+	document.getElementById("totalCost").innerText = "$" + totalCost.toLocaleString(undefined, {
+		maximumFractionDigits: 2
+	});
 }
 /*
  * Name        : createEventListeners()
@@ -241,7 +252,7 @@ function createEventListeners() {
 	} else if (oneWay.attachEvent) {
 		oneWay.attachEvent("onclick", isOneWay);
 	}
-	
+
 	// Event Listener for isRoundTrip().
 	var roundTrip = document.getElementById("tripOne");
 	if (roundTrip.addEventListener) {
@@ -265,7 +276,7 @@ function createEventListeners() {
 	} else if (roundTrip.attachEvent) {
 		roundTrip.attachEvent("onclick", placeReturnDate);
 	}
-	
+
 	// Event Listener for departureDateHandler().
 	var departureDate = document.getElementById("departureDate");
 	if (departureDate.addEventListener) {
@@ -273,7 +284,7 @@ function createEventListeners() {
 	} else if (departureDate.attachEvent) {
 		departureDate.attachEvent("onchange", departureDateHandler);
 	}
-	
+
 	// Event Listener for returnDateHandler().
 	var returnDate = document.getElementById("returnDate");
 	if (returnDate.addEventListener) {
