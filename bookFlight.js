@@ -141,11 +141,11 @@ function handlePastDate() {
 		summaryDepartureDate.innerText = stringDeparturDate;
 	}
 
-	if (returnDateObject < departureDateObject) {
-		var stringReturnDate = currentDate.getFullYear() + "-" + (currentDate.getMonth() + 1) + "-" + ((currentDate.getDate() + 1) < 10 ? "0" : "") + currentDate.getDate();
-		returnDate.value = stringReturnDate;
-		summaryReturnDate.innerText = stringReturnDate;
-	}
+	// if (returnDateObject < departureDateObject) {
+	// 	var stringReturnDate = currentDate.getFullYear() + "-" + (currentDate.getMonth() + 1) + "-" + ((currentDate.getDate() + 1) < 10 ? "0" : "") + currentDate.getDate();
+	// 	returnDate.value = stringReturnDate;
+	// 	summaryReturnDate.innerText = stringReturnDate;
+	// }
 }
 
 /*
@@ -215,7 +215,7 @@ function updateSummaryHeader() {
 /*
  * Name        : calculateCost()
  * Parameters  : .
- * Processes   : Populates the 
+ * Processes   : Calculates the cost based on the number of travelers.
  * Return Value: None.
  */
 function calculateCost() {
