@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-		<!--
+<head>
+	<!--
 	  * File Name   : template.htm
 	  * Name        : Team 1
 	  * Course      : 202010-COP-2830C-15165 Valencia College
@@ -12,58 +12,58 @@
 	  * Date        : 2019-11-2
 		-->
 
-		<!-- Meta tags. -->
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- Meta tags. -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-		<!-- Stylesheet link. --> 
-		<link rel="stylesheet" href="/static/stylesheets/style.css" />
-		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Raleway&display=swap"
-			  rel="stylesheet">
+	<!-- Stylesheet link. -->
+	<link rel="stylesheet" href="/static/stylesheets/style.css" />
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Raleway&display=swap" rel="stylesheet">
 
-		<script src="/scripts/modernizr.custom.65897.js"></script>
+	<script src="/scripts/modernizr.custom.65897.js"></script>
 
-		<!-- Title. -->
-		<title>Denver Districts</title>
-	</head>
+	<!-- Title. -->
+	<title>Denver Districts</title>
+</head>
 
-	<body>
+<body>
 
-		<!-- Navigation -->
-		<nav>
-			<div class="container flex-container">
-				<a href="index.html" class="logo"></a>
-				<div id="mainMenu">
-					<ul>
-						<li><a href="history.html" alt="history">History</a></li>
-						<li><a href="activities.html" alt="activities">Activities</a></li>
-						<li><a href="districts.html" alt="districts">Districts</a></li>
-						<li><a href="transportation.html" alt=transportation>Transportation</a></li>
-					</ul>
-				</div>
-	
+	<!-- Navigation -->
+	<nav>
+		<div class="container flex-container">
+			<a href="index.html" class="logo"></a>
+			<div id="mainMenu">
+				<ul>
+					<li><a href="history.html" alt="history">History</a></li>
+					<li><a href="activities.html" alt="activities">Activities</a></li>
+					<li><a href="districts.html" alt="districts">Districts</a></li>
+					<li><a href="transportation.html" alt=transportation>Transportation</a></li>
+				</ul>
 			</div>
-		</nav>
+		</div>
+	</nav>
 
-		<article>
+	<article>
 
-			<!-- Description. -->
-			<section id="description" class="container">
-				<h1>Recount of the touristic districts.</h1>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quae incidunt
-					quis est commodi expedita, sunt suscipit, eligendi voluptate ipsum iusto placeat
-					temporibus beatae corporis veniam excepturi, officiis cum provident.
-				</p>
-			</section>
-			
-			<!-- Getting Around  -->
-		<section id="gettingAround" class="container">
+		<!-- Description. -->
+		<section id="description" class="container">
+			<h1>Recount of the touristic districts.</h1>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quae incidunt
+				quis est commodi expedita, sunt suscipit, eligendi voluptate ipsum iusto placeat
+				temporibus beatae corporis veniam excepturi, officiis cum provident.
+			</p>
+		</section>
+
+		<!-- Districts Tabs  -->
+		<section id="districtsTabs" class="container">
 			<div class="tabs">
 				<!-- Tabs -->
+				<!-- Attaches event listener to onclick of 'districtOne.' -->
 				<button class="tabLink" onclick="selectTab(event, 'districtOne')">
 					<h2>District 1</h2>
 				</button>
+				<!-- Attaches event listener to onclick of 'districtTwo.' -->
 				<button class="tabLink" onclick="selectTab(event, 'districtTwo')">
 					<h2>District 2</h2>
 				</button>
@@ -139,171 +139,184 @@
 		</section>
 
 
-			<!-- Book -->
+		<!-- Book -->
 		<section id="book" class="container">
-				<div class="flex-container">
-					<div>
-						<form action="" method="post" class="container">
-							<fieldset>
-								<legend>
-									<h2>Book Your Stay</h2>
-								</legend>
-								<div class="container">
-									<label for="firstName">
-										<p>First Name:*</p>
-									</label>
-									<input id="firstName" type="text" required/><br />
-									<label for="middleName">
-										<p>Middle Name:</p>
-									</label>
-									<input id="middleName" type="text" /><br />
-									<label for="lastName">
-										<p>Last Name:*</p>
-									</label>
-									<input id="lastName" type="text" required/><br />
-									<label for="email">
-										<p>Email:*</p>
-									</label>
-									<input id="email" type="email" required/><br />
-									<label for="adults">
-										<p>Adults:</p>
-									</label>
-									<input id="numAdults" type="number" step="1" min="1" /><br />
-									<label for="children">
-										<p>Children:</p>
-									</label>
-									<input id="numChildren" type="number" step="1" /><br />
-									<label for="dateFrom">
-										<p>Date From:*</p>
-									</label>
-									<input id="calendarFrom" type="date" required/><br />
-									<label for="dateTo">
-										<p>Date To:*</p>
-									</label>
-									<input id="calendarTo" type="date" required/><br />
+			<div class="flex-container">
+				<div>
+					<form action="" method="post" class="container">
+						<fieldset>
+							<legend>
+								<h2>Book Your Stay</h2>
+							</legend>
+							<div class="container">
+								<label for="firstName">
+									<p>First Name:*</p>
+								</label>
+								<input id="firstName" type="text" required /><br />
+								<label for="middleName">
+									<p>Middle Name:</p>
+								</label>
+								<input id="middleName" type="text" /><br />
+								<label for="lastName">
+									<p>Last Name:*</p>
+								</label>
+								<input id="lastName" type="text" required /><br />
+								<label for="email">
+									<p>Email:*</p>
+								</label>
+								<input id="email" type="email" required /><br />
+								<label for="adults">
+									<p>Adults:</p>
+								</label>
+								<input id="numAdults" type="number" step="1" min="1" /><br />
+								<label for="children">
+									<p>Children:</p>
+								</label>
+								<input id="numChildren" type="number" step="1" /><br />
+								<label for="dateFrom">
+									<p>Date From:*</p>
+								</label>
+								<input id="calendarFrom" type="date" required /><br />
+								<label for="dateTo">
+									<p>Date To:*</p>
+								</label>
+								<input id="calendarTo" type="date" required /><br />
 
-									<label for="districtSelect">
-										<p>District:</p>
-									</label>
-									<select id="districtSelect">
-										<option value="">--Select a District--</option>
-										<option value="districtOne">District 1</option>
-										<option value="districtTwo">District 2</option>
-									</select><br />
+								<label for="districtSelect">
+									<p>District:</p>
+								</label>
+								<select id="districtSelect">
+									<option value="">--Select a District--</option>
+									<option value="districtOne">District 1</option>
+									<option value="districtTwo">District 2</option>
+								</select><br />
 
-									<label for="roomType">
-										<p>Room Type:</p>
-									</label>
-									<select id="roomType">
-										<option value="">--Select a Room Type--</option>
-										<option value="roomType1">Room Type 1</option>
-										<option value="roomType2">Room Type 2</option>
-									</select>
-								</div>
-							</fieldset>
-	
-						</form>
-					</div>
-					<div>
-						<table>
-							<thead>
-								<h2>Calcualted Cost</h2>
-							</thead>
-							<tr>
-								<td colspan="2">
-									<h3>Room Type 1 in District 2</h3>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<h3>From: 10/23/2019 to 10/24/2019</h3>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<h3>Accommidating 2 adults and 0 children</h3>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<h3>Nightly Fee: </h3>
-								</td>
-								<td>
-									<p>$50</p>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<h3>Tax 10%: </h3>
-								</td>
-								<td>
-									<p>$5</p>
-								</td>
-							</tr>
-							<tr>
-								<td colspan="2">
-									<hr>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<h3>Total Cost:</h3>
-								</td>
-								<td>
-									<p>Total Cost</p>
-								</td>
-							</tr>
-						</table>
-						<a href="" class="button">Book</a>
-					</div>
+								<label for="roomType">
+									<p>Room Type:</p>
+								</label>
+								<select id="roomType">
+									<option value="">--Select a Room Type--</option>
+									<option value="roomType1">Room Type 1</option>
+									<option value="roomType2">Room Type 2</option>
+								</select>
+							</div>
+						</fieldset>
+
+					</form>
 				</div>
+				<div>
+					<table>
+						<thead>
+							<h2>Calcualted Cost</h2>
+						</thead>
+						<tr>
+							<td colspan="2">
+								<h3>Room Type 1 in District 2</h3>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h3>From: 10/23/2019 to 10/24/2019</h3>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h3>Accommidating 2 adults and 0 children</h3>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h3>Nightly Fee: </h3>
+							</td>
+							<td>
+								<p>$50</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h3>Tax 10%: </h3>
+							</td>
+							<td>
+								<p>$5</p>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<hr>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h3>Total Cost:</h3>
+							</td>
+							<td>
+								<p>Total Cost</p>
+							</td>
+						</tr>
+					</table>
+					<a href="" class="button">Book</a>
+				</div>
+			</div>
+		</section>
+		<!-- Footer -->
+		<footer>
+			<!-- Contact -->
+			<section id="contact" class="container">
+				<form id="contactForm" action="" method="post">
+					<fieldset>
+						<legend>
+							<h3>Contact Us</h3>
+						</legend>
+						<label>
+							<p>Email:</p>
+							<input type="email" class="email" />
+						</label><br />
+						<label>
+							<p>Subject:</p>
+							<input type="text" class="subject" />
+						</label><br />
+						<label>
+							<p>Message:</p>
+							<textarea rows="5"></textarea>
+						</label><br />
+						<div class="status">
+						</div>
+						<button type="submit" class="button">Send</button>
+					</fieldset>
+				</form>
+			</section>
+			<!-- Vertical Navigation -->
+			<section id="sitemap" class="container">
+				<a href="index.html" class="logoSM"></a>
+				<ul>
+					<li><a href="history.html" alt="history">History</a></li>
+					<li><a href="activities.html" alt="activities">Activities</a></li>
+					<li><a href="districts.html" alt="districts">Districts</a></li>
+					<li><a href="transportation.html" alt=transportation>Transportation</a></li>
+				</ul>
+			</section>
+		</footer>
+	</article>
 
-				<footer>
-						<!-- Contact -->
-						<section id="contact" class="container">
-							<form id="contactForm" action="" method="post">
-								<fieldset>
-									<legend>
-										<h3>Contact Us</h3>
-									</legend>
-									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-										Reprehenderit neque eum repellendus modi rem eligendi possimus
-										corrupti molestiae quisquam. Tenetur voluptates praesentium numquam
-										dolorum repellat sunt? Asperiores necessitatibus maxime vitae?
-									</p>
-								</fieldset>
-							</form>
-						</section>
-						<!-- Vertical Navigation -->
-						<section id="sitemap" class="container">
-							<a href="index.html" class="logoSM"></a>
-							<ul>
-								<li><a href="history.html" alt="history">History</a></li>
-								<li><a href="activities.html" alt="activities">Activities</a></li>
-								<li><a href="districts.html" alt="districts">Districts</a></li>
-								<li><a href="transportation.html" alt=transportation>Transportation</a></li>
-							</ul>
-						</section>
-					</footer>
-		</article>
-
-		<!--JavaScript tabs.-->
-		<script>
-			function selectTab(evt, selectedTab) {
-				var i, tabContent, tabLink;
-				tabContent = document.getElementsByClassName("tabContent");
-				for (i = 0; i < tabContent.length; i++) {
-					tabContent[i].style.display = "none";
-				}
-				tabLink = document.getElementsByClassName("tabLink");
-				for (i = 0; i < tabLink.length; i++) {
-					tabLink[i].className = tabLink[i].className.replace(" active", "");
-				}
-				document.getElementById(selectedTab).style.display = "block";
-				evt.currentTarget.className += " active";
+	<!--JavaScript tabs.-->
+	<script>
+		function selectTab(evt, selectedTab) {
+			var i; 						// Variable to store iteration counter.
+			var tabContent; 			// Variable to store DOM element by class name "tabContent".
+			var tabLink;				// Variable to store the link to different tabs "tabLink".
+			tabContent = document.getElementsByClassName("tabContent");
+			for (i = 0; i < tabContent.length; i++) {		// Hides all tab content setting style to none.
+				tabContent[i].style.display = "none";
 			}
-		</script>
+			tabLink = document.getElementsByClassName("tabLink");	// Modifies property of button to not active.
+			for (i = 0; i < tabLink.length; i++) {
+				tabLink[i].className = tabLink[i].className.replace(" active", "");
+			}
+			document.getElementById(selectedTab).style.display = "block"; // Modifies selected tab to display block.
+			evt.currentTarget.className += " active";					// Sets tab as active.
+		}
+	</script>
 
-	</body>
+</body>
 
 </html>

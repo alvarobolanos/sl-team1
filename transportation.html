@@ -35,7 +35,6 @@
 					<li><a href="transportation.html" alt=transportation>Transportation</a></li>
 				</ul>
 			</div>
-
 		</div>
 	</nav>
 
@@ -56,9 +55,11 @@
 		<section id="gettingAround" class="container">
 			<div class="tabs">
 				<!-- Tabs -->
+				<!-- Attaches event listener to onclick of 'carRental.' -->
 				<button class="tabLink" onclick="selectTab(event, 'carRental')">
 					<h2>Car Rental</h2>
 				</button>
+				<!-- Attaches event listener to onclick of 'publicTransportation.' -->
 				<button class="tabLink" onclick="selectTab(event, 'publicTransportation')">
 					<h2>Public Transportation</h2>
 				</button>
@@ -253,47 +254,61 @@
 		</section>
 
 	</article>
+	<!-- Footer -->
 	<footer>
-			<!-- Contact -->
-			<section id="contact" class="container">
-				<form id="contactForm" action="" method="post">
-					<fieldset>
-						<legend>
-							<h3>Contact Us</h3>
-						</legend>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-							Reprehenderit neque eum repellendus modi rem eligendi possimus
-							corrupti molestiae quisquam. Tenetur voluptates praesentium numquam
-							dolorum repellat sunt? Asperiores necessitatibus maxime vitae?
-						</p>
-					</fieldset>
-				</form>
-			</section>
-			<!-- Vertical Navigation -->
-			<section id="sitemap" class="container">
-				<a href="index.html" class="logoSM"></a>
-				<ul>
-					<li><a href="history.html" alt="history">History</a></li>
-					<li><a href="activities.html" alt="activities">Activities</a></li>
-					<li><a href="districts.html" alt="districts">Districts</a></li>
-					<li><a href="transportation.html" alt=transportation>Transportation</a></li>
-				</ul>
-			</section>
-		</footer>
+		<!-- Contact -->
+		<section id="contact" class="container">
+			<form id="contactForm" action="" method="post">
+				<fieldset>
+					<legend>
+						<h3>Contact Us</h3>
+					</legend>
+					<label>
+						<p>Email:</p>
+						<input type="email" class="email" />
+					</label><br />
+					<label>
+						<p>Subject:</p>
+						<input type="text" class="subject" />
+					</label><br />
+					<label>
+						<p>Message:</p>
+						<textarea rows="5"></textarea>
+					</label><br />
+					<div class="status">
+					</div>
+					<button type="submit" class="button">Send</button>
+				</fieldset>
+			</form>
+		</section>
+		<!-- Vertical Navigation -->
+		<section id="sitemap" class="container">
+			<a href="index.html" class="logoSM"></a>
+			<ul>
+				<li><a href="history.html" alt="history">History</a></li>
+				<li><a href="activities.html" alt="activities">Activities</a></li>
+				<li><a href="districts.html" alt="districts">Districts</a></li>
+				<li><a href="transportation.html" alt=transportation>Transportation</a></li>
+			</ul>
+		</section>
+	</footer>
 
+	<!--JavaScript tabs.-->
 	<script>
 		function selectTab(evt, selectedTab) {
-			var i, tabContent, tabLink;
+			var i; 						// Variable to store iteration counter.
+			var tabContent; 			// Variable to store DOM element by class name "tabContent".
+			var tabLink;				// Variable to store the link to different tabs "tabLink".
 			tabContent = document.getElementsByClassName("tabContent");
-			for (i = 0; i < tabContent.length; i++) {
+			for (i = 0; i < tabContent.length; i++) {		// Hides all tab content setting style to none.
 				tabContent[i].style.display = "none";
 			}
-			tabLink = document.getElementsByClassName("tabLink");
+			tabLink = document.getElementsByClassName("tabLink");	// Modifies property of button to not active.
 			for (i = 0; i < tabLink.length; i++) {
 				tabLink[i].className = tabLink[i].className.replace(" active", "");
 			}
-			document.getElementById(selectedTab).style.display = "block";
-			evt.currentTarget.className += " active";
+			document.getElementById(selectedTab).style.display = "block"; // Modifies selected tab to display block.
+			evt.currentTarget.className += " active"; 					// Sets tab as active.
 		}
 	</script>
 </body>
