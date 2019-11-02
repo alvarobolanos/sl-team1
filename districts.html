@@ -9,7 +9,7 @@
 	  * Facilitator : David Stendel
 	  * Description : A template for HTML for AJS9a
 	  * Team Members: Alvaro Bolanos, Ashley McCray, Raymond Ynoa
-	  * Date        : 2019-10-23
+	  * Date        : 2019-11-2
 		-->
 
 		<!-- Meta tags. -->
@@ -17,7 +17,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-		<!-- Stylesheet link. -->
+		<!-- Stylesheet link. --> 
 		<link rel="stylesheet" href="/static/stylesheets/style.css" />
 		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Raleway&display=swap"
 			  rel="stylesheet">
@@ -25,29 +25,30 @@
 		<script src="/scripts/modernizr.custom.65897.js"></script>
 
 		<!-- Title. -->
-		<title>Districts</title>
+		<title>Denver Districts</title>
 	</head>
 
 	<body>
 
-		<!-- Navigation Bar. -->
+		<!-- Navigation -->
 		<nav>
-			<div id="logo">
-				<!-- Insert Denver Logo-->
-			</div>
-			<div id="mainMenu">
-				<ul>
-					<li><a href="history.html" alt="history">History</a></li>
-					<li><a href="activities.html" alt="activities">Activities</a></li>
-					<li><a href="districts.html" alt="districts">Districts</a></li>
-					<li><a href="transportation.html" alt=transportation>Transportation</a></li>
-				</ul>
+			<div class="container flex-container">
+				<a href="index.html" class="logo"></a>
+				<div id="mainMenu">
+					<ul>
+						<li><a href="history.html" alt="history">History</a></li>
+						<li><a href="activities.html" alt="activities">Activities</a></li>
+						<li><a href="districts.html" alt="districts">Districts</a></li>
+						<li><a href="transportation.html" alt=transportation>Transportation</a></li>
+					</ul>
+				</div>
+	
 			</div>
 		</nav>
 
 		<article>
 
-			<!-- Description, below logo and navagation. -->
+			<!-- Description. -->
 			<section id="description" class="container">
 				<h1>Recount of the touristic districts.</h1>
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quae incidunt
@@ -55,207 +56,254 @@
 					temporibus beatae corporis veniam excepturi, officiis cum provident.
 				</p>
 			</section>
+			
+			<!-- Getting Around  -->
+		<section id="gettingAround" class="container">
+			<div class="tabs">
+				<!-- Tabs -->
+				<button class="tabLink" onclick="selectTab(event, 'districtOne')">
+					<h2>District 1</h2>
+				</button>
+				<button class="tabLink" onclick="selectTab(event, 'districtTwo')">
+					<h2>District 2</h2>
+				</button>
 
-			<!-- District Tabs. -->
-			<section id="districtTabs">
-				<input checked="checked" id="district1" type="radio" name="Disctrict 1" />
-				<input id="district2" type="radio" name="District 2" />
-				<nav>
-					<ul>
-						<li class="district1">
-							<label for="district1">District 1</label>
-						</li>
-						<li class="district2">
-								<label for="district2">District 2</label>
-						</li>
-					</ul>
-				</nav>
-
-				<div class="district1">
-					<div id="district1Eat">
-						<!-- left align Img-->
-						<h1>District 1 Eat Title</h1>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quae incidunt
-								quis est commodi expedita, sunt suscipit, eligendi voluptate ipsum iusto placeat
-								temporibus beatae corporis veniam excepturi, officiis cum provident.
-						</p>
+				<!-- Tabs Content -->
+				<!-- District 1 Tab Content -->
+				<div id="districtOne" class="tabContent flex-container">
+					<!-- District 1 Eats -->
+					<div>
+						<br />
+						<br />
+						<br />
+						<br />
+						<h3>District 1 Eats</h3>
+						<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo magni eveniet harum
+							officia blanditiis sequi voluptatum aspernatur eaque expedita ut aperiam quo dolorum
+							accusantium cumque alias sapiente, velit minus architecto.</p>
 					</div>
-					<div id="district1Drink">
-						<!-- left align Img-->
-						<h1>District 1 Drink Title</h1>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quae incidunt
-								quis est commodi expedita, sunt suscipit, eligendi voluptate ipsum iusto placeat
-								temporibus beatae corporis veniam excepturi, officiis cum provident.
-						</p>
+					<div>
+						<figure>
+							<div id="highlightDistricts" class="tabImages"></div>
+							<figcaption>District 1 Highlight 1</figcaption>
+						</figure>
+					</div>
+					<!-- District 1 Drinks -->
+					<div>
+						<h3>District 1 Drinks</h3>
+						<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo magni eveniet harum
+							officia blanditiis sequi voluptatum aspernatur eaque expedita ut aperiam quo dolorum
+							accusantium cumque alias sapiente, velit minus architecto.</p>
+					</div>
+					<div>
+						<figure>
+							<div id="highlightDistricts" class="tabImages"></div>
+							<figcaption>District 1 Highlight 2</figcaption>
+						</figure>
+					</div>
+
+				</div>
+				<!-- District 2 Tab Content -->
+				<div id="districtTwo" class="tabContent flex-container">
+					<!-- District 2 Eats -->
+					<div>
+						<br />
+						<br />
+						<br />
+						<br />
+						<h3>District 2 Eats</h3>
+						<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo magni eveniet
+							harum officia blanditiis sequi voluptatum aspernatur eaque expedita ut aperiam
+							quo dolorum accusantium cumque alias sapiente, velit minus architecto.</p>
+					</div>
+					<div>
+						<figure>
+							<div id="highlightDistricts" class="tabImages"></div>
+							<figcaption>District 2 Highlight 1</figcaption>
+						</figure>
+					</div>
+					<!-- District 2 Drinks -->
+					<div>
+						<h3>District 2 Drinks</h3>
+						<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo magni eveniet
+							harum officia blanditiis sequi voluptatum aspernatur eaque expedita ut aperiam
+							quo dolorum accusantium cumque alias sapiente, velit minus architecto.</p>
+					</div>
+					<div>
+						<figure>
+							<div id="highlightDistricts" class="tabImages"></div>
+							<figcaption>District 2 Highlight 2</figcaption>
+						</figure>
+					</div>
+				</div>
+		</section>
+
+
+			<!-- Book -->
+		<section id="book" class="container">
+				<div class="flex-container">
+					<div>
+						<form action="" method="post" class="container">
+							<fieldset>
+								<legend>
+									<h2>Book Your Stay</h2>
+								</legend>
+								<div class="container">
+									<label for="firstName">
+										<p>First Name:*</p>
+									</label>
+									<input id="firstName" type="text" required/><br />
+									<label for="middleName">
+										<p>Middle Name:</p>
+									</label>
+									<input id="middleName" type="text" /><br />
+									<label for="lastName">
+										<p>Last Name:*</p>
+									</label>
+									<input id="lastName" type="text" required/><br />
+									<label for="email">
+										<p>Email:*</p>
+									</label>
+									<input id="email" type="email" required/><br />
+									<label for="adults">
+										<p>Adults:</p>
+									</label>
+									<input id="numAdults" type="number" step="1" min="1" /><br />
+									<label for="children">
+										<p>Children:</p>
+									</label>
+									<input id="numChildren" type="number" step="1" /><br />
+									<label for="dateFrom">
+										<p>Date From:*</p>
+									</label>
+									<input id="calendarFrom" type="date" required/><br />
+									<label for="dateTo">
+										<p>Date To:*</p>
+									</label>
+									<input id="calendarTo" type="date" required/><br />
+
+									<label for="districtSelect">
+										<p>District:</p>
+									</label>
+									<select id="districtSelect">
+										<option value="">--Select a District--</option>
+										<option value="districtOne">District 1</option>
+										<option value="districtTwo">District 2</option>
+									</select><br />
+
+									<label for="roomType">
+										<p>Room Type:</p>
+									</label>
+									<select id="roomType">
+										<option value="">--Select a Room Type--</option>
+										<option value="roomType1">Room Type 1</option>
+										<option value="roomType2">Room Type 2</option>
+									</select>
+								</div>
+							</fieldset>
+	
+						</form>
+					</div>
+					<div>
+						<table>
+							<thead>
+								<h2>Calcualted Cost</h2>
+							</thead>
+							<tr>
+								<td colspan="2">
+									<h3>Room Type 1 in District 2</h3>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h3>From: 10/23/2019 to 10/24/2019</h3>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h3>Accommidating 2 adults and 0 children</h3>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h3>Nightly Fee: </h3>
+								</td>
+								<td>
+									<p>$50</p>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h3>Tax 10%: </h3>
+								</td>
+								<td>
+									<p>$5</p>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<hr>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h3>Total Cost:</h3>
+								</td>
+								<td>
+									<p>Total Cost</p>
+								</td>
+							</tr>
+						</table>
+						<a href="" class="button">Book</a>
 					</div>
 				</div>
 
-				<div class="district2">
-						<div id="district2Eat">
-							<!-- left align Img-->
-							<h1>District 2 Eat Title</h1>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quae incidunt
-									quis est commodi expedita, sunt suscipit, eligendi voluptate ipsum iusto placeat
-									temporibus beatae corporis veniam excepturi, officiis cum provident.
-							</p>
-						</div>
-						<div id="district2Drink">
-							<!-- left align Img-->
-							<h1>District 2 Drink Title</h1>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quae incidunt
-									quis est commodi expedita, sunt suscipit, eligendi voluptate ipsum iusto placeat
-									temporibus beatae corporis veniam excepturi, officiis cum provident.
-							</p>
-						</div>
-					</div>
-			</section>
-
-			<!-- Booking and Calulated Cost (Use Form)-->
-			<section id="book" class="container">
-				<form id="bookForm" action="" method="post">
-				<h1>Book Your Stay</h1>
-
-					<!-- Name* -->
-					<div>
-						<h3>
-							<label for="nameBox">Name: *</label>
-							<!-- User Textbox Here -->
-							<input type="text" name="name" id="nameBox" value="" required>
-						</h3>
-					</div>
-
-					<!-- Last Name* -->
-					<div>
-						<h3>
-							<label for="lastnameBox">Last Name: *</label>
-							<!-- User Textbox Here -->
-							<input type="text" name="lastName" id="lastnameBox" value="" required>
-						</h3>
-					</div>
-
-					<!-- Email* -->
-					<div>
-						<h3>
-							<label for="emailBox">Email: *</label>
-							<!-- User Textbox Here -->
-							<input type="email" name="email" id="emailBox" value="" required>
-						</h3>
-					</div>
-
-					<!-- Adults -->
-					<div>
-						<h3>
-							<label for="adultsBox">Adults:</label>
-							<!-- User Integer Here -->
-							<input type="number" name="adults" id="adultsBox" value="">
-						</h3>
-					</div>
-
-					<!-- Children -->
-					<div>
-						<h3>
-							<label for="childrenBox">Children:</label>
-							<!-- User Integer Here -->
-							<input type="number" name="children" id="childrenBox" value="">
-						</h3>
-					</div>
-
-					<!-- Date From* -->
-					<div>
-						<h3>
-							<label for="datefromBox">Date From: *</label>
-							<!-- User Integer Here -->
-							<input type="date" name="datefrom" id="datefromBox" value="" required>
-						</h3>
-					</div>
-
-					<!-- Date To* -->
-					<div>
-						<h3>
-							<label for="datetoBox">Date To: *</label>
-							<!-- User Integer Here -->
-							<input type="date" name="dateto" id="datetoBox" value="" required>
-						</h3>
-					</div>
-
-					<!-- District -->
-					<div>
-						<h3>
-							<label for="districtBox">District:</label>
-							<!-- User Selector Here -->
-							<select id="districtList" name="districtType">
-								<option value="1">District 1</option>
-								<option value="2">District 2</option>
-							</select>
-						</h3>
-					</div>
-
-					<!-- Room Type -->
-					<div>
-						<h3>
-							<label for="districtBox">Room Type:</label>
-							<!-- User Selector Here -->
-							<select id="RoomList" name="roomType">
-								<option value="1">Room Type 1</option>
-								<option value="2">Room Type 2</option>
-							</select>
-						</h3>
-					</div>
-				</form>
-			</section>
-
-			<section id="cost" class="container">
-				<form action="" method="post">
-					<fieldset>
-						<legend><h1>Calculated Cost</h1></legend>
-						<!-- Room Type in District-->
-						<!-- From Date From to Date To-->
-						<!-- Accomidating # adults to 0 children-->
-						<!-- Nightly Fee: $-->
-						<!-- Tax 10%: $-->
-						<!-- Total: $-->
-					</fieldset>
-
-					<div id="bookButton">
-							<input value="Book" type="submit" />
-					</div>
-				</form>
-			</section>
-
-			<footer>
-
-				<!-- Contact Form -->
-				<section id="contact" class="container">
-					<form id="contactForm" action="" method="post">
-						<fieldset>
-							<legend>
-								<h3>Contact Us</h3>
-							</legend>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-								Reprehenderit neque eum repellendus modi rem eligendi possimus
-								corrupti molestiae quisquam. Tenetur voluptates praesentium numquam
-								dolorum repellat sunt? Asperiores necessitatibus maxime vitae?</p>
-						</fieldset>
-					</form>
-				</section>
-
-				<!-- Sitemap. -->
-				<section id="sitemap">
-					<div id="logo"></div>
-					<ul>
-						<li><a href="history.html" alt="history">History</a></li>
-						<li><a href="activities.html" alt="activities">Activities</a></li>
-						<li><a href="districts.html" alt="districts">Districts</a></li>
-						<li><a href="transportation.html" alt=transportation>Transportation</a></li>
-					</ul>
-				</section>
-
-				<section id="copyright">
-					<p>Copyright 2019 © Team 1</p>
-					<p>Designed and built with Love by Team 1</p>
-				</section>
-			</footer>
+				<footer>
+						<!-- Contact -->
+						<section id="contact" class="container">
+							<form id="contactForm" action="" method="post">
+								<fieldset>
+									<legend>
+										<h3>Contact Us</h3>
+									</legend>
+									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+										Reprehenderit neque eum repellendus modi rem eligendi possimus
+										corrupti molestiae quisquam. Tenetur voluptates praesentium numquam
+										dolorum repellat sunt? Asperiores necessitatibus maxime vitae?
+									</p>
+								</fieldset>
+							</form>
+						</section>
+						<!-- Vertical Navigation -->
+						<section id="sitemap" class="container">
+							<a href="index.html" class="logoSM"></a>
+							<ul>
+								<li><a href="history.html" alt="history">History</a></li>
+								<li><a href="activities.html" alt="activities">Activities</a></li>
+								<li><a href="districts.html" alt="districts">Districts</a></li>
+								<li><a href="transportation.html" alt=transportation>Transportation</a></li>
+							</ul>
+						</section>
+					</footer>
 		</article>
+
+		<!--JavaScript tabs.-->
+		<script>
+			function selectTab(evt, selectedTab) {
+				var i, tabContent, tabLink;
+				tabContent = document.getElementsByClassName("tabContent");
+				for (i = 0; i < tabContent.length; i++) {
+					tabContent[i].style.display = "none";
+				}
+				tabLink = document.getElementsByClassName("tabLink");
+				for (i = 0; i < tabLink.length; i++) {
+					tabLink[i].className = tabLink[i].className.replace(" active", "");
+				}
+				document.getElementById(selectedTab).style.display = "block";
+				evt.currentTarget.className += " active";
+			}
+		</script>
+
 	</body>
 
 </html>
