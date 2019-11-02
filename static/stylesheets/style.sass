@@ -14,7 +14,7 @@ $alt-font-stack: 'Raleway', sans-serif
 // Container
 
 .container
-	width: 1200px
+	width: 80%
 	max-width: 1920px
 	margin: 0 auto
 	padding: 2%
@@ -37,7 +37,7 @@ h3
 	color: $purple
 p
 	font-variant: regular
-	font-size: 12px
+	font-size: 15px
 	font-family: $alt-font-stack
 	color: $dark-grey
 	
@@ -45,17 +45,6 @@ ul
 	margin: 0
 	padding: 0
 	list-style: none
-
-dl 
-	display: flex
-	// flex-wrap: wrap
-	
-	dt 
-	width: 50%
-	
-	dd 
-	margin-left: auto
-	width: 50%
 
 // General Body 
 
@@ -81,27 +70,54 @@ body
 
 	&:hover
 		background-color: $green
-		
+	
+	&:active
+		background-color: $green
+
+	&:selection
+		background-color: $green
 
 // Figures
 
 figure
 
 	figcaption
-		font-size: 14px
+		font-size: 15px
 		font-family: $alt-font-stack
 		color: $light-grey
 		text-align: center
 
-// Forms
+// Book Form
 
 form
-		
+	
+	width: 100%
+
 	fieldset
-	border-width: 0px
-	border-style: none
-	border-color: none
-	border-image: none
+		border-width: 0 none
+		border-style: none
+		border-color: none
+
+	label
+		text-align: left
+		display: inline-block
+		width: 150px
+
+	input
+		display: inline-block
+		text-align: right
+		align-item: right
+		width: 150px
+
+	#numTickets
+		width: 50px
+
+	#departureDate
+		width: 120px
+
+	#returnDate
+		width: 120px
+
 
 // Flex Properties
 
@@ -109,12 +125,11 @@ form
 	display: flex
 	padding: 0
 	list-style: none
-	display: -webkit-box
-	display: -moz-box
-	display: -ms-flexbox
-	display: -webkit-flex
-	display: flex
-	-webkit-flex-flow: row wrap
+	// display: -webkit-box
+	// display: -moz-box
+	// display: -ms-flexbox
+	// display: -webkit-flex
+	// -webkit-flex-flow: row wrap
 	justify-content: space-between
 	flex-direction: row
 	flex-wrap: wrap
@@ -131,7 +146,6 @@ form
 	background-size: contain
 	width: 100px
 	height: 80px
-	margin: 0px 20px
 	align-self: center
 
 nav
@@ -185,7 +199,6 @@ nav
 	background: url("../images/slideshow_transportation.png") no-repeat center
 	background-size: cover
 
-
 .slide
 	width: 100%
 	height: 400px
@@ -200,18 +213,97 @@ nav
 // Highlights
 #highlights
 
+	div.flex-container
+		margin: 20px 15px
+
+	.flex-container
+		flex-wrap: nowrap
+		
+	a
+		margin: 10px 0	
+	
+	div:nth-child(odd)
+		flex-direction: row
+
+		.highlightContent
+			text-align: end
+		
+		a
+			float: right		// TODO: Figure out a way to change this.
+
+
+	div:nth-child(even)
+		flex-direction: row-reverse
+		
+		.highlightContent
+			text-align: start
+
 #highlightActivities
-	background: url("../images/highlight_activities.png") no-repeat center
+	background: url("../images/highlight_activities.png") no-repeat
+	background-size: contain
+	background-position: center
 #highlightDistricts
-	background: url("../images/highlight_districts.png") no-repeat center
+	background: url("../images/highlight_districts.png") no-repeat
+	background-size: contain
+	background-position: center
 #highlightHistory
-	background: url("../images/highlight_history.png") no-repeat center
+	background: url("../images/highlight_history.png") no-repeat
+	background-size: contain
+	background-position: center
 
 .highlight_image
-	width: 1200px
+	width: 400px
 	height: 250px
+
 // Tabs
 
+#carRentalImage1
+	background: url("../images/tabs_carRental1.png") no-repeat 
+	background-size: contain
+	background-position: center
+#carRentalImage2
+	background: url("../images/tabs_carRental2.png") no-repeat
+	background-size: contain
+	background-position: center
+#publicTransporationImage1
+	background: url("../images/tabs_publicTransportation1.png") no-repeat
+	background-size: contain
+	background-position: center
+#publicTransporationImage2
+	background: url("../images/tabs_publicTransportation2.png") no-repeat
+	background-size: contain
+	background-position: center
+
+.tabImages
+	width: 100%
+	height: 300px
+
+.tabs
+	overflow: hidden
+	border: 1px solid $light-grey
+	
+	button
+		float: left
+		border: none
+		outline: none
+		background-color: inherit
+		cursor: pointer
+		padding: 15px
+		transition: 0.3s
+	
+		&:hover
+			background-color: $white
+		
+		&.active
+			background-color: $dark-grey
+
+	.tabContent
+		border-top: none
+		border: 1px solid $light-grey
+		padding: 6px 12px
+		display: none
+		transition: 0.3s
+	
 
 // Tiles
 #tiles
@@ -222,36 +314,107 @@ nav
 		@extend .flex-item
 		background: $light-grey
 		padding: 2px
-		width: 200px
+		width: 300px
 		margin-top: 10px
 		color: $dark-grey
+
+.container-history
+	padding: 10px
+	float: center
+	width: 60%
+	margin: 0 auto 20px auto
+
+.grid-history
+	display: grid
+	grid-template-columns: 7fr 7fr 7fr
+	grid-template-rows: 10fr 10fr
+	grid-gap: 33px
+
+.card-history
+
+	background-color: white
+	width: 100%
+	padding: 10px
 
 // Book
 
 #book
-	background-color: white
+	background-color: $white
+	width: 55%
+
+	.trip_button
+		margin: 0 0 15px
+		@extend .button
+		
+		&:active
+			background-color: $green
+		&:inactive
+			background-color: $lighter-grey
+
+	label[for="tripOne"], label[for="tripTwo"]
+		@extend .button
+		width: 100px
+		margin-bottom: 15px
+		cursor: pointer
+
+	input[type="radio"]
+		display: none
+		&:checked+label
+			background-color: $green
+
+#cost
+	background-color: $lighter-grey
+	width: 35%
+
+	table
+		width: 100%
+
+		td
+			vertical-align: bottom
+
+		td:nth-child(2)
+			text-align: right
+
+	a
+		float: right
+		margin: 20px
+		width: 80%
 
 //Footer	
 footer
-
 	display: flex
+	background-color: $lighter-grey
+
+	section
+		justify-content: space-around
+		align-content: space-between
 
 	.logoSM
 		@extend .logo
-
-	background-color: $lighter-grey
+		display: block
+		align-self: flex-end
+		margin: 10px 0px 20px
 
 	#contact
-		width: 50%
+		width: 80%
+
 	#contactForm
+		input
+			width: 300px
+		textarea
+			width: 300px
 
 	#sitemap
-		width: 50%
+		width: 20%
+		display: flex
+		flex-direction: column
 
-	a
-		font-family: $font-stack
-		font-size: 14px
-		font-variant: bold
-		text-decoration: none
-		color: $purple
-		
+		li
+			text-align: right
+
+		a
+			font-family: $font-stack
+			font-size: 14px
+			font-variant: bold
+			color: $purple
+			text-decoration: none

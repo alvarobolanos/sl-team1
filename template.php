@@ -3,7 +3,7 @@
 
 <head>
 	<!--
-	  * File Name   : transportation.html
+	  * File Name   : template.html
 	  * Name        : Team 1
 	  * Course      : 202010-COP-2830C-15165 Valencia College
 	  * Facilitator : David Stendel
@@ -24,31 +24,180 @@
 <body>
 
 	<!-- Navigation -->
-	<nav>
-		<div class="container flex-container">
-			<a href="index.html" class="logo"></a>
-			<div id="mainMenu">
-				<ul>
-					<li><a href="history.html" alt="history">History</a></li>
-					<li><a href="activities.html" alt="activities">Activities</a></li>
-					<li><a href="districts.html" alt="districts">Districts</a></li>
-					<li><a href="transportation.html" alt=transportation>Transportation</a></li>
-				</ul>
-			</div>
-
-		</div>
-	</nav>
+	<?php include("nav.html"); ?>
 
 	<article>
+		<!-- Slideshow -->
+		<section id="slideshow">
+			<div class="container">
+				<div id="slide1" class="slide"></div>
+				<div id="slide2" class="slide"></div>
+				<div id="slide3" class="slide"></div>
+				<div id="slide4" class="slide"></div>
+
+			</div>
+		</section>
 
 		<!-- Description -->
 		<section id="description">
 			<div class="container">
-				<h1>Transportation Description</h1>
+				<h1>Description</h1>
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit fugit non saepe et maiores eaque
 					dignissimos ea mollitia! Incidunt, magnam quaerat ducimus at unde eum laboriosam natus minima ullam
 					ratione.</p>
+
 			</div>
+		</section>
+
+		<!-- Highlights -->
+		<section id="highlights" class="container">
+			<h1>Highlights</h1>
+			<div class="flex-container">
+				<figure>
+					<div id="highlightActivities" class="highlight_image"></div>
+					<figcaption>Activities Highlight Image</figcaption>
+				</figure>
+				<div class="highlightContent">
+					<h2>Activities Highlight Title</h2>
+					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi veniam
+						aut ducimus tempore harum eaque earum sequi aliquam minus modi aliquid
+						esse debitis iste placeat provident, vitae cumque natus nisi.
+					</p>
+					<a href="activities.html" class="button">More Activities</a>
+				</div>
+			</div>
+			<div class="flex-container">
+				<figure>
+					<div id="highlightDistricts" class="highlight_image"></div>
+					<figcaption>Districts Highlight Image</figcaption>
+				</figure>
+				<div class="highlightContent">
+					<h2>Districts Highlight Title</h2>
+					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi veniam
+						aut ducimus tempore harum eaque earum sequi aliquam minus modi aliquid
+						esse debitis iste placeat provident, vitae cumque natus nisi.
+					</p>
+					<a href="districts.html" class="button">Check Out The Districts</a>
+				</div>
+			</div>
+			<div class="flex-container">
+				<figure>
+					<div id="highlightHistory" class="highlight_image"></div>
+					<figcaption>History Highlight Image</figcaption>
+				</figure>
+				<div class="highlightContent">
+					<h2>History Highlight Title</h2>
+					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi veniam
+						aut ducimus tempore harum eaque earum sequi aliquam minus modi aliquid
+						esse debitis iste placeat provident, vitae cumque natus nisi.
+					</p>
+					<a href="history.html" class="button">Travel in Time</a>
+				</div>
+			</div>
+
+		</section>
+
+		<!-- Tiles -->
+		<section id="tiles" class="container">
+			<h1>Tiles</h1>
+			<ul class="flex-container">
+				<li class="flex-item-tile">
+					<div class="tileTitle">
+						<h3>Tile Title</h3>
+					</div>
+					<figure>
+						<img src="" alt="Tile Image">
+						<figcaption>Tile Description</figcaption>
+					</figure>
+					<div class="tileContent">
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum,
+							porro vero. A nam inventore sint dolorem alias delectus non culpa!
+							Expedita ullam quam repudiandae doloremque debitis nobis provident
+							enim eveniet.
+						</p>
+					</div>
+				</li>
+				<li class="flex-item-tile">
+					<div class="tileTitle">
+						<h3>Tile Title</h3>
+					</div>
+					<figure>
+						<img src="" alt="Tile Image">
+						<figcaption>Tile Description</figcaption>
+					</figure>
+					<div class="tileContent">
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum,
+							porro vero. A nam inventore sint dolorem alias delectus non culpa!
+							Expedita ullam quam repudiandae doloremque debitis nobis provident
+							enim eveniet.
+						</p>
+					</div>
+				</li>
+				<li class="flex-item-tile">
+					<div class="tileTitle">
+						<h3>Tile Title</h3>
+					</div>
+					<figure>
+						<img src="" alt="Tile Image">
+						<figcaption>Tile Description</figcaption>
+					</figure>
+					<div class="tileContent">
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum,
+							porro vero. A nam inventore sint dolorem alias delectus non culpa!
+							Expedita ullam quam repudiandae doloremque debitis nobis provident
+							enim eveniet.
+						</p>
+					</div>
+				</li>
+				<li class="flex-item-tile">
+					<div class="tileTitle">
+						<h3>Tile Title</h3>
+					</div>
+					<figure>
+						<img src="" alt="Tile Image">
+						<figcaption>Tile Description</figcaption>
+					</figure>
+					<div class="tileContent">
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum,
+							porro vero. A nam inventore sint dolorem alias delectus non culpa!
+							Expedita ullam quam repudiandae doloremque debitis nobis provident
+							enim eveniet.
+						</p>
+					</div>
+				</li>
+				<li class="flex-item-tile">
+					<div class="tileTitle">
+						<h3>Tile Title</h3>
+					</div>
+					<figure>
+						<img src="" alt="Tile Image">
+						<figcaption>Tile Description</figcaption>
+					</figure>
+					<div class="tileContent">
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum,
+							porro vero. A nam inventore sint dolorem alias delectus non culpa!
+							Expedita ullam quam repudiandae doloremque debitis nobis provident
+							enim eveniet.
+						</p>
+					</div>
+				</li>
+				<li class="flex-item-tile">
+					<div class="tileTitle">
+						<h3>Tile Title</h3>
+					</div>
+					<figure>
+						<img src="" alt="Tile Image">
+						<figcaption>Tile Description</figcaption>
+					</figure>
+					<div class="tileContent">
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum,
+							porro vero. A nam inventore sint dolorem alias delectus non culpa!
+							Expedita ullam quam repudiandae doloremque debitis nobis provident
+							enim eveniet.
+						</p>
+					</div>
+				</li>
+			</ul>
 		</section>
 
 		<!-- Getting Around -->
@@ -127,7 +276,6 @@
 					</div>
 				</div>
 		</section>
-
 		<!-- Book -->
 		<section id="book" class="container">
 			<div class="flex-container">
@@ -253,34 +401,8 @@
 		</section>
 
 	</article>
-	<footer>
-			<!-- Contact -->
-			<section id="contact" class="container">
-				<form id="contactForm" action="" method="post">
-					<fieldset>
-						<legend>
-							<h3>Contact Us</h3>
-						</legend>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-							Reprehenderit neque eum repellendus modi rem eligendi possimus
-							corrupti molestiae quisquam. Tenetur voluptates praesentium numquam
-							dolorum repellat sunt? Asperiores necessitatibus maxime vitae?
-						</p>
-					</fieldset>
-				</form>
-			</section>
-			<!-- Vertical Navigation -->
-			<section id="sitemap" class="container">
-				<a href="index.html" class="logoSM"></a>
-				<ul>
-					<li><a href="history.html" alt="history">History</a></li>
-					<li><a href="activities.html" alt="activities">Activities</a></li>
-					<li><a href="districts.html" alt="districts">Districts</a></li>
-					<li><a href="transportation.html" alt=transportation>Transportation</a></li>
-				</ul>
-			</section>
-		</footer>
-
+	<!-- Footer -->
+	<?php include("footer.html"); ?>
 	<script>
 		function selectTab(evt, selectedTab) {
 			var i, tabContent, tabLink;
