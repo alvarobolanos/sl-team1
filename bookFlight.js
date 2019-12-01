@@ -16,10 +16,63 @@
 
 // Global Variables
 var currentDate = new Date();   // Used to store current date.
-var formValidity = 0;           // Used to verify form validity.
 var summaryArray = new Array(); // Used to store summary elements.
 
 // Functions
+
+/*
+ * Name        : validateName()
+ * Parameters  : none
+ * Processes   : Checks if a name is valid.
+ * Return Value: Boolean: True if a name is valid, false otherwise.
+ */
+
+function validateFirstName() {
+	var inputFirstName = document.getElementById["firstName"];
+	var inputLastName = document.getElementById["lastName"];
+	var nameFormat = /[\w-]{2,}$/;								// At least 
+	try {
+		if(nameFormat.test(inputFirstName) === false) {
+			throw "Please ensure that your name is at least 2 characters long.";
+		} else {
+			firstNameError.style.display = "none";
+		}
+		if(nameFormat.test(inputLastName) === false) {
+			throw "Please ensure that your last name is at longer 2 characters long.";
+		} else {
+			lastNameError.style.display = "none";
+		}
+	} catch(msg) {
+		firstNameError.style.display = "block";
+		firstNameError.innerHTML = "<p>" + msg + "</p>";
+		lastNameError.style.display = "block";
+		
+	}
+}
+
+/*
+ * Name        : validateEmail()
+ * Parameters  : none
+ * Processes   : Checks if an email is valid.
+ * Return Value: Boolean: True if an email is valid, false otherwise.
+ */
+
+ function validateEmail() {
+	var inputEmail = document.getElementById("email").value;
+	var emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	try {
+		if(emailFormat.test(inputEmail) === false) {
+			throw "Please enter a valid email.";
+		} else {
+			emailError.style.display = "none";
+			return true;
+		}
+	} catch(msg) {
+		emailError.style.display = "block";
+		emailError.innerHTML = "<p>" + msg + "</p>";
+	}
+}
+
 /*
  * Name        : isRoundTrip()
  * Parameters  : none
@@ -106,7 +159,7 @@ function numberOfTickets() {
 	try {
 		if (numberOfTickets <= 0) {
 			// document.getElementById("numTickets").value = 1;
-			formValidity = 0;
+			++formValidity;
 			throw "Minimum number of tickets should be 1.";
 		} else {
 			numError.style.display = "none";
@@ -117,7 +170,7 @@ function numberOfTickets() {
 	} catch (msg) {
 		numError.style.display = "block";
 		numError.innerHTML = "<p>" + msg + "</p>";
-		formValidity = false;
+
 	}
 }
 
@@ -245,6 +298,14 @@ function calculateCost() {
  */
 function createEventListeners() {
 
+	// Event Listener for validateEmail().
+	var validEmail = document.getElementById("email");
+	if (validEmail.addEventListener) {
+		validEmail.addEventListener("change", validateEmail, false);
+	} else if (validEmail.attachEvent) {
+		validEmail.attachEvent("onchange", validateEmail);
+	}
+	
 	// Event Listener for isOneWay().
 	var oneWay = document.getElementById("tripTwo");
 	if (oneWay.addEventListener) {
