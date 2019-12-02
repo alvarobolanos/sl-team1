@@ -69,6 +69,8 @@ body
 	color: $white
 	width: 10em
 	transition: all 0.5s ease
+	font-size: 1.15em
+	cursor: pointer
 
 	&:hover
 		background-color: $green
@@ -353,7 +355,7 @@ nav
 		&:inactive
 			background-color: $lighter-grey
 
-	label[for="tripOne"], label[for="tripTwo"]
+	label[for="tripOne"],label[for="tripTwo"]
 		@extend .button
 		width: 100px
 		margin-bottom: 15px
@@ -361,8 +363,8 @@ nav
 
 	input[type="radio"]
 		display: none
-		&:checked+label
-			background-color: $green
+		//&:checked + label
+		//	background-color: $green
 
 	.errorMessage
 		display: none

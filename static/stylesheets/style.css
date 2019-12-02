@@ -57,6 +57,8 @@ body {
   width: 10em;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  font-size: 1.15em;
+  cursor: pointer;
 }
 
 .button:hover, #book .trip_button:hover, #book label:hover[for="tripOne"], #book label:hover[for="tripTwo"] {
@@ -404,10 +406,6 @@ nav a:active {
 
 #book input[type="radio"] {
   display: none;
-}
-
-#book input[type="radio"]:checked + label {
-  background-color: #41bb93;
 }
 
 #book .errorMessage {

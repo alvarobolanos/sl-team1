@@ -3,13 +3,12 @@
 //	* Course      : 202010-COP-2830C-15165 Valencia College
 //	* Facilitator : David Stendel
 //	* Description : HTML Provided by Cengeage
-//	* Team Members: Alvaro Bolanos, Ashley McCray, Raymond Ynoa, Israel Mendez Crespo
+//	* Team Members: Alvaro Bolanos, Ashley McCray, Raymond Ynoa
 //	* Date        : 2019/10/30
 
-//TODO: Validate first and last name: > 2 characters and make required in html.
-//TODO: Validate email and make required in html.
-//TODO: Summary header in calculated costs.
-//TODO: Round trip and one way should stay colored when selected.
+// TODO: Change round trip and one way to working buttons.
+// TODO: Summary header in calculated costs.
+// TODO: Round trip and one way should stay colored when selected.
 
 // Interpret Documents In Javascript Strict Mode.
 "use strict";
@@ -21,32 +20,43 @@ var summaryArray = new Array(); // Used to store summary elements.
 // Functions
 
 /*
- * Name        : validateName()
- * Parameters  : none
- * Processes   : Checks if a name is valid.
- * Return Value: Boolean: True if a name is valid, false otherwise.
+ * Name        : validateFirstName()
+ * Parameters  : none.
+ * Processes   : Checks if first name is valid.
+ * Return Value: none.
  */
 
 function validateFirstName() {
-	var inputFirstName = document.getElementById["firstName"];
-	var inputLastName = document.getElementById["lastName"];
-	var nameFormat = /[\w-]{2,}$/;								// At least 
+	var inputFirstName = document.getElementById("firstName").value;
+	var nameFormat = /[\w-]{2,}/; 
 	try {
 		if(nameFormat.test(inputFirstName) === false) {
-			throw "Please ensure that your name is at least 2 characters long.";
+			throw "Please ensure that your first name is at least 2 characters long.";
 		} else {
 			firstNameError.style.display = "none";
-		}
-		if(nameFormat.test(inputLastName) === false) {
-			throw "Please ensure that your last name is at longer 2 characters long.";
-		} else {
-			lastNameError.style.display = "none";
+			return true;
 		}
 	} catch(msg) {
 		firstNameError.style.display = "block";
 		firstNameError.innerHTML = "<p>" + msg + "</p>";
+		return false;
+	}
+}
+
+function validateLastName() {
+	var inputLastName = document.getElementById("lastName").value;
+	var nameFormat = /[\w-]{2,}/;
+	try {
+		if(nameFormat.test(inputLastName) === false) {
+			throw "Please ensure that your last name is at least 2 characters long.";
+		} else {
+			lastNameError.style.display = "none";
+			return true;
+		}
+	} catch(msg) {
 		lastNameError.style.display = "block";
-		
+		lastNameError.innerHTML = "<p>" + msg + "</p>";
+		return false;
 	}
 }
 
@@ -70,6 +80,7 @@ function validateFirstName() {
 	} catch(msg) {
 		emailError.style.display = "block";
 		emailError.innerHTML = "<p>" + msg + "</p>";
+		return false;
 	}
 }
 
@@ -81,7 +92,12 @@ function validateFirstName() {
  */
 function isRoundTrip() {
 	var roundTrip = document.getElementById("tripOne");
+	var oneWay = document.getElementById("tripTwo");
 	if (roundTrip.checked == true) { // Checks if round trip is selected. 
+		roundTrip.style.checked;
+		roundTrip.style.background-color('#41bb93');
+		oneWay.checked == false;
+
 		placeReturnDate();              // Displays the return date label and input.
 		resetTicketData();
 		summaryArray[1] = "Round Trip";
@@ -98,8 +114,10 @@ function isRoundTrip() {
  * Return Value: Boolean: True if round trip (input#tripTwo) is selected, false otherwise.
  */
 function isOneWay() {
+	var roundTrip = document.getElementById("tripOne");
 	var oneWay = document.getElementById("tripTwo");
 	if (oneWay.checked == true) { // Checks if one way is selected.
+		roundTrip.checked == false;
 		removeReturnDate();          // Hides the return date label and input.
 		resetTicketData();
 		summaryArray[1] = "One Way";
@@ -159,7 +177,6 @@ function numberOfTickets() {
 	try {
 		if (numberOfTickets <= 0) {
 			// document.getElementById("numTickets").value = 1;
-			++formValidity;
 			throw "Minimum number of tickets should be 1.";
 		} else {
 			numError.style.display = "none";
@@ -193,12 +210,6 @@ function handlePastDate() {
 		departureDate.value = stringDeparturDate;
 		summaryDepartureDate.innerText = stringDeparturDate;
 	}
-
-	// if (returnDateObject < departureDateObject) {
-	// 	var stringReturnDate = currentDate.getFullYear() + "-" + (currentDate.getMonth() + 1) + "-" + ((currentDate.getDate() + 1) < 10 ? "0" : "") + currentDate.getDate();
-	// 	returnDate.value = stringReturnDate;
-	// 	summaryReturnDate.innerText = stringReturnDate;
-	// }
 }
 
 /*
@@ -297,6 +308,22 @@ function calculateCost() {
  * Return Value: None.
  */
 function createEventListeners() {
+
+	// Event Listener for validateFirstName().
+	var validFirstName = document.getElementById("firstName");
+	if (validFirstName.addEventListener) {
+		validFirstName.addEventListener("change", validateFirstName, false);
+	} else if (validFirstName.attachEvent) {
+		validFirstName.attachEvent("onchange", validateFirstName);
+	}
+
+	// Event Listener for validateLastName().
+	var validLastName = document.getElementById("lastName");
+	if (validLastName.addEventListener) {
+		validLastName.addEventListener("change", validateLastName, false);
+	} else if (validLastName.attachEvent) {
+		validLastName.attachEvent("onchange", validateLastName);
+	}
 
 	// Event Listener for validateEmail().
 	var validEmail = document.getElementById("email");
