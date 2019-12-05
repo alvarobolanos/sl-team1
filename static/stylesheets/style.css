@@ -90,7 +90,7 @@ form label {
 form input {
   display: inline-block;
   text-align: right;
-  align-item: right;
+  align-items: right;
   width: 150px;
 }
 form #numTickets {
@@ -400,7 +400,7 @@ footer #sitemap li {
   text-align: right;
 }
 footer #sitemap a {
-<<<<<<< HEAD
+
 	font-family: "Lato", sans-serif;
 	font-size: 14px;
 	font-variant: bold;
@@ -443,20 +443,12 @@ footer #sitemap a {
 	from {opacity: .4} 
 	to {opacity: 1}
   }
-  
-=======
-  font-family: "Lato", sans-serif;
-<<<<<<< HEAD
-  padding: 10px;
-}
 
 label, input, textarea{
   display:block;
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> bf847daba9bd4912dc0dca0cc8afef6ef2c796b2
+
 /*History */
 
 .container-history {
@@ -479,20 +471,7 @@ label, input, textarea{
 	width: 100%;
   	border-radius: 5px; /* 5px rounded corners */
 }
+ 
 
-
-
-<<<<<<< HEAD
-=======
-
->>>>>>> bf847daba9bd4912dc0dca0cc8afef6ef2c796b2
-=======
-  font-size: 14px;
-  font-variant: bold;
-  color: #3754a5;
-  text-decoration: none;
-}
-
->>>>>>> 9df968c793512195ced657bce132bc319303ef72
 /*# sourceMappingURL=style.css.map */
->>>>>>> c5ae23d7315074844d390b613c26895e4ad435af
+
