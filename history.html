@@ -8,15 +8,15 @@
 		* Course      : 202010-COP-2830C-15165 Valencia College
 		* Facilitator : David Stendel
 		* Description : A template for HTML for AJS9a
-		* Team Members: Alvaro Bolanos, Ashley McCray, Raymond Ynoa, Israel Mendez Crespo
-		* Date:       : 2019-11-2
+		* Team Members: Alvaro Bolanos, Ashley McCray, Raymond Ynoa
+		* Date:       : 
 	-->
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 	<!-- Stylesheet link. -->
-	<link rel="stylesheet" href="static/stylesheets/style.css" />
+	<link rel="stylesheet" href="/static/stylesheets/style.css" />
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Raleway&display=swap" rel="stylesheet">
 
 	<!--<script src="/scripts/modernizr.custom.65897.js"></script> -->
@@ -28,10 +28,10 @@
 </head>
 
 <body>
-	<!-- Navigation -->
+	<!-- Navigation Bar. -->
 	<nav>
 		<div class="container flex-container">
-			<a href="index.html" class="logo"></a>
+			<div class="logo"></div>
 			<div id="mainMenu">
 				<ul>
 					<li><a href="history.html" alt="history">History</a></li>
@@ -40,10 +40,11 @@
 					<li><a href="transportation.html" alt=transportation>Transportation</a></li>
 				</ul>
 			</div>
+
 		</div>
 	</nav>
 	<center>
-		<img src="static/images/denver_map2_history.jpg" alt="Colorado Map" width=100% height=650 />
+		<img src="static/images/denver_map_history.jpg" alt="Colorado Map" width=60% />
 	</center>
 	<!-- Description -->
 	<section id="description">
@@ -93,7 +94,7 @@
 			<div class="card-history">
 				<div>
 					<h3><b>Larimer Square</b></h3>
-					<img src="static/images/larSquare_history.jpg" alt="Larimer Square" style="width:100%">
+					<img src="static/images/co_center_history.jpg" alt="Larimer Square" style="width:100%">
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
 						labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 						laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
@@ -106,7 +107,7 @@
 			<div class=" card-history">
 				<div>
 					<h3><b>Denver Broncos</b></h3>
-					<img src="static/images/broncos_history.jpg" alt="Denver Broncos" style="width:100%">
+					<img src="static/images/co_center_history.jpg" alt="Denver Broncos" style="width:100%">
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
 						labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 						laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
@@ -145,6 +146,7 @@
 	</div>
 
 	<!-- Footer -->
+	<!-- TODO: Needs to be styled. -->
 	<footer>
 		<!-- Contact -->
 		<section id="contact" class="container">
@@ -153,27 +155,29 @@
 					<legend>
 						<h3>Contact Us</h3>
 					</legend>
-					<label>
-						<p>Email:</p>
-						<input type="email" class="email" />
-					</label><br />
-					<label>
-						<p>Subject:</p>
-						<input type="text" class="subject" />
-					</label><br />
-					<label>
-						<p>Message:</p>
-						<textarea rows="5"></textarea>
-					</label><br />
-					<div class="status">
-					</div>
-					<button type="submit" class="button">Send</button>
+					<form>
+						<label>
+							Email
+							<input type="email" class="email" />
+						</label>
+						<label>
+							Subject
+							<input type="text" class="subject" />
+						</label>
+						<label>
+							Message
+							<textarea></textarea>
+						</label>
+						<div class="status">
+						</div>
+						<button type="submit" class="button">Send</button>
+					</form>
 				</fieldset>
 			</form>
 		</section>
 		<!-- Vertical Navigation -->
 		<section id="sitemap" class="container">
-			<a href="index.html" class="logoSM"></a>
+			<div class="logoSM"></div>
 			<ul>
 				<li><a href="history.html" alt="history">History</a></li>
 				<li><a href="activities.html" alt="activities">Activities</a></li>

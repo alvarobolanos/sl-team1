@@ -1,405 +1,406 @@
 .container {
-	width: 80%;
-	max-width: 1920px;
-	margin: 0 auto;
-	padding: 2%;
+  width: 80%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 2%;
 }
 
 h1 {
-	font-variant: light;
-	font-size: 24px;
-	font-family: "Lato", sans-serif;
-	color: #4b9cd6;
+  font-variant: light;
+  font-size: 24px;
+  font-family: "Lato", sans-serif;
+  color: #4b9cd6;
 }
 
 h2 {
-	font-variant: bold;
-	font-size: 19px;
-	font-family: "Lato", sans-serif;
-	color: #41bb93;
+  font-variant: bold;
+  font-size: 19px;
+  font-family: "Lato", sans-serif;
+  color: #41bb93;
 }
 
 h3 {
-	font-variant: regular;
-	font-size: 17px;
-	font-family: "Lato", sans-serif;
-	color: #3754a5;
+  font-variant: regular;
+  font-size: 17px;
+  font-family: "Lato", sans-serif;
+  color: #3754a5;
 }
 
 p {
-	font-variant: regular;
-	font-size: 15px;
-	font-family: "Raleway", sans-serif;
-	color: #7d7d7d;
+  font-variant: regular;
+  font-size: 15px;
+  font-family: "Raleway", sans-serif;
+  color: #7d7d7d;
 }
 
 ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 body {
-	background-color: rgba(171, 171, 171, 0.125);
-	margin: auto;
+  background-color: rgba(171, 171, 171, 0.125);
+  margin: auto;
 }
 
 .button, #book label[for=tripOne], #book label[for=tripTwo], #book .trip_button {
-	display: block;
-	padding: 10px 20px;
-	border-radius: 5px;
-	text-align: center;
-	text-decoration: none;
-	font-family: "Raleway", sans-serif;
-	font-weight: bold;
-	background-color: #3754a5;
-	color: white;
-	width: 10em;
-	transition: all 0.5s ease;
+  display: block;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  background-color: #3754a5;
+  color: white;
+  width: 10em;
+  transition: all 0.5s ease;
 }
 .button:hover, #book label[for=tripOne]:hover, #book label[for=tripTwo]:hover, #book .trip_button:hover {
-	background-color: #41bb93;
+  background-color: #41bb93;
 }
 .button:active, #book label[for=tripOne]:active, #book label[for=tripTwo]:active, #book .trip_button:active {
-	background-color: #41bb93;
+  background-color: #41bb93;
 }
 .button:selection, #book label[for=tripOne]:selection, #book label[for=tripTwo]:selection, #book .trip_button:selection {
-	background-color: #41bb93;
+  background-color: #41bb93;
 }
 
 figure figcaption {
-	font-size: 15px;
-	font-family: "Raleway", sans-serif;
-	color: #ababab;
-	text-align: center;
+  font-size: 15px;
+  font-family: "Raleway", sans-serif;
+  color: #ababab;
+  text-align: center;
 }
 
 form {
-	width: 100%;
+  width: 100%;
 }
 form fieldset {
-	border-width: 0 none;
-	border-style: none;
-	border-color: none;
+  border-width: 0 none;
+  border-style: none;
+  border-color: none;
 }
 form label {
-	text-align: left;
-	display: inline-block;
-	width: 150px;
+  text-align: left;
+  display: inline-block;
+  width: 150px;
 }
 form input {
-	display: inline-block;
-	text-align: right;
-	align-item: right;
-	width: 150px;
+  display: inline-block;
+  text-align: right;
+  align-item: right;
+  width: 150px;
 }
 form #numTickets {
-	width: 50px;
+  width: 50px;
 }
 form #departureDate {
-	width: 120px;
+  width: 120px;
 }
 form #returnDate {
-	width: 120px;
+  width: 120px;
 }
 
 .flex-container {
-	display: flex;
-	padding: 0;
-	list-style: none;
-	justify-content: space-between;
-	flex-direction: row;
-	flex-wrap: wrap;
+  display: flex;
+  padding: 0;
+  list-style: none;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .flex-item, #tiles .flex-item-tile {
-	margin: 10px;
-	width: auto;
+  margin: 10px;
+  width: auto;
 }
 
 .logo, footer .logoSM {
-	background-image: url("../images/logo.svg");
-	background-repeat: no-repeat;
-	background-size: contain;
-	width: 100px;
-	height: 80px;
-	align-self: center;
+  background-image: url("../images/logo.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100px;
+  height: 80px;
+  align-self: center;
 }
 
 nav {
-	background-color: rgba(171, 171, 171, 0.125);
-	height: 100px;
-	display: flex;
-	justify-content: space-between;
+  background-color: rgba(171, 171, 171, 0.125);
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
 }
 nav #mainMenu {
-	align-self: center;
+  align-self: center;
 }
 nav li {
-	display: inline;
-	padding: 10px;
+  display: inline;
+  padding: 10px;
 }
 nav a {
-	color: #7d7d7d;
-	text-decoration: none;
-	font-variant: light;
-	font-size: 16px;
-	font-family: "Lato", sans-serif;
+  color: #7d7d7d;
+  text-decoration: none;
+  font-variant: light;
+  font-size: 16px;
+  font-family: "Lato", sans-serif;
 }
 nav a:hover {
-	color: #41bb93;
+  color: #41bb93;
 }
 nav a:active {
-	color: #4b9cd6;
+  color: #4b9cd6;
 }
 
 #slideshow {
-	margin: 0;
-	padding: 0;
-	height: 400px;
-	width: 100%;
-	position: relative;
+  margin: 0;
+  padding: 0;
+  height: 400px;
+  width: 100%;
+  position: relative;
 }
 
 #slide1 {
-	background: url("../images/slideshow_activities.png") no-repeat center;
-	background-size: cover;
+  background: url("../images/slideshow_activities.png") no-repeat center;
+  background-size: cover;
 }
 
 #slide2 {
-	background: url("../images/slideshow_districts.png") no-repeat center;
-	background-size: cover;
+  background: url("../images/slideshow_districts.png") no-repeat center;
+  background-size: cover;
 }
 
 #slide3 {
-	background: url("../images/slideshow_history.png") no-repeat center;
-	background-size: cover;
+  background: url("../images/slideshow_history.png") no-repeat center;
+  background-size: cover;
 }
 
 #slide4 {
-	background: url("../images/slideshow_transportation.png") no-repeat center;
-	background-size: cover;
+  background: url("../images/slideshow_transportation.png") no-repeat center;
+  background-size: cover;
 }
 
 .slide {
-	width: 100%;
-	height: 400px;
-	position: absolute;
-	top: 0;
-	left: 0;
+  width: 100%;
+  height: 400px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 #description {
-	background-color: white;
+  background-color: white;
 }
 
 #highlights div.flex-container {
-	margin: 20px 15px;
+  margin: 20px 15px;
 }
 #highlights .flex-container {
-	flex-wrap: nowrap;
+  flex-wrap: nowrap;
 }
 #highlights a {
-	margin: 10px 0;
+  margin: 10px 0;
 }
 #highlights div:nth-child(odd) {
-	flex-direction: row;
+  flex-direction: row;
 }
 #highlights div:nth-child(odd) .highlightContent {
-	text-align: end;
+  text-align: end;
 }
 #highlights div:nth-child(odd) a {
-	float: right;
+  float: right;
 }
 #highlights div:nth-child(even) {
-	flex-direction: row-reverse;
+  flex-direction: row-reverse;
 }
 #highlights div:nth-child(even) .highlightContent {
-	text-align: start;
+  text-align: start;
 }
 
 #highlightActivities {
-	background: url("../images/highlight_activities.png") no-repeat;
-	background-size: contain;
-	background-position: center;
+  background: url("../images/highlight_activities.png") no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 #highlightDistricts {
-	background: url("../images/highlight_districts.png") no-repeat;
-	background-size: contain;
-	background-position: center;
+  background: url("../images/highlight_districts.png") no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 #highlightHistory {
-	background: url("../images/highlight_history.png") no-repeat;
-	background-size: contain;
-	background-position: center;
+  background: url("../images/highlight_history.png") no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 .highlight_image {
-	width: 400px;
-	height: 250px;
+  width: 400px;
+  height: 250px;
 }
 
 #carRentalImage1 {
-	background: url("../images/tabs_carRental1.png") no-repeat;
-	background-size: contain;
-	background-position: center;
+  background: url("../images/tabs_carRental1.png") no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 #carRentalImage2 {
-	background: url("../images/tabs_carRental2.png") no-repeat;
-	background-size: contain;
-	background-position: center;
+  background: url("../images/tabs_carRental2.png") no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 #publicTransporationImage1 {
-	background: url("../images/tabs_publicTransportation1.png") no-repeat;
-	background-size: contain;
-	background-position: center;
+  background: url("../images/tabs_publicTransportation1.png") no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 #publicTransporationImage2 {
-	background: url("../images/tabs_publicTransportation2.png") no-repeat;
-	background-size: contain;
-	background-position: center;
+  background: url("../images/tabs_publicTransportation2.png") no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 .tabImages {
-	width: 100%;
-	height: 300px;
+  width: 100%;
+  height: 300px;
 }
 
 .tabs {
-	overflow: hidden;
-	border: 1px solid #ababab;
+  overflow: hidden;
+  border: 1px solid #ababab;
 }
 .tabs button {
-	float: left;
-	border: none;
-	outline: none;
-	background-color: inherit;
-	cursor: pointer;
-	padding: 15px;
-	transition: 0.3s;
+  float: left;
+  border: none;
+  outline: none;
+  background-color: inherit;
+  cursor: pointer;
+  padding: 15px;
+  transition: 0.3s;
 }
 .tabs button:hover {
-	background-color: white;
+  background-color: white;
 }
 .tabs button.active {
-	background-color: #7d7d7d;
+  background-color: #7d7d7d;
 }
 .tabs .tabContent {
-	border-top: none;
-	border: 1px solid #ababab;
-	padding: 6px 12px;
-	display: none;
-	transition: 0.3s;
+  border-top: none;
+  border: 1px solid #ababab;
+  padding: 6px 12px;
+  display: none;
+  transition: 0.3s;
 }
 
 #tiles .flex-item-tile {
-	background: #ababab;
-	padding: 2px;
-	width: 300px;
-	margin-top: 10px;
-	color: #7d7d7d;
+  background: #ababab;
+  padding: 2px;
+  width: 300px;
+  margin-top: 10px;
+  color: #7d7d7d;
 }
 
 .container-history {
-	padding: 10px;
-	float: center;
-	width: 60%;
-	margin: 0 auto 20px auto;
+  padding: 10px;
+  float: center;
+  width: 60%;
+  margin: 0 auto 20px auto;
 }
 
 .grid-history {
-	display: grid;
-	grid-template-columns: 7fr 7fr 7fr;
-	grid-template-rows: 10fr 10fr;
-	grid-gap: 33px;
+  display: grid;
+  grid-template-columns: 7fr 7fr 7fr;
+  grid-template-rows: 10fr 10fr;
+  grid-gap: 33px;
 }
 
 .card-history {
-	background-color: white;
-	width: 100%;
-	padding: 10px;
+  background-color: white;
+  width: 100%;
+  padding: 10px;
 }
 
 #book {
-	background-color: white;
-	width: 55%;
+  background-color: white;
+  width: 55%;
 }
 #book .trip_button {
-	margin: 0 0 15px;
+  margin: 0 0 15px;
 }
 #book .trip_button:active {
-	background-color: #41bb93;
+  background-color: #41bb93;
 }
 #book .trip_button:inactive {
-	background-color: rgba(171, 171, 171, 0.125);
+  background-color: rgba(171, 171, 171, 0.125);
 }
 #book label[for=tripOne], #book label[for=tripTwo] {
-	width: 100px;
-	margin-bottom: 15px;
-	cursor: pointer;
+  width: 100px;
+  margin-bottom: 15px;
+  cursor: pointer;
 }
 #book input[type=radio] {
-	display: none;
+  display: none;
 }
 #book input[type=radio]:checked + label {
-	background-color: #41bb93;
+  background-color: #41bb93;
 }
 
 #cost {
-	background-color: rgba(171, 171, 171, 0.125);
-	width: 35%;
+  background-color: rgba(171, 171, 171, 0.125);
+  width: 35%;
 }
 #cost table {
-	width: 100%;
+  width: 100%;
 }
 #cost table td {
-	vertical-align: bottom;
+  vertical-align: bottom;
 }
 #cost table td:nth-child(2) {
-	text-align: right;
+  text-align: right;
 }
 #cost a {
-	float: right;
-	margin: 20px;
-	width: 80%;
+  float: right;
+  margin: 20px;
+  width: 80%;
 }
 
 footer {
-	display: flex;
-	background-color: rgba(171, 171, 171, 0.125);
+  display: flex;
+  background-color: rgba(171, 171, 171, 0.125);
 }
 footer section {
-	justify-content: space-around;
-	align-content: space-between;
+  justify-content: space-around;
+  align-content: space-between;
 }
 footer .logoSM {
-	display: block;
-	align-self: flex-end;
-	margin: 10px 0px 20px;
+  display: block;
+  align-self: flex-end;
+  margin: 10px 0px 20px;
 }
 footer #contact {
-	width: 80%;
+  width: 80%;
 }
 footer #contactForm input {
-	width: 300px;
+  width: 300px;
 }
 footer #contactForm textarea {
-	width: 300px;
+  width: 300px;
 }
 footer #sitemap {
-	width: 20%;
-	display: flex;
-	flex-direction: column;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
 }
 footer #sitemap li {
-	text-align: right;
+  text-align: right;
 }
 footer #sitemap a {
+<<<<<<< HEAD
 	font-family: "Lato", sans-serif;
 	font-size: 14px;
 	font-variant: bold;
@@ -443,3 +444,55 @@ footer #sitemap a {
 	to {opacity: 1}
   }
   
+=======
+  font-family: "Lato", sans-serif;
+<<<<<<< HEAD
+  padding: 10px;
+}
+
+label, input, textarea{
+  display:block;
+}
+<<<<<<< HEAD
+=======
+
+>>>>>>> bf847daba9bd4912dc0dca0cc8afef6ef2c796b2
+/*History */
+
+.container-history {
+	padding: 10px;
+	float: center;
+	width: 60%;
+	margin: 0 auto;
+}
+
+.grid-history {
+	display: grid;
+	grid-template-columns: 10fr 10fr 10fr;
+	grid-template-rows: 10fr 10fr 10fr;
+	grid-gap: 20px;
+}
+
+.card-history {
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+ 	transition: 0.3s;
+	width: 100%;
+  	border-radius: 5px; /* 5px rounded corners */
+}
+
+
+
+<<<<<<< HEAD
+=======
+
+>>>>>>> bf847daba9bd4912dc0dca0cc8afef6ef2c796b2
+=======
+  font-size: 14px;
+  font-variant: bold;
+  color: #3754a5;
+  text-decoration: none;
+}
+
+>>>>>>> 9df968c793512195ced657bce132bc319303ef72
+/*# sourceMappingURL=style.css.map */
+>>>>>>> c5ae23d7315074844d390b613c26895e4ad435af
