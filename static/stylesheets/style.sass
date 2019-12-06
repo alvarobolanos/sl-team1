@@ -72,14 +72,9 @@ body
 	font-size: 1.15em
 	cursor: pointer
 
-	&:hover
+	&:hover, &:active
 		background-color: $green
 	
-	&:active
-		background-color: $green
-
-	&:checked
-		background-color: $green
 
 // Figures
 
@@ -350,12 +345,8 @@ nav
 		margin: 0 0 15px
 		@extend .button
 		
-		&:active
-			background-color: $green
-		&:inactive
-			background-color: $lighter-grey
 
-	label[for="tripOne"],label[for="tripTwo"]
+	label[for="tripOne"], label[for="tripTwo"]
 		@extend .button
 		width: 100px
 		margin-bottom: 15px
@@ -363,8 +354,6 @@ nav
 
 	input[type="radio"]
 		display: none
-		//&:checked + label
-		//	background-color: $green
 
 	.errorMessage
 		display: none
@@ -378,6 +367,21 @@ nav
 			font-weight: bold
 			text-align: center
 			color: $errorTxt
+	
+#purchaseButton
+	@extend .button
+	cursor: not-allowed
+	background: $lighter-grey
+	color: $dark-grey
+	border: 1px solid $light-grey
+	&:hover
+		background: $light-grey
+		color: black
+		border: 1px solid black
+
+	&.enable
+		@extend .button
+		cursor: pointer
 
 #cost
 	background-color: $lighter-grey

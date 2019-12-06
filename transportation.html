@@ -8,7 +8,7 @@
 	  * Course      : 202010-COP-2830C-15165 Valencia College
 	  * Facilitator : David Stendel
 	  * Description : A template for HTML for AJS9a
-	  * Team Members: Alvaro Bolanos, Ashley McCray, Raymond Ynoa
+	  * Team Members: Alvaro Bolanos, Ashley McCray
 	  * Date        : 2019-10-09
 		-->
 	<meta charset="UTF-8">
@@ -158,11 +158,9 @@
 								<div class="container">
 									<div class="container flex-container">
 										<label for="tripOne">Round Trip</label>
-										<input name="tripType" type="radio" class="trip_button" value="Round Trip"
-											id="tripOne" checked>
+										<input name="tripType" type="radio" class="trip_button" value="Round Trip" id="tripOne" checked="checked">
 										
-										<input name="tripType" type="radio" class="trip_button" value="One-Way"
-											id="tripTwo">
+										<input name="tripType" type="radio" class="trip_button" value="One-Way" id="tripTwo">
 										<label for="tripTwo">One Way</label>
 									</div>
 	
@@ -177,6 +175,7 @@
 										<p>Departure Date:</p>
 									</label>
 									<input id="departureDate" type="date" /><br />
+									<div id="departureDateError" class="errorMessage"></div>
 									
 									<label for="returnDate">
 										<p class="removeReturnDate">Return Date:</p>
@@ -251,7 +250,7 @@
 								</td>
 							</tr>
 						</table>
-						<a href="" class="button">Purchase Ticket(s)</a>
+						<a href="" id="purchaseButton" class="button">Purchase Ticket(s)</a>
 					</div>
 				</div>
 	

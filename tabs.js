@@ -31,7 +31,7 @@ function selectTab(evt, selectedTab) {
 		tabLink[i].className = tabLink[i].className.replace("active", "");
 	}
 	document.getElementById(selectedTab).style.display = "block";
-	evt.currentTarget.className += "active";
+	evt.currentTarget.className += " active";
 }
 
 /*

@@ -6,9 +6,10 @@
 //	* Team Members: Alvaro Bolanos, Ashley McCray, Raymond Ynoa
 //	* Date        : 2019/10/30
 
-// TODO: Change round trip and one way to working buttons.
-// TODO: Summary header in calculated costs.
-// TODO: Round trip and one way should stay colored when selected.
+// TODO: Round trip and one way labels should stay colored when selected.
+// NOTE: Having trouble with targeting the label for the input. 
+// TODO: Form completion is adding to more than what's needed.
+// NOTE: Seems that there are double calls which is fine if I'm able to account for them. Else thought it be best to treat it exactly as the errors instead of how it's being done now.
 
 // Interpret Documents In Javascript Strict Mode.
 "use strict";
@@ -16,7 +17,8 @@
 // Global Variables
 var currentDate = new Date();   // Used to store current date.
 var summaryArray = new Array(); // Used to store summary elements.
-
+var errors = 0;
+var formCompletion = 0;
 // Functions
 
 /*
@@ -34,15 +36,25 @@ function validateFirstName() {
 			throw "Please ensure that your first name is at least 2 characters long.";
 		} else {
 			firstNameError.style.display = "none";
+			(errors <= 1) ? errors = 0 : --errors;
+			++formCompletion;
 			return true;
 		}
 	} catch(msg) {
 		firstNameError.style.display = "block";
 		firstNameError.innerHTML = "<p>" + msg + "</p>";
+		++errors;
+		(formCompletion <= 1) ? formCompletion = 0 : --formCompletion;
 		return false;
 	}
 }
 
+/*
+ * Name        : validateLastName()
+ * Parameters  : none.
+ * Processes   : Checks if last name is valid.
+ * Return Value: none.
+ */
 function validateLastName() {
 	var inputLastName = document.getElementById("lastName").value;
 	var nameFormat = /[\w-]{2,}/;
@@ -51,11 +63,15 @@ function validateLastName() {
 			throw "Please ensure that your last name is at least 2 characters long.";
 		} else {
 			lastNameError.style.display = "none";
+			(errors <= 1) ? errors = 0 : --errors;
+			++formCompletion;
 			return true;
 		}
 	} catch(msg) {
 		lastNameError.style.display = "block";
 		lastNameError.innerHTML = "<p>" + msg + "</p>";
+		++errors;
+		(formCompletion <= 1) ? formCompletion = 0 : --formCompletion;
 		return false;
 	}
 }
@@ -75,11 +91,15 @@ function validateLastName() {
 			throw "Please enter a valid email.";
 		} else {
 			emailError.style.display = "none";
+			(errors <= 1) ? errors = 0 : --errors;
+			++formCompletion;
 			return true;
 		}
 	} catch(msg) {
 		emailError.style.display = "block";
 		emailError.innerHTML = "<p>" + msg + "</p>";
+		++errors;
+		(formCompletion <= 1) ? formCompletion = 0 : --formCompletion;
 		return false;
 	}
 }
@@ -92,15 +112,18 @@ function validateLastName() {
  */
 function isRoundTrip() {
 	var roundTrip = document.getElementById("tripOne");
+	var lRoundTrip = document.querySelector("[for='tripOne']");
 	var oneWay = document.getElementById("tripTwo");
+	var lOneWay = document.querySelector("[for='tripTwo']");
 	if (roundTrip.checked == true) { // Checks if round trip is selected. 
-		roundTrip.style.checked;
-		roundTrip.style.background-color('#41bb93');
+		lRoundTrip.classList.add("active");
 		oneWay.checked == false;
-
+		lOneWay.classList.remove("active");
 		placeReturnDate();              // Displays the return date label and input.
 		resetTicketData();
 		summaryArray[1] = "Round Trip";
+		updateSummaryHeader();
+		calculateCost();
 		return true;
 	} else {
 		return false;
@@ -115,12 +138,18 @@ function isRoundTrip() {
  */
 function isOneWay() {
 	var roundTrip = document.getElementById("tripOne");
+	var lRoundTrip = document.querySelector("[for='tripOne']");
 	var oneWay = document.getElementById("tripTwo");
+	var lOneWay = document.querySelector("[for='tripTwo']");
 	if (oneWay.checked == true) { // Checks if one way is selected.
+		lOneWay.classList.add("active");
 		roundTrip.checked == false;
+		lRoundTrip.classList.remove("active");
 		removeReturnDate();          // Hides the return date label and input.
 		resetTicketData();
 		summaryArray[1] = "One Way";
+		updateSummaryHeader();
+		calculateCost();
 		return true;
 	} else {
 		return false;
@@ -176,18 +205,20 @@ function numberOfTickets() {
 	summaryNumberOfTickets.innerText = numberOfTickets;
 	try {
 		if (numberOfTickets <= 0) {
-			// document.getElementById("numTickets").value = 1;
 			throw "Minimum number of tickets should be 1.";
 		} else {
 			numError.style.display = "none";
 			summaryArray[0] = numberOfTickets;
 			updateSummaryHeader();
+			(errors <= 1) ? errors = 0 : --errors;
+			++formCompletion;
 			return numberOfTickets;
 		}
 	} catch (msg) {
+		++errors;
+		(formCompletion <= 1) ? formCompletion = 0 : --formCompletion;
 		numError.style.display = "block";
 		numError.innerHTML = "<p>" + msg + "</p>";
-
 	}
 }
 
@@ -219,11 +250,37 @@ function handlePastDate() {
  * Return Value: none
  */
 function departureDateHandler() {
-	// var departureDate = document.getElementById("departureDate").value;
-	// var summaryDepartureDate = document.getElementById("summaryDepartureDate");
-	// summaryDepartureDate.innerText = departureDate;
 	handlePastDate();
 	dateInverter();
+}
+
+/*
+ * Name        : validateDepartureDate()
+ * Parameters  : none
+ * Processes   : Reports errors if departure date is in the past.
+ * Return Value: none
+ */
+function validateDepartureDate() {
+	var departureDate = document.getElementById("departureDate").value;
+	var departureDateError = document.getElementById("departureDateError");
+	var departureDateObject = new Date(departureDate);
+	var returnDate = document.getElementById("returnDate").value;
+	var summaryDepartureDate = document.getElementById("summaryDepartureDate");
+
+	try {
+		if (currentDate.getTime() > departureDateObject.getTime()) {
+			throw "The current departure date is not valid. Please select a new departure date";
+		} else {
+			departureDateError.style.display = "none";
+			++formCompletion;
+			(errors <= 1) ? errors = 0 : --errors;
+		}
+	} catch (msg) {
+		departureDateError.style.display = "block";
+		departureDateError.innerHTML = "<p>" + msg + "</p>";
+		++errors;
+		(formCompletion <= 1) ? formCompletion = 0 : --formCompletion;
+	}
 }
 
 /*
@@ -233,9 +290,6 @@ function departureDateHandler() {
  * Return Value: none
  */
 function returnDateHandler() {
-	// var returnDate = document.getElementById("returnDate").value;
-	// var summaryReturnDate = document.getElementById("summaryReturnDate");
-	// summaryReturnDate.innerText = returnDate;
 	handlePastDate();
 	dateInverter();
 }
@@ -262,6 +316,7 @@ function dateInverter() {
 		summaryReturnDate.innerText = tempDate;
 		window.alert("Please note that the dates selected seem incorrect.\n\nThe dates will be  inverted for your convenience.\n\nPlease review them carefully.");
 	}
+	validateDepartureDate();
 }
 
 /*
@@ -272,8 +327,9 @@ function dateInverter() {
  */
 function updateSummaryHeader() {
 	var summary = document.getElementById("summaryHeader");
-	summary.innerHTML = ("Summary: " + (summaryArray[0] >= 1 ? summaryArray[0] : "") + " " + (summaryArray[1] !== "" ? summaryArray[1] : "" + " Ticket"));
-	(summaryArray[0] > 1) ? "s." : ".";
+	summary.innerHTML = ("Summary: " + (summaryArray[0] >= 1 ? summaryArray[0] : "") + " ");
+	summary.innerHTML += (summaryArray[1] !== undefined ? summaryArray[1] : "Round Trip") + " Ticket";
+	summary.innerHTML += (summaryArray[0] > 1) ? "s." : ".";
 }
 
 /*
@@ -289,7 +345,7 @@ function calculateCost() {
 	var subTotal = 0.0;
 	var totalCost = 0.0;
 	subTotal = TICKETPRICE * numberOfTickets();
-	if (isOneWay()) {
+	if (document.getElementById("tripTwo").checked) {
 		subTotal /= 1.85; // Price of ticket one way ticket would have a premium over the regular cost of a 2 way ticket.
 	}
 	tax = (subTotal * (TAX));
@@ -300,6 +356,27 @@ function calculateCost() {
 	document.getElementById("totalCost").innerText = "$" + totalCost.toLocaleString(undefined, {
 		maximumFractionDigits: 2
 	});
+}
+
+/*
+ * Name        : bookable()
+ * Parameters  : None.
+ * Processes   : Reviews form to establish if trip can be booked.
+ * Return Value: None.
+ */
+function bookable() {
+	var purchaseButton = document.getElementById("purchaseButton");
+	if (errors == 0 && formCompletion >=5 ) {
+		if (document.getElementById("departureDate").value !== "")
+			if (document.getElementById("returnDate").value !== "")
+				if (summaryArray[1]!== ""){
+					purchaseButton.classList.add("enable");
+					return true;
+				}
+	} else {
+		purchaseButton.classList.remove("enable");
+		return false;
+	}
 }
 /*
  * Name        : createEventListeners()

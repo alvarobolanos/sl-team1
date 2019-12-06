@@ -44,7 +44,7 @@ body {
   margin: auto;
 }
 
-.button, #book .trip_button, #book label[for="tripOne"], #book label[for="tripTwo"] {
+.button, #book .trip_button, #book label[for="tripOne"], #book label[for="tripTwo"], #purchaseButton, #purchaseButton.enable {
   display: block;
   padding: 10px 20px;
   border-radius: 5px;
@@ -61,15 +61,7 @@ body {
   cursor: pointer;
 }
 
-.button:hover, #book .trip_button:hover, #book label:hover[for="tripOne"], #book label:hover[for="tripTwo"] {
-  background-color: #41bb93;
-}
-
-.button:active, #book .trip_button:active, #book label:active[for="tripOne"], #book label:active[for="tripTwo"] {
-  background-color: #41bb93;
-}
-
-.button:checked, #book .trip_button:checked, #book label:checked[for="tripOne"], #book label:checked[for="tripTwo"] {
+.button:hover, #book .trip_button:hover, #book label:hover[for="tripOne"], #book label:hover[for="tripTwo"], #purchaseButton:hover, .button:active, #book .trip_button:active, #book label:active[for="tripOne"], #book label:active[for="tripTwo"], #purchaseButton:active {
   background-color: #41bb93;
 }
 
@@ -390,14 +382,6 @@ nav a:active {
   margin: 0 0 15px;
 }
 
-#book .trip_button:active {
-  background-color: #41bb93;
-}
-
-#book .trip_button:inactive {
-  background-color: rgba(171, 171, 171, 0.125);
-}
-
 #book label[for="tripOne"], #book label[for="tripTwo"] {
   width: 100px;
   margin-bottom: 15px;
@@ -422,6 +406,23 @@ nav a:active {
   font-weight: bold;
   text-align: center;
   color: #D8000C;
+}
+
+#purchaseButton {
+  cursor: not-allowed;
+  background: rgba(171, 171, 171, 0.125);
+  color: #7d7d7d;
+  border: 1px solid #ababab;
+}
+
+#purchaseButton:hover {
+  background: #ababab;
+  color: black;
+  border: 1px solid black;
+}
+
+#purchaseButton.enable {
+  cursor: pointer;
 }
 
 #cost {
