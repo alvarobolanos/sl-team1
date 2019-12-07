@@ -8,7 +8,7 @@
 		* Course      : 202010-COP-2830C-15165 Valencia College
 		* Facilitator : David Stendel
 		* Description : A template for HTML for AJS9a
-		* Team Members: Alvaro Bolanos, Ashley McCray, Raymond Ynoa
+		* Team Members: Alvaro Bolanos, Ashley McCray, Raymond Ynoa, Israel Mendez Crespo
 		* Date:       : 
 	-->
 	<meta charset="UTF-8">
@@ -28,10 +28,10 @@
 </head>
 
 <body>
-	<!-- Navigation Bar. -->
+	<!-- Navigation -->
 	<nav>
 		<div class="container flex-container">
-			<div class="logo"></div>
+			<a href="index.html" class="logo"></a>
 			<div id="mainMenu">
 				<ul>
 					<li><a href="history.html" alt="history">History</a></li>
@@ -70,10 +70,7 @@
 					<h3><b>Gold Rush</b></h3>
 					<img src="static/images/goldrush_history.jpg" alt="Gold Rush" style="width:100%">
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-						labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-						laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-						voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-						non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+						labore et dolore magna aliqua.
 					</p>
 				</div>
 			</div>
@@ -83,10 +80,7 @@
 					<h3><b>Colorado Center</b></h3>
 					<img src="static/images/co_center_history.jpg" alt="Colorado Center" style="width:100%">
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-						labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-						laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-						voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-						non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+						labore et dolore magna aliqua.
 					</p>
 				</div>
 			</div>
@@ -96,10 +90,7 @@
 					<h3><b>Larimer Square</b></h3>
 					<img src="static/images/co_center_history.jpg" alt="Larimer Square" style="width:100%">
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-						labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-						laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-						voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-						non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+						labore et dolore magna aliqua.
 					</p>
 				</div>
 			</div>
@@ -109,10 +100,7 @@
 					<h3><b>Denver Broncos</b></h3>
 					<img src="static/images/co_center_history.jpg" alt="Denver Broncos" style="width:100%">
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-						labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-						laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-						voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-						non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+						labore et dolore magna aliqua.
 					</p>
 				</div>
 			</div>
@@ -122,10 +110,7 @@
 					<h3><b>Cherry Creek Trail</b></h3>
 					<img src="static/images/cherrycreek_history.jpg" alt="Cherry Creek" style="width:100%">
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-						labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-						laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-						voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-						non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+						labore et dolore magna aliqua.
 					</p>
 				</div>
 			</div>
@@ -135,10 +120,7 @@
 					<h3><b>Denver Beer</b></h3>
 					<img src="static/images/denverbeer_history.jpg" alt="Denver Beer" style="width:100%">
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-						labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-						laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-						voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-						non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+						labore et dolore magna aliqua.
 					</p>
 				</div>
 			</div>
@@ -146,49 +128,48 @@
 	</div>
 
 	<!-- Footer -->
-	<!-- TODO: Needs to be styled. -->
 	<footer>
-		<!-- Contact -->
-		<section id="contact" class="container">
-			<form id="contactForm" action="" method="post">
-				<fieldset>
-					<legend>
-						<h3>Contact Us</h3>
-					</legend>
-					<form>
+			<!-- Contact -->
+			<section id="contact" class="container">
+				<form id="contactForm" action="" method="post">
+					<fieldset>
+						<legend>
+							<h3>Contact Us</h3>
+						</legend>
 						<label>
-							Email
+							<p>Name:</p>
+							<input type="name" />
+						</label><br />
+						<label>
+							<p>Email:</p>
 							<input type="email" class="email" />
-						</label>
-						<br />
+
+						</label><br />
 						<label>
-							Subject
+							<p>Subject:</p>
 							<input type="text" class="subject" />
-						</label>
-						<br />
+						</label><br />
 						<label>
-							Message
-							<textarea></textarea>
-						</label>
-						<br />
+							<p>Message:</p>
+							<textarea rows="5"></textarea>
+						</label><br />
 						<div class="status">
 						</div>
 						<button type="submit" class="button">Send</button>
-					</form>
-				</fieldset>
-			</form>
-		</section>
-		<!-- Vertical Navigation -->
-		<section id="sitemap" class="container">
-			<div class="logoSM"></div>
-			<ul>
-				<li><a href="history.html" alt="history">History</a></li>
-				<li><a href="activities.html" alt="activities">Activities</a></li>
-				<li><a href="districts.html" alt="districts">Districts</a></li>
-				<li><a href="transportation.html" alt=transportation>Transportation</a></li>
-			</ul>
-		</section>
-	</footer>
+					</fieldset>
+				</form>
+			</section>
+			<!-- Vertical Navigation -->
+			<section id="sitemap" class="container">
+				<a href="index.html" class="logoSM"></a>
+				<ul>
+					<li><a href="history.html" alt="history">History</a></li>
+					<li><a href="activities.html" alt="activities">Activities</a></li>
+					<li><a href="districts.html" alt="districts">Districts</a></li>
+					<li><a href="transportation.html" alt=transportation>Transportation</a></li>
+				</ul>
+			</section>
+		</footer>
 </body>
 
 </html>

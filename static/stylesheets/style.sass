@@ -6,6 +6,8 @@ $white: white
 $purple: #3754a5
 $blue: #4b9cd6
 $green: #41bb93
+$errorTxt: #D8000C
+$errorBkg: #FFBABA
 
 // Fonts
 $font-stack: 'Lato', sans-serif
@@ -67,15 +69,12 @@ body
 	color: $white
 	width: 10em
 	transition: all 0.5s ease
+	font-size: 1.15em
+	cursor: pointer
 
-	&:hover
+	&:hover, &:active
 		background-color: $green
 	
-	&:active
-		background-color: $green
-
-	&:selection
-		background-color: $green
 
 // Figures
 
@@ -98,14 +97,14 @@ form
 		border-style: none
 		border-color: none
 
-	label
+	label, label#returnDate
 		text-align: left
 		display: inline-block
 		width: 150px
 
 	input
 		display: inline-block
-		text-align: right
+		text-align: left
 		align-item: right
 		width: 150px
 
@@ -187,16 +186,16 @@ nav
 	position: relative
 
 #slide1
-	background: url("../images/slideshow_activities.png") no-repeat center
+	background: url("../images/slideshow_1.png") no-repeat center
 	background-size: cover
 #slide2
-	background: url("../images/slideshow_districts.png") no-repeat center
+	background: url("../images/slideshow_2.png") no-repeat center
 	background-size: cover
 #slide3
-	background: url("../images/slideshow_history.png") no-repeat center
+	background: url("../images/slideshow_3.png") no-repeat center
 	background-size: cover
 #slide4
-	background: url("../images/slideshow_transportation.png") no-repeat center
+	background: url("../images/slideshow_4.png") no-repeat center
 	background-size: cover
 
 .slide
@@ -205,6 +204,16 @@ nav
 	position: absolute
 	top: 0
 	left: 0
+	z-index: 1
+	opacity: 0
+	-webkit-transition: opacity 1s;
+	-moz-transition: opacity 1s;
+	-o-transition: opacity 1s;
+	transition: opacity 1s;
+
+.visible
+	z-index: 2
+	opacity: 1
 
 // Description
 #description
@@ -229,7 +238,7 @@ nav
 			text-align: end
 		
 		a
-			float: right		// TODO: Figure out a way to change this.
+			float: right
 
 
 	div:nth-child(even)
@@ -346,10 +355,6 @@ nav
 		margin: 0 0 15px
 		@extend .button
 		
-		&:active
-			background-color: $green
-		&:inactive
-			background-color: $lighter-grey
 
 	label[for="tripOne"], label[for="tripTwo"]
 		@extend .button
@@ -359,8 +364,34 @@ nav
 
 	input[type="radio"]
 		display: none
-		&:checked+label
-			background-color: $green
+
+	.errorMessage
+		display: none
+		width: 300px
+		border: 1px solid $errorTxt
+		border-radius: 5px
+		background-color: $errorBkg
+		p
+			font-size: 13px
+			font-family: $alt-font-stack
+			font-weight: bold
+			text-align: center
+			color: $errorTxt
+	
+#purchaseButton
+	@extend .button
+	cursor: not-allowed
+	background: $lighter-grey
+	color: $dark-grey
+	border: 1px solid $light-grey
+	&:hover
+		background: $light-grey
+		color: black
+		border: 1px solid black
+
+	&.enable
+		@extend .button
+		cursor: pointer
 
 #cost
 	background-color: $lighter-grey
