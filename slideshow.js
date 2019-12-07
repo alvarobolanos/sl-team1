@@ -25,10 +25,14 @@ function nextSlide() {
  */
 function pause() {
 	
-	var pauseBtn = document.getElementById("playback");
-	pauseBtn.innerHTML = "Continue";
-	playing = false;
-	clearInterval(interval);
+	var pauseBtn = document.getElementById("pause");
+	var playBtn = document.getElementById("play");
+	if (playing == true) {
+		pauseBtn.style.cursor="not-allowed";
+		playBtn.style.cursor="auto";
+		playing = false;
+		clearInterval(interval);
+	}
 	
 }
 
@@ -40,10 +44,14 @@ function pause() {
 */
 function play() {
 	
-	var playBtn = document.getElementById("playback");
-	playBtn.innerHTML = "Pause";
-	playing = true;
-	setInterval(nextSlide, 3000);
+	var playBtn = document.getElementById("play");
+	var pauseBtn = document.getElementById("pause");
+	if (playing == false) {
+		playBtn.style.cursor="not-allowed";
+		pauseBtn.style.cursor = "auto";
+		playing = true;
+		setInterval(nextSlide, 3000);
+	}
 	
 }
 
@@ -56,22 +64,18 @@ function play() {
  */
 function createEventListeners() {
 	// Event Listener for pause().
-	var pauseBtn = document.getElementById("playback");
+	var pauseBtn = document.getElementById("pause");
 	if (pauseBtn.addEventListener) {
-		if (playing == true)
-			pauseBtn.addEventListener("click", pause, false);
+		pauseBtn.addEventListener("click", pause, false);
 	} else if (pauseBtn.attachEvent) {
-		if (playing == true)
-			pauseBtn.attachEvent("onclick", pause);
+		pauseBtn.attachEvent("onclick", pause);
 	}
 	// Event Listener to play().
-	var playBtn = document.getElementById("playback");
+	var playBtn = document.getElementById("play");
 	if (playBtn.addEventListener) {
-		if (playing == false)
-			playBtn.addEventListener("click", play, false);
+		playBtn.addEventListener("click", play, false);
 	} else if (playBtn.attachEvent) {
-		if (playing == false) 
-			playBtn.attachEvent("onclick", play);
+		playBtn.attachEvent("onclick", play);
 	}
 	
 	
