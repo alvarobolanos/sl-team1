@@ -1,12 +1,10 @@
 "use strict"; // interpret document contents in JavaScript strict mode
 
-// TODO: add text on top of the images.
-// TODO: add symbols for slidCntrl class. Maybe a googlefont cdn or something like that.
-
 var slide = document.querySelectorAll(".slide");	// Query all .slide elements in the DOM and save into a nodelist object.
 var i = 0;											// Saves the current slide number;
 var playing = true;									// Initializes variable representing whether the slideshow is playing.
 var interval = setInterval(next, 3000);				// Initializes and Sets the nextSlide function to execute every 3 seconds.
+
 /*
  * Name        : slideN(n)
  * Parameters  : Position of slide in slide node list that wants to be displayed.
@@ -68,12 +66,12 @@ function play() {
 	
 	var playBtn = document.getElementById("play");	// Locates the play button on DOM.
 	var pauseBtn = document.getElementById("pause");// Locates the pause button on DOM.
-	if (playing == false) {							// Verifies that the slide show is playing.
+	// if (playing == false) {							// Verifies that the slide show is playing.
 		playBtn.style.cursor="not-allowed";			// Dissallows the use of the play button for usability.
 		pauseBtn.style.cursor = "auto";				// Allows use of the use of the pause button for usability
 		playing = true;								// Informs the global variable that the slide show is playing.
 		interval = setInterval(next, 3000);			// Re-initializes the interval to start executing the next function.
-	}
+	// 0}
 	
 }
 
@@ -108,6 +106,7 @@ function createEventListeners() {							// Creates event listeners.
 	} else if (previousBtn.attachEvent) {
 		previousBtn.attachEvent("onclick", previous);		// Attaches the event listener to execute previous on click.
 	}
+
 	// Event Listener to next().
 	var nextBtn = document.getElementById("next");			// Locates and assigns the next button.
 	if (nextBtn.addEventListener) {							// If addEventListener is available.
