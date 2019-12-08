@@ -82,7 +82,7 @@ form fieldset {
   border-color: none;
 }
 
-form label, form label#returnDate {
+form label {
   text-align: left;
   display: inline-block;
   width: 150px;
@@ -95,15 +95,12 @@ form input {
   width: 150px;
 }
 
-form #numTickets {
+form #numTickets, form #numAdults, form #numChildren {
   width: 50px;
+  height: 22.5px;
 }
 
-form #departureDate {
-  width: 120px;
-}
-
-form #returnDate {
+form #departureDate, form #returnDate, form #calendarFrom, form #calendarTo {
   width: 120px;
 }
 

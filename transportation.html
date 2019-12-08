@@ -45,7 +45,10 @@
 		<section id="description">
 			<div class="container">
 				<h1>Transportation in Denver</h1>
-				<p>Whether on foot, by car, by bike, or by light rail, there are plenty of options for getting around Denver. Looking for Downtown Denver transportation to get around the 16th Street Mall? Denver offers free public transportation with the Lightrail. Want to tour the city on a bike? B-Cycle makes Denver even more bike-friendly. These are just a few examples of options for transportation in Denver.</p>
+				<p>Whether on foot, by car, by bike, or by light rail, there are plenty of options for getting around
+					Denver. Looking for Downtown Denver transportation to get around the 16th Street Mall? Denver offers
+					free public transportation with the Lightrail. Want to tour the city on a bike? B-Cycle makes Denver
+					even more bike-friendly. These are just a few examples of options for transportation in Denver.</p>
 			</div>
 		</section>
 
@@ -82,7 +85,9 @@
 					</div>
 					<div>
 						<h3>Rent a Bycicle</h3>
-						<p>Explore The Mile High City using B-cycle, Denver’s pioneering bike share program. Find out how to set up an account at DenverBcycle.com. You can also download B-cycle’s iPhone app for station locations and bike availability.</p>
+						<p>Explore The Mile High City using B-cycle, Denver’s pioneering bike share program. Find out
+							how to set up an account at DenverBcycle.com. You can also download B-cycle’s iPhone app for
+							station locations and bike availability.</p>
 					</div>
 					<div>
 						<figure>
@@ -99,7 +104,10 @@
 						<br />
 						<br />
 						<h3>Public Transportation</h3>
-						<p>Public transit for metropolitan Denver/Boulder. One-Day and Five-Day Passes are available for unlimited travel for bus and light rail service in the Denver metro area. SkyRide service to/from DIA. Passes can be purchased individually or at a discount for large groups. Please visit our Website for more information.</p>
+						<p>Public transit for metropolitan Denver/Boulder. One-Day and Five-Day Passes are available for
+							unlimited travel for bus and light rail service in the Denver metro area. SkyRide service
+							to/from DIA. Passes can be purchased individually or at a discount for large groups. Please
+							visit our Website for more information.</p>
 					</div>
 					<div>
 						<figure>
@@ -107,197 +115,187 @@
 							<figcaption>Public Transportation Image</figcaption>
 						</figure>
 					</div>
-					<!-- <div>
-						<h3>Public Transportation 2</h3>
-						<p>Text</p>
-					</div>
-					<div>
-						<figure>
-							<div id="publicTransporationImage2" class="tabImages"></div>
-							<figcaption>Public Transportation Image 2</figcaption>
-						</figure>
-					</div> -->
 				</div>
 		</section>
 
 		<!-- Book -->
 		<section class="container">
-				<div class="flex-container">
-					<div id="book" class="container">
-						<form action="" method="post">
-							<fieldset>
-								<legend>
-									<h2>Personal Details</h2>
-								</legend>
-								<div class="container">
-									
-									<label for="firstName">
-										<p>First Name:</p>
-									</label>
-									<input id="firstName" type="text" required/><br />
-									<div id="firstNameError" class="errorMessage"></div>
+			<div class="flex-container">
+				<div id="book" class="container">
+					<form action="" method="post" class="container">
+						<fieldset>
+							<legend>
+								<h2>Book Your Trip</h2>
+								<h3>Personal Details</h3>
+							</legend>
+							<div class="container">
+								<label for="firstName">
+									<p>First Name:</p>
+								</label>
+								<input id="firstName" type="text" required /><br />
+								<div id="firstNameError" class="errorMessage"></div>
 
-									<label for="lastName">
-										<p>Last Name:</p>
-									</label>
-									<input id="lastName" type="text" required/><br />
-									<div id="lastNameError" class="errorMessage"></div>
-									
-									<label for="email">
-										<p>Email:</p>
-									</label>
-									<input id="email" type="email" required/><br />
-									<div id="emailError" class="errorMessage"></div>
+								<label for="lastName">
+									<p>Last Name:</p>
+								</label>
+								<input id="lastName" type="text" required /><br />
+								<div id="lastNameError" class="errorMessage"></div>
+
+								<label for="email">
+									<p>Email:</p>
+								</label>
+								<input id="email" type="email" required /><br />
+								<div id="emailError" class="errorMessage"></div>
+							</div>
+						</fieldset>
+						<fieldset>
+							<legend>
+								<h3>Ticket Details</h3>
+							</legend>
+							<div class="container">
+								<div class="container flex-container">
+									<label for="tripOne">Round Trip</label>
+									<input name="tripType" type="radio" class="trip_button" value="Round Trip"
+										id="tripOne">
+
+									<input name="tripType" type="radio" class="trip_button" value="One-Way"
+										id="tripTwo">
+									<label for="tripTwo">One Way</label>
 								</div>
-							</fieldset>
-	
-							<fieldset>
-								<legend>
-									<h2>Ticket Details</h2>
-								</legend>
-								<div class="container">
-									<div class="container flex-container">
-										<label for="tripOne">Round Trip</label>
-										<input name="tripType" type="radio" class="trip_button" value="Round Trip" id="tripOne">
-										
-										<input name="tripType" type="radio" class="trip_button" value="One-Way" id="tripTwo">
-										<label for="tripTwo">One Way</label>
-									</div>
-	
-									<label for="numTickets">
-										<p>Number of Tickets:</p>
-									</label>
-									<input id="numTickets" type="number" min=0 /><br />
-									<div id="numTicketsError" class="errorMessage">
-									</div>
-									
-									<label for="departureDate">
-										<p>Departure Date:</p>
-									</label>
-									<input id="departureDate" type="date" /><br />
-									<div id="departureDateError" class="errorMessage"></div>
-									
-									<label for="returnDate">
-										<p class="removeReturnDate">Return Date:</p>
-									</label>
-									<input id="returnDate" type="date" class="removeReturnDate"/><br />
-	
+
+								<label for="numTickets">
+									<p>Number of Tickets:</p>
+								</label>
+								<input id="numTickets" type="number" step="1" min=0 /><br />
+								<div id="numTicketsError" class="errorMessage">
 								</div>
-							</fieldset>
-						</form>
-					</div>
-					<div id="cost" class="container">
-						<table>
-							<thead>
-								<h2>Calcualted Cost</h2>
-							</thead>
-							<tr>
-								<td colspan="2">
-									<h3 id="summaryHeader">Summary: </h3>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<h3>Departure Date:</h3>
-								</td>
-								<td>
-									<p id="summaryDepartureDate"></p>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<h3 class="removeReturnDate">Return Date:</h3>
-								</td>
-								<td>
-									<p id="summaryReturnDate"></p>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<h3>Flat Fee per Ticket: </h3>
-								</td>
-								<td>
-									<p>$150.00</p>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<h3>Number of Tickets: </h3>
-								</td>
-								<td>
-									<p id="summaryNumberOfTickets"></p>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<h3>Tax 10%:</h3>
-								</td>
-								<td>
-									<p id="summaryTax"></p>
-								</td>
-							</tr>
-							<tr>
-								<td colspan="2">
-									<hr>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<h3>Total Cost:</h3>
-								</td>
-								<td>
-									<p id="totalCost"></p>
-								</td>
-							</tr>
-						</table>
-						<a href="" id="purchaseButton" class="button">Purchase Ticket(s)</a>
-					</div>
+
+								<label for="departureDate">
+									<p>Departure Date:</p>
+								</label>
+								<input id="departureDate" type="date" /><br />
+								<div id="departureDateError" class="errorMessage"></div>
+
+								<label for="returnDate">
+									<p class="removeReturnDate">Return Date:</p>
+								</label>
+								<input id="returnDate" type="date" class="removeReturnDate" /><br />
+
+							</div>
+						</fieldset>
+					</form>
 				</div>
-	
-			</section>
+				<div id="cost" class="container">
+					<table>
+						<thead>
+							<h2>Calcualted Cost</h2>
+						</thead>
+						<tr>
+							<td colspan="2">
+								<h3 id="summaryHeader">Summary: </h3>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h3>Departure Date:</h3>
+							</td>
+							<td>
+								<p id="summaryDepartureDate"></p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h3 class="removeReturnDate">Return Date:</h3>
+							</td>
+							<td>
+								<p id="summaryReturnDate"></p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h3>Flat Fee per Ticket: </h3>
+							</td>
+							<td>
+								<p>$150.00</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h3>Number of Tickets: </h3>
+							</td>
+							<td>
+								<p id="summaryNumberOfTickets"></p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h3>Tax 10%:</h3>
+							</td>
+							<td>
+								<p id="summaryTax"></p>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<hr>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h3>Total Cost:</h3>
+							</td>
+							<td>
+								<p id="totalCost"></p>
+							</td>
+						</tr>
+					</table>
+					<a href="" id="purchaseButton" class="button">Purchase Ticket(s)</a>
+				</div>
+			</div>
+		</section>
 	</article>
 	<!-- Footer -->
 	<footer>
-			<!-- Contact -->
-			<section id="contact" class="container">
-				<form id="contactForm" action="" method="post">
-					<fieldset>
-						<legend>
-							<h3>Contact Us</h3>
-						</legend>
-						<label>
-							<p>Name:</p>
-							<input type="name" />
-						</label><br />
-						<label>
-							<p>Email:</p>
-							<input type="email" class="email" />
-						</label><br />
-						<label>
-							<p>Subject:</p>
-							<input type="text" class="subject" />
-						</label><br />
-						<label>
-							<p>Message:</p>
-							<textarea rows="5"></textarea>
-						</label><br />
-						<div class="status">
-						</div>
-						<button type="submit" class="button">Send</button>
-					</fieldset>
-				</form>
-			</section>
-			<!-- Vertical Navigation -->
-			<section id="sitemap" class="container">
-				<a href="index.html" class="logoSM"></a>
-				<ul>
-					<li><a href="history.html" alt="history">History</a></li>
-					<li><a href="activities.html" alt="activities">Activities</a></li>
-					<li><a href="districts.html" alt="districts">Districts</a></li>
-					<li><a href="transportation.html" alt=transportation>Transportation</a></li>
-				</ul>
-			</section>
-		</footer>
+		<!-- Contact -->
+		<section id="contact" class="container">
+			<form id="contactForm" action="" method="post">
+				<fieldset>
+					<legend>
+						<h3>Contact Us</h3>
+					</legend>
+					<label>
+						<p>Name:</p>
+						<input type="name" />
+					</label><br />
+					<label>
+						<p>Email:</p>
+						<input type="email" class="email" />
+					</label><br />
+					<label>
+						<p>Subject:</p>
+						<input type="text" class="subject" />
+					</label><br />
+					<label>
+						<p>Message:</p>
+						<textarea rows="5"></textarea>
+					</label><br />
+					<div class="status">
+					</div>
+					<button type="submit" class="button">Send</button>
+				</fieldset>
+			</form>
+		</section>
+		<!-- Vertical Navigation -->
+		<section id="sitemap" class="container">
+			<a href="index.html" class="logoSM"></a>
+			<ul>
+				<li><a href="history.html" alt="history">History</a></li>
+				<li><a href="activities.html" alt="activities">Activities</a></li>
+				<li><a href="districts.html" alt="districts">Districts</a></li>
+				<li><a href="transportation.html" alt=transportation>Transportation</a></li>
+			</ul>
+		</section>
+	</footer>
 
 	<script src="transportationTabs.js"></script>
 	<script src="bookFlight.js"></script>
