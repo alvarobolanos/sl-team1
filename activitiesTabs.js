@@ -35,18 +35,18 @@ function selectTab(evt, selectedTab) {
 }
 
 /*
- * Name        : firstTab()
+ * Name        : activitiesTab()
  * Parameters  : None.
- * Processes   : Selects the first tab.
+ * Processes   : Selects the first tab in the activities page.
  * Return Value: None.
  */
-function firstTab() {
-	selectTab(0, 'carRental');
+function activitiesTab() {
+	selectTab(0, 'sightseeing');
 }
 
-// Call firstTab on window load.
+// Call activitiesTab on window load.
 if (window.addEventListener) {
-	window.addEventListener("load", firstTab, false);
+	window.addEventListener("load", activitiesTab, false);
 } else if (window.attachEvent) {
-	window.attachEvent("onload", firstTab);
+	window.attachEvent("onload", activitiesTab);
 }

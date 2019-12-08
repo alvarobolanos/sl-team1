@@ -167,22 +167,7 @@
 				</footer>
 		</article>
 
-		<!--JavaScript tabs.-->
-		<script>
-			function selectTab(evt, selectedTab) {
-				var i, tabContent, tabLink;
-				tabContent = document.getElementsByClassName("tabContent");
-				for (i = 0; i < tabContent.length; i++) {
-					tabContent[i].style.display = "none";
-				}
-				tabLink = document.getElementsByClassName("tabLink");
-				for (i = 0; i < tabLink.length; i++) {
-					tabLink[i].className = tabLink[i].className.replace(" active", "");
-				}
-				document.getElementById(selectedTab).style.display = "block";
-				evt.currentTarget.className += " active";
-			}
-		</script>
+		<script src="activitiesTabs.js"></script>
 	</body>
 
 </html>
