@@ -244,8 +244,6 @@ function handlePastDate() {
 
 	if (departureDateObject < currentDate) {										// If selected departure date is less than currentDate.
 		var stringDeparturDate = currentDate.getFullYear() + "-" + (currentDate.getMonth() + 1) + "-" + (currentDate.getDate() < 10 ? "0" : "") + currentDate.getDate(); // Converts current date to usable format by adding a zero for single digit date: i.e. yyyy-mm-d -> yyyy-mm-"0"d.
-		departureDate.value = stringDeparturDate;									// Assign created date string to departure date. Reseting value to current date.
-		summaryDepartureDate.innerText = stringDeparturDate;						// Assign newly created date string to departure date in summary.
 	}
 }
 

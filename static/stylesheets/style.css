@@ -61,7 +61,7 @@ body {
   cursor: pointer;
 }
 
-.button:hover, #book .trip_button:hover, #book label:hover[for="tripOne"], #book label:hover[for="tripTwo"], #purchaseButton:hover, .button:active, #book .trip_button:active, #book label:active[for="tripOne"], #book label:active[for="tripTwo"], #purchaseButton:active {
+.button:hover, #book .trip_button:hover, #book label:hover[for="tripOne"], #book label:hover[for="tripTwo"], #purchaseButton:hover, .button:active, #book .trip_button:active, #book label:active[for="tripOne"], #book label:active[for="tripTwo"], #purchaseButton:active, .button.active, #book .active.trip_button, #book label.active[for="tripOne"], #book label.active[for="tripTwo"], .active#purchaseButton {
   background-color: #41bb93;
 }
 
@@ -465,6 +465,12 @@ footer {
   display: -ms-flexbox;
   display: flex;
   background-color: rgba(171, 171, 171, 0.125);
+}
+
+footer .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 footer section {

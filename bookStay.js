@@ -10,10 +10,13 @@
 "use strict";
 
 // Global Variables
-var currentDate = new Date();   // Used to store current date.
-var summaryArray = new Array(); // Used to store summary elements.
-var errors = 0;					// Used to store number of errors for form validation.
-var formCompletion = 0;			// Used to store number of elements in form completed.
+var numNights = 0;					// Initialize number of nights as zero.
+var numAdults = 0;					// Stores number of adults.
+var numChildren = 0;				// Stores number of children.
+var currentDate = new Date();   	// Used to store current date.
+var summaryArray = new Array(); 	// Used to store summary elements.
+var errors = 0;						// Used to store number of errors for form validation.
+var formCompletion = 0;				// Used to store number of elements in form completed.
 
 // Functions
 
@@ -108,122 +111,71 @@ function validateLastName() {
 }
 
 /*
- * Name        : isRoundTrip()
+ * Name        : numberOfAdults()
  * Parameters  : none
- * Processes   : Checks if round trip input (input#tripOne) is selected.
- * Return Value: Boolean: True if round trip (input#tripOne) is selected, false otherwise.
- */
-function isRoundTrip() {
-	var roundTrip = document.getElementById("tripOne");					// Gets and assigns value to store tripOne.
-	var lRoundTrip = document.querySelector("[for='tripOne']");			// Gets and assigns value to store label for tripOne for roundTrip.
-	var oneWay = document.getElementById("tripTwo");					// Gets and assigns value to store tripTwo.
-	var lOneWay = document.querySelector("[for='tripTwo']");			// Gets and assigns value to store label for tripTwo for One-Way.
-	if (roundTrip.checked == true) { 									// Checks if round trip is selected. 
-		lRoundTrip.classList.add("active");								// Adds class active to lRoundTrip selector.
-		oneWay.checked == false;										// Sets oneWay as not checked.
-		lOneWay.classList.remove("active");								// Removes active class to oneWay's label.
-		placeReturnDate();												// Displays the return date label and input.
-		resetTicketData();												// Resets ticket departure date information.
-		summaryArray[1] = "Round Trip";									// Sets Round trip string to populate cost summary.
-		updateSummaryHeader();											// Updates the summary header.
-		calculateCost();												// Re-calculates cost.
-		bookable();														// Verify if trip is bookable.
-		return true;
-	} else {															// If roundTrip is not selected.
-		return false;
-	}
-}
-
-/*
- * Name        : isOneWay()
- * Parameters  : none
- * Processes   : Checks if round trip input (input#tripTwo) is selected.
- * Return Value: Boolean: True if round trip (input#tripTwo) is selected, false otherwise.
- */
-function isOneWay() {
-	var roundTrip = document.getElementById("tripOne");					// Gets and assigns value to store tripOne.
-	var lRoundTrip = document.querySelector("[for='tripOne']");			// Gets and assigns value to store label for tripOne for roundTrip.
-	var oneWay = document.getElementById("tripTwo");					// Gets and assigns value to store tripTwo.
-	var lOneWay = document.querySelector("[for='tripTwo']");			// Gets and assigns value to store label for tripTwo for oneWay.
-	if (oneWay.checked == true) { 										// Checks if one way is selected.
-		lOneWay.classList.add("active");								// Adds class active to lRoundTrip selector.
-		roundTrip.checked == false;										// Sets roundTrip as not checked.
-		lRoundTrip.classList.remove("active");							// Removes active class to roundTrip label.
-		removeReturnDate();												// Hides the return date label and input.
-		resetTicketData();												// Resets ticket departure date information.
-		summaryArray[1] = "One Way";									// Sets One Way trip string to populate cost summary.
-		updateSummaryHeader();											// Updates the summary.
-		calculateCost();												// Re-calculates cost.
-		bookable();														// Verify if trip is bookable.
-		return true;
-	} else {															// If oneWay is not selected.
-		return false;
-	}
-}
-
-/*
- * Name        : removeReturnDate()
- * Parameters  : none
- * Processes   : Removes return data input field and label if trip is one way.
- * Return Value: None.
- */
-function removeReturnDate() {
-	var selectedElements = document.querySelectorAll(".removeReturnDate");
-	selectedElements.forEach(element => {
-		element.style.display = "none" // Conditional to hide all elements with #returnDate in form.
-	});
-}
-
-/*
- * Name        : placeReturnDate()
- * Parameters  : none
- * Processes   : Places return data input field and label if trip is round trip.
- * Return Value: None.
- */
-function placeReturnDate() {
-	var selectedElements = document.querySelectorAll(".removeReturnDate");	// Queries all elements with .removeReturnDate class and stores a node list object in selected Elements.
-	selectedElements.forEach(element => {									// Each element gets style inherit from parent node which is displayed.
-		element.style = "inherit";
-	});
-}
-
-/*
- * Name        : resetTicketData()
- * Parameters  : none
- * Processes   : Resets ticketing data.
- * Return Value: None.
- */
-function resetTicketData() {
-	document.getElementById("departureDate").value = "";				// Resets value of departureDate.
-}
-
-/*
- * Name        : numberOfTickets()
- * Parameters  : none
- * Processes   : Extracts the value of the #numTickets input.
+ * Processes   : Extracts the value of the #numAdults input.
  * Return Value: Int: number of tickets to purchase.
  */
-function numberOfTickets() {
-	var numberOfTickets = document.getElementById("numTickets").value;				// Gets and assigns value of number of tickets input.
-	var summaryNumberOfTickets = document.getElementById("summaryNumberOfTickets");	// Gets and assigns value of number of tickets in the summary.
-	var numError = document.getElementById("numTicketsError");						// Gets and assigns number of tickets error for user feedback.
-	summaryNumberOfTickets.innerText = numberOfTickets;								// Populates number of tickets in the summary section.
+function numberOfAdults() {
+	var numberOfAdults = document.getElementById("numAdults").value;				// Gets and assigns value of number of adults input.
+	var numAdultsError = document.getElementById("numAdultsError");					// Gets and assigns number of adults error element for user feedback.
+	var summaryNumAdults = document.getElementById("summaryNumAdults");				// Gets and assigns number of adults in the summary element.
 	try {																			// Attempt logic.
-		if (numberOfTickets <= 0) {													// Validation for negative or zero value.
-			throw "Minimum number of tickets should be 1.";
+		if (numberOfAdults < 1) {													// Validation for negative or zero value.
+			if (numberOfAdults >2)
+				throw "Minimum number of Adults should be no less than 1 and no more than 2. Sorry our occupancy is limited by fire code.";
 		} else {																	// Validation for positive values.
-			numError.style.display = "none";										// Hide error.
-			summaryArray[0] = numberOfTickets;										// Sets number of tickets strig to populate cost summary.
+			numAdultsError.style.display = "none";									// Hide error.
+			numAdults = numberOfAdults;												// Saves number of adults to a global variable.
+			summaryNumAdults.innerText = numberOfAdults;							// Populates number of tickets in the summary section.
+			summaryArray[0] = numberOfAdults;										// Sets number of adults to populate cost summary.
 			updateSummaryHeader();													// Updates the summary header.
 			(errors <= 1) ? errors = 0 : --errors;									// If error is greater than 1, decrease errors otherwise reset to zero.
 			++formCompletion;														// Increase form completion.
-			return numberOfTickets;
+			return numberOfAdults;
 		}
 	} catch (msg) {
 		++errors;																	// Increase erors.
 		(formCompletion <= 1) ? formCompletion = 0 : --formCompletion;				// If formCompletion is greater than 1, decrease formCompletion othwerwise reset to zero.
-		numError.style.display = "block";											// Show error.
-		numError.innerHTML = "<p>" + msg + "</p>";									// Write error.
+		numAdultsError.style.display = "block";										// Show error.
+		numAdultsError.innerHTML = "<p>" + msg + "</p>";							// Write error.
+		bookable();																	// Verifies if trip is bookable.
+	}
+}
+/*
+ * Name        : numberOfChildren()
+ * Parameters  : none
+ * Processes   : Extracts the value of the #numChildren input.
+ * Return Value: Int: number of tickets to purchase.
+ */
+function numberOfChildren() {
+	var numberOfAdults = document.getElementById("numAdults").value;				// Gets and assigns value of number of children input.
+	var numberOfChildren = document.getElementById("numChildren").value;			// Gets and assigns value of number of children input.
+	var numChildrenError = document.getElementById("numChildrenError");				// Gets and assigns number of children error element for user feedback.
+	var summarynumChildren = document.getElementById("summaryNumChildren");			// Gets and assigns number of children in the summary element.
+	try {																			// Attempt logic.
+		if (numberOfChildren < 0) 													// Validation for negative values.
+			throw "Minimum number of Children is zero. Please correct your input.";
+		if (numberOfChildren >2)													// Validation for values greater than occupancy.
+			throw "Minimum number of Children should be no more than 2.";
+		if (numberOfAdults < 1 && numberOfChildren > 0)
+			throw "Children are not allowed to make reservations without an adult.";
+		if (numberOfAdults > 0) {													// Validation for positive values.
+			if (numberOfChildren > 0 && numberOfChildren <= 2)
+				numChildrenError.style.display = "none";							// Hide error.
+				numChildren = numberOfChildren;										// Saves number of adults to a global variable.
+				summarynumChildren.innerText = numberOfChildren;					// Populates number of tickets in the summary section.
+				summaryArray[1] = numberOfChildren;									// Sets number of adults to populate cost summary.
+				updateSummaryHeader();												// Updates the summary header.
+				(errors <= 1) ? errors = 0 : --errors;								// If error is greater than 1, decrease errors otherwise reset to zero.
+				++formCompletion;													// Increase form completion.
+				return numberOfChildren;
+		}
+	} catch (msg) {
+		++errors;																	// Increase erors.
+		(formCompletion <= 1) ? formCompletion = 0 : --formCompletion;				// If formCompletion is greater than 1, decrease formCompletion othwerwise reset to zero.
+		numChildrenError.style.display = "block";									// Show error.
+		numChildrenError.innerHTML = "<p>" + msg + "</p>";							// Write error.
 		bookable();																	// Verifies if trip is bookable.
 	}
 }
@@ -235,56 +187,55 @@ function numberOfTickets() {
  * Return Value: None.
  */
 function handlePastDate() {
-	var departureDate = document.getElementById("departureDate");					// Gets and stores departureDate input.
-	var returnDate = document.getElementById("returnDate");							// Gets and stores returnDate input.
-	var summaryDepartureDate = document.getElementById("summaryDepartureDate");		// Gets and stores departureDate in summary.
-	var summaryReturnDate = document.getElementById("summaryReturnDate");			// Gets and stores returnDate in summary.
-	var departureDateObject = new Date(departureDate.value);						// Creates a date object from the departure date value.
-	var returnDateObject = new Date(returnDate.value);								// Creates a date object from the return date value.
+	var dateFrom = document.getElementById("dateFrom");								// Gets and stores dateFrom input.
+	var dateTo = document.getElementById("dateTo");									// Gets and stores dateTo input.
+	var summaryDateFrom = document.getElementById("summaryDateFrom");				// Gets and stores dateFrom in summary.
+	var summaryDateTo = document.getElementById("summaryDateTo");					// Gets and stores dateTo in summary.
+	var dateFromObject = new Date(dateFrom.value);									// Creates a date object from the dateFrom value.
+	var dateToObject = new Date(dateTo.value);										// Creates a date object from the dateTo value.
 
-	if (departureDateObject < currentDate) {										// If selected departure date is less than currentDate.
-		var stringDeparturDate = currentDate.getFullYear() + "-" + (currentDate.getMonth() + 1) + "-" + (currentDate.getDate() < 10 ? "0" : "") + currentDate.getDate(); // Converts current date to usable format by adding a zero for single digit date: i.e. yyyy-mm-d -> yyyy-mm-"0"d.
-		departureDate.value = stringDeparturDate;									// Assign created date string to departure date. Reseting value to current date.
-		summaryDepartureDate.innerText = stringDeparturDate;						// Assign newly created date string to departure date in summary.
+	if (dateFromObject < currentDate) {												// If selected dateFrom is less than currentDate.
+		var stringDateFrom = currentDate.getFullYear() + "-" + (currentDate.getMonth() + 1) + "-" + (currentDate.getDate() < 10 ? "0" : "") + currentDate.getDate(); 	// Converts current date to usable format by adding a zero for single digit date: i.e. yyyy-mm-d -> yyyy-mm-"0"d.
 	}
 }
 
 /*
- * Name        : departureDateHandler()
+ * Name        : dateFromHandler()
  * Parameters  : none
  * Processes   : Populates summary and inverts dates if needed.
  * Return Value: none
  */
-function departureDateHandler() {
+function dateFromHandler() {
 	handlePastDate();						// Ensures that a past date is handled.
 	dateInverter();							// Inverts dates if necessary.
+	calculateCost();
 }
 
 /*
- * Name        : validateDepartureDate()
+ * Name        : validateDateFrom()
  * Parameters  : none
  * Processes   : Reports errors if departure date is in the past.
  * Return Value: none
  */
-function validateDepartureDate() {
-	var departureDate = document.getElementById("departureDate").value;		// Gets and stores value of departureDate.
-	var departureDateError = document.getElementById("departureDateError");	// Gets and stores departureDateError element.
-	var departureDateObject = new Date(departureDate);						// Creates a departureDateObject from departureDate.
-	var returnDate = document.getElementById("returnDate").value;			// Gets and stores value of returnDate.
-	var summaryDepartureDate = document.getElementById("summaryDepartureDate");// Gets and stores departureDate in summary.
+function validateDateFrom() {
+	var dateFrom = document.getElementById("dateFrom").value;		// Gets and stores value of dateFrom.
+	var dateFromError = document.getElementById("dateFromError");	// Gets and stores dateFromError element.
+	var dateFromObject = new Date(dateFrom);						// Creates a dateFromObject from dateFrom.
+	var summaryDateFrom = document.getElementById("summaryDateFrom");
 
-	try {																	// Attempt logic.
-		if (currentDate > departureDateObject) {							// 
+	try {															// Attempt logic.
+		if (currentDate > dateFromObject) {							// 
 			throw "The current departure date is not valid. Please select a new departure date";
 		} else {
-			departureDateError.style.display = "none";
+			dateFromError.style.display = "none";
 			++formCompletion;
 			(errors <= 1) ? errors = 0 : --errors;
+			summaryDateFrom.innerText = dateFrom;
 			bookable();
 		}
 	} catch (msg) {
-		departureDateError.style.display = "block";
-		departureDateError.innerHTML = "<p>" + msg + "</p>";
+		dateFromError.style.display = "block";
+		dateFromError.innerHTML = "<p>" + msg + "</p>";
 		++errors;
 		(formCompletion <= 1) ? formCompletion = 0 : --formCompletion;
 		bookable();
@@ -297,9 +248,23 @@ function validateDepartureDate() {
  * Processes   : Populates summary and inverts dates if needed.
  * Return Value: none
  */
-function returnDateHandler() {
-	handlePastDate();
-	dateInverter();
+function dateToHandler() {
+	handlePastDate();							// Verifies if there are past dates.
+	dateInverter();								// Inverts past dates if necessary.
+	dateToReporter();							//Reports the dateTo to the summary.
+	calculateCost();							// Re-calculate the cost.
+}
+
+/*
+ * Name        : dateToReporter()
+ * Parameters  : none
+ * Processes   : Reports the dateTo to the summary.
+ * Return Value: none
+ */
+function dateToReporter() {
+	var dateTo = document.getElementById("dateTo");
+	var summaryDateTo = document.getElementById("summaryDateTo");
+	summaryDateTo.innerText = dateTo.value;
 }
 
 /*
@@ -309,23 +274,41 @@ function returnDateHandler() {
  * Return Value: none
  */
 function dateInverter() {
-	var departureDate = document.getElementById("departureDate");
-	var summaryDepartureDate = document.getElementById("summaryDepartureDate");
-	var departureDateObject = new Date(departureDate.value); // Creates a Date element from departure date value.
-	var returnDate = document.getElementById("returnDate");
-	var summaryReturnDate = document.getElementById("summaryReturnDate");
-	var returnDateObject = new Date(returnDate.value);       // Creates a Date element from departure date value.
-	var tempDate = new Date();                               // Temporary variable for the date swap.
-	var departureDateError = document.getElementById("departureDateError");
-	if (returnDateObject < departureDateObject) {            // If Return date is before departure date.
-		tempDate = departureDate.value;						// Backup departureDate value.
-		departureDate.value = returnDate.value;				// DepartureDate gets returnDate value.
-		summaryDepartureDate.innerText = returnDate.value;	// Update the summary with new departureDate.
-		returnDate.value = tempDate;						// Assign backed up departureDate to return value there by swapping.
-		summaryReturnDate.innerText = tempDate;				// Update the summary with new returnDate.
+	var dateFrom = document.getElementById("dateFrom");
+	var dateTo = document.getElementById("dateTo");
+	var summaryDateFrom = document.getElementById("summaryDateFrom");
+	var dateFromObject = new Date(dateFrom.value); 					// Creates a Date element from dateFrom value.
+	var dateTo = document.getElementById("dateTo");					// Gets and stores dateTo element.
+	var summaryDateTo = document.getElementById("summaryDateTo");	// Gets and stores summary dateTo element.
+	var dateToObject = new Date((dateTo).value);					// Creates a Date element from dateTo value.
+	var tempDate = new Date();										// Temporary variable for the date swap.
+	var dateFromError = document.getElementById("dateFromError");
+	if (dateToObject < dateFromObject) {							// If dateTo is before dateFrom.
+		tempDate = dateFrom.value;									// Backup dateFrom value.
+		dateFrom.value = dateTo.value;								// dateFrom gets dateTo value.
+		summaryDateFrom.innerText = dateTo.value;					// Update the summary with new dateFrom.
+		dateTo.value = tempDate;									// Assign backed up dateFrom to dateTo thereby swapping.
+		summaryDateTo.innerText = tempDate;							// Update the summary with new dateTo.
 		window.alert("Please note that the dates selected seem incorrect.\n\nThe dates will be  inverted for your convenience.\n\nPlease review them carefully.");	// Alert the user.
 	}
-	validateDepartureDate();								// Ensures errors are reported if departure date is in the past.
+	validateDateFrom();											// Ensures errors are reported if dateFrom is in the past.
+}
+
+/*
+ * Name        : numberOfNights()
+ * Parameters  : none
+ * Processes   : Extracts the number of nights in the stay.
+ * Return Value: Number of nights in stay.
+ */
+function numberOfNights() {
+	var dateFrom = document.getElementById("dateFrom").value;
+	var dateFromObject = new Date(dateFrom);
+	var dateTo = document.getElementById("dateTo").value;
+	var dateToObject = new Date(dateTo);
+	var result = (dateToObject - dateFromObject)/(1000*60*60*24);
+	numNights = result;
+	summaryArray[2] = result;
+	return result;	
 }
 
 /*
@@ -337,9 +320,20 @@ function dateInverter() {
 function updateSummaryHeader() {
 	var summary = document.getElementById("summaryHeader");		// Gets and assigns the summary header into summary.
 	// Concatenate the Summary with numTickets and tripOne or tripTwo. Gets RoundTrip by Default.
-	summary.innerHTML = ("Summary: " + (summaryArray[0] >= 1 ? summaryArray[0] : "") + " ");
-	summary.innerHTML += (summaryArray[1] !== undefined ? summaryArray[1] : "Round Trip") + " Ticket";
-	summary.innerHTML += (summaryArray[0] > 1) ? "s." : ".";
+	if (summaryArray[2] != null) {
+		summary.innerHTML = ("Staying for " + (summaryArray[2] >= 1 ? (summaryArray[2] + " Night") : "0 Nights.</br>Please select your Stay Dates."));
+		summary.innerHTML += ((summaryArray[2] > 1 ? "s.</br>" : ".</br>"));
+	}
+	if (summaryArray[3] != null) {
+		summary.innerHTML += ("You'll be staying in " + summaryArray[1] + ", ");
+	} else {
+		summary.innerHTML += "Please select a district to visit.</br>";
+	}
+	if (summaryArray[4] != null) {
+		summary.innerHTML += ("in " + summaryArray[4] + ".");
+	} else {
+		summary.innerHTML += "Please select a room for your stay.</br>";
+	}
 }
 
 /*
@@ -349,15 +343,18 @@ function updateSummaryHeader() {
  * Return Value: None.
  */
 function calculateCost() {
-	const TICKETPRICE = 150;								// Defines ticket price constant.
+	numberOfNights();
+	numberOfAdults();
+	numberOfChildren();
+	const ADULTNIGHTLYFEE = 50;								// Defines Adult nightly price constant.
+	const CHILDNIGHTLYFEE = 25;								// Defines Adult nightly price constant.
 	const TAX = 0.125										// Defines tax constant.
 	var tax = 0.0;											// Initializes tax value.
 	var subTotal = 0.0;										// Initializes subTotal value.
 	var totalCost = 0.0;									// Initializes totalCost value.
-	subTotal = TICKETPRICE * numberOfTickets();				// Calculates subtotal based on number of tickts.
-	if (document.getElementById("tripTwo").checked) {		// If is oneWay trip, then.
-		subTotal /= 1.85; 									// Price of ticket one way ticket would have a premium over the regular cost of a 2 way ticket.
-	}
+	var adultSubTotal = numAdults * ADULTNIGHTLYFEE * numNights;	// Calculates price per adult stay
+	var childSubTotal = numChildren * CHILDNIGHTLYFEE * numNights;	//
+	subTotal = 	adultSubTotal + childSubTotal;				// Calculates subtotal.
 	tax = (subTotal * (TAX));								// Calculate tax value.
 	document.getElementById("summaryTax").innerText = "$" + tax.toLocaleString(undefined, {
 		maximumFractionDigits: 2							// Localize and write amount of tax in summary with 2 decimal positions.
@@ -423,52 +420,35 @@ function createEventListeners() {
 		validEmail.attachEvent("onchange", validateEmail);
 	}
 	
-	// Event Listener for isOneWay().
-	var oneWay = document.getElementById("tripTwo");
-	if (oneWay.addEventListener) {
-		oneWay.addEventListener("click", isOneWay, false);
-	} else if (oneWay.attachEvent) {
-		oneWay.attachEvent("onclick", isOneWay);
+	// Event Listener for numberOfAdults().
+	var numberOfAdults = document.getElementById("numAdults");
+	if (numberOfAdults.addEventListener) {
+		numberOfAdults.addEventListener("change", calculateCost, false);
+	} else if (numberOfAdults.attachEvent) {
+		numberOfAdults.attachEvent("onchange", calculateCost);
+	}
+	// Event Listener for numberOfChildren().
+	var numberOfChildren = document.getElementById("numChildren");
+	if (numberOfChildren.addEventListener) {
+		numberOfChildren.addEventListener("change", calculateCost, false);
+	} else if (numberOfChildren.attachEvent) {
+		numberOfChildren.attachEvent("onchange", calculateCost);
 	}
 
-	// Event Listener for isRoundTrip().
-	var roundTrip = document.getElementById("tripOne");
-	if (roundTrip.addEventListener) {
-		roundTrip.addEventListener("click", isRoundTrip, false);
-	} else if (roundTrip.attachEvent) {
-		roundTrip.attachEvent("onclick", isRoundTrip);
+	// Event Listener for dateFromHandler().
+	var dateFrom = document.getElementById("dateFrom");
+	if (dateFrom.addEventListener) {
+		dateFrom.addEventListener("change", dateFromHandler, false);
+	} else if (dateFrom.attachEvent) {
+		dateFrom.attachEvent("onchange", dateFromHandler);
 	}
 
-	// Event Listener for numberOfTickets().
-	var numberOfTickets = document.getElementById("numTickets");
-	if (numberOfTickets.addEventListener) {
-		numberOfTickets.addEventListener("change", calculateCost, false);
-	} else if (numberOfTickets.attachEvent) {
-		numberOfTickets.attachEvent("onchange", calculateCost);
-	}
-
-	// Event Listener for placeReturnDate().
-	var roundTrip = document.getElementById("tripOne");
-	if (roundTrip.addEventListener) {
-		roundTrip.addEventListener("click", placeReturnDate, false);
-	} else if (roundTrip.attachEvent) {
-		roundTrip.attachEvent("onclick", placeReturnDate);
-	}
-
-	// Event Listener for departureDateHandler().
-	var departureDate = document.getElementById("departureDate");
-	if (departureDate.addEventListener) {
-		departureDate.addEventListener("change", departureDateHandler, false);
-	} else if (departureDate.attachEvent) {
-		departureDate.attachEvent("onchange", departureDateHandler);
-	}
-
-	// Event Listener for returnDateHandler().
-	var returnDate = document.getElementById("returnDate");
-	if (returnDate.addEventListener) {
-		returnDate.addEventListener("change", returnDateHandler, false);
-	} else if (returnDate.attachEvent) {
-		returnDate.attachEvent("onchange", returnDateHandler);
+	// Event Listener for dateToHandler().
+	var dateTo = document.getElementById("dateTo");
+	if (dateTo.addEventListener) {
+		dateTo.addEventListener("change", dateToHandler, false);
+	} else if (dateTo.attachEvent) {
+		dateTo.attachEvent("onchange", dateToHandler);
 	}
 
 }

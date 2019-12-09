@@ -176,20 +176,22 @@
 							<legend>
 								<h3>Your Party</h3>
 							</legend>
-								<div class="flex-container">
-									<div>
-										<label for="adults">
-											<p>Adults:</p>
-										</label>
-										<input id="numAdults" type="number" step="1" min="1" />
-									</div>
-									<div>
-										<label for="children">
-											<p>Children:</p>
-										</label>
-										<input id="numChildren" type="number" step="1" min="0" />
-									</div>
+							<div class="flex-container">
+								<div>
+									<label for="numAdults">
+										<p>Adults:</p>
+									</label>
+									<input id="numAdults" type="number" step="1" min="1" max=2 value="0"/>
+									<div id="numAdultsError" class="errorMessage"></div>
 								</div>
+								<div>
+									<label for="numChildren">
+										<p>Children:</p>
+									</label>
+									<input id="numChildren" type="number" step="1" min="0" value="0"/>
+									<div id="numChildrenError" class="errorMessage"></div>
+								</div>
+							</div>
 						</fieldset>
 						<fieldset>
 							<legend>
@@ -198,18 +200,20 @@
 							<div class="flex-container">
 								<div>
 									<label for="dateFrom">
-									<p>Date From:</p>
+										<p>Date From:</p>
 									</label>
-									<input id="calendarFrom" type="date" required /><br />
+									<input id="dateFrom" type="date" required />
+									<p id="dateFromError" class="errorMessage"></p>
 								</div>
 								<div>
 									<label for="dateTo">
-									<p>Date To:</p>
+										<p>Date To:</p>
 									</label>
-									<input id="calendarTo" type="date" required /><br />
+									<input id="dateTo" type="date" required />
+									<p id="dateToError" class="errorMessage"></p>
 								</div>
 							</div>
-							
+
 						</fieldset>
 						<fieldset>
 							<legend>
@@ -236,7 +240,7 @@
 										<option value="roomType2">Room Type 2</option>
 									</select>
 								</div>
-							</div>	
+							</div>
 						</fieldset>
 					</form>
 				</div>
@@ -247,37 +251,46 @@
 						</thead>
 						<tr>
 							<td colspan="2">
-								<h3 id="summaryHeader">Summary: </h3>
+								<h3>Summary</h3>
+								<p id="summaryHeader"></p>
+
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<h3>From:</h3>
+								<p id="summaryDateFrom"></p>
+								<h3>To:</h3>
+								<p id="summaryDateTo"></p>
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<h3>Accommodating:</h3>
-								<p id="summaryAdults"></p>
 								<p>Adults</p>
-								<p id="summaryChildren"></p>
+								<p id="summaryNumAdults"></p>
 								<p>Children</p>
+								<p id="summaryNumChildren"></p>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<h3>Nightly Fee: </h3>
+								<h3>Nightly Fee per Person: </h3>
 							</td>
+						<tr>
+
 							<td>
-								<p>$50</p>
+								<p>Adults @ $50</p>
+								<p>Children @ $25</p>
 							</td>
+						</tr>
 						</tr>
 						<tr>
 							<td>
 								<h3>Tax 10%: </h3>
 							</td>
 							<td>
-								<p>$5</p>
+								<p id="summaryTax"></p>
 							</td>
 						</tr>
 						<tr>
@@ -300,45 +313,47 @@
 	</article>
 	<!-- Footer -->
 	<footer>
-		<!-- Contact -->
-		<section id="contact" class="container">
-			<form id="contactForm" action="" method="post">
-				<fieldset>
-					<legend>
-						<h3>Contact Us</h3>
-					</legend>
-					<label>
-						<p>Name:</p>
-						<input type="name" />
-					</label><br />
-					<label>
-						<p>Email:</p>
-						<input type="email" class="email" />
-					</label><br />
-					<label>
-						<p>Subject:</p>
-						<input type="text" class="subject" />
-					</label><br />
-					<label>
-						<p>Message:</p>
-						<textarea rows="5"></textarea>
-					</label><br />
-					<div class="status">
-					</div>
-					<button type="submit" class="button">Send</button>
-				</fieldset>
-			</form>
-		</section>
-		<!-- Vertical Navigation -->
-		<section id="sitemap" class="container">
-			<a href="index.html" class="logoSM"></a>
-			<ul>
-				<li><a href="history.html" alt="history">History</a></li>
-				<li><a href="activities.html" alt="activities">Activities</a></li>
-				<li><a href="districts.html" alt="districts">Districts</a></li>
-				<li><a href="transportation.html" alt=transportation>Transportation</a></li>
-			</ul>
-		</section>
+		<div class="container">
+			<!-- Contact -->
+			<section id="contact">
+				<form id="contactForm" action="" method="post">
+					<fieldset>
+						<legend>
+							<h3>Contact Us</h3>
+						</legend>
+						<label>
+							<p>Name:</p>
+							<input type="name" />
+						</label><br />
+						<label>
+							<p>Email:</p>
+							<input type="email" class="email" />
+						</label><br />
+						<label>
+							<p>Subject:</p>
+							<input type="text" class="subject" />
+						</label><br />
+						<label>
+							<p>Message:</p>
+							<textarea rows="5"></textarea>
+						</label><br />
+						<div class="status">
+						</div>
+						<button type="submit" class="button">Send</button>
+					</fieldset>
+				</form>
+			</section>
+			<!-- Vertical Navigation -->
+			<section id="sitemap">
+				<a href="index.html" class="logoSM"></a>
+				<ul>
+					<li><a href="history.html" alt="history">History</a></li>
+					<li><a href="activities.html" alt="activities">Activities</a></li>
+					<li><a href="districts.html" alt="districts">Districts</a></li>
+					<li><a href="transportation.html" alt=transportation>Transportation</a></li>
+				</ul>
+			</section>
+		</div>
 	</footer>
 
 	<script src="districtTabs.js"></script>
