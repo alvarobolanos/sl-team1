@@ -26,6 +26,7 @@ var formCompletion = 0;			// Used to store number of elements in form completed.
 
 function validateFirstName() {
 	var inputFirstName = document.getElementById("firstName").value;	// Gets and assigns value to store first name input.
+	var firstNameError = document.getElementById("firstNameError");		// Gets and assigns value to first name error element.
 	var nameFormat = /[\w-]{2,}/; 										// Establishes a regular expression. Word optionaly include hypen and must be 2 characters or more.
 	try {																// Attempt logic.
 		if(nameFormat.test(inputFirstName) === false) {					// If name input doesn't follow established format, then.
@@ -56,6 +57,7 @@ function validateFirstName() {
  */
 function validateLastName() {
 	var inputLastName = document.getElementById("lastName").value;		// Gets and assigns value to store last name input.
+	var lastNameError = document.getElementById("lastNameError");		// Gets and assigns value to last name error element.
 	var nameFormat = /[\w-]{2,}/;										// Establishes a regular expression. Word optionaly include hypen and must be 2 characters or more.
 	try {																// Attempt logic.
 		if(nameFormat.test(inputLastName) === false) {					// If last name input doesn't match format, then.
@@ -86,6 +88,7 @@ function validateLastName() {
 
  function validateEmail() {
 	var inputEmail = document.getElementById("email").value;			// Gets and assigns value to store email input.
+	var emailError = document.getElementById("emailError");			// Gets and stores email error element.
 	var emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;	// Establishes regulare exrpresion for email.
 	try {																// Attempt Logic.
 		if(emailFormat.test(inputEmail) === false) {					// ifemail input doesn't match format, then.
