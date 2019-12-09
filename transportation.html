@@ -121,7 +121,7 @@
 		<section class="container">
 			<div class="flex-container">
 				<div id="book" class="container">
-					<form action="thankyou.html" method="post" class="container">
+					<form action="thankyou.html" method="GET" class="container">
 						<fieldset>
 							<legend>
 								<h2>Book Your Trip</h2>
@@ -131,19 +131,19 @@
 								<label for="firstName">
 									<p>First Name:</p>
 								</label>
-								<input id="firstName" type="text" required /><br />
+								<input id="firstName" type="text" name="name" required /><br />
 								<div id="firstNameError" class="errorMessage"></div>
 
 								<label for="lastName">
 									<p>Last Name:</p>
 								</label>
-								<input id="lastName" type="text" required /><br />
+								<input id="lastName" type="text" name="lastName" required /><br />
 								<div id="lastNameError" class="errorMessage"></div>
 
 								<label for="email">
 									<p>Email:</p>
 								</label>
-								<input id="email" type="email" required /><br />
+								<input id="email" type="email" name = "email" required /><br />
 								<div id="emailError" class="errorMessage"></div>
 							</div>
 						</fieldset>
@@ -154,10 +154,10 @@
 							<div class="container">
 								<div class="container flex-container">
 									<label for="tripOne">Round Trip</label>
-									<input name="tripType" type="radio" class="trip_button" value="Round Trip"
+									<input name="tripType" type="radio" class="trip_button" value="Round Trip" name = "roundTrip"
 										id="tripOne">
 
-									<input name="tripType" type="radio" class="trip_button" value="One-Way"
+									<input name="tripType" type="radio" class="trip_button" value="One-Way" name = "oneWay"
 										id="tripTwo">
 									<label for="tripTwo">One Way</label>
 								</div>
@@ -165,20 +165,20 @@
 								<label for="numTickets">
 									<p>Number of Tickets:</p>
 								</label>
-								<input id="numTickets" type="number" step="1" min=0 /><br />
+								<input id="numTickets" type="number" step="1" min=0 name = "numberTickets"/><br />
 								<div id="numTicketsError" class="errorMessage">
 								</div>
 
 								<label for="departureDate">
 									<p>Departure Date:</p>
 								</label>
-								<input id="departureDate" type="date" /><br />
+								<input id="departureDate" type="date" name = "departureDate"/><br />
 								<div id="departureDateError" class="errorMessage"></div>
 
 								<label for="returnDate">
 									<p class="removeReturnDate">Return Date:</p>
 								</label>
-								<input id="returnDate" type="date" class="removeReturnDate" /><br />
+								<input id="returnDate" type="date" name = "returnDate" class="removeReturnDate" /><br />
 
 							</div>
 						</fieldset>
@@ -248,7 +248,7 @@
 							</td>
 						</tr>
 					</table>
-					<a href="" id="purchaseButton" class="button">Purchase Ticket(s)</a>
+					<a href="thankyou.html" id="purchaseButton" class="button">Purchase Ticket(s)</a>
 				</div>
 			</div>
 		</section>
