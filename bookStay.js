@@ -380,11 +380,11 @@ function optionValidator(){
 	var districtSelector = document.getElementById("districtSelector");
 	var roomSelector = document.getElementById("roomSelector");
 	if (districtSelector.selectedIndex == 0) {							// If district one is selected.
-		removeNodes(roomSelector,2,3);
-	} else if (districtSelector.selectedIndex == 1) {
-		removeNodes(roomSelector,0,1);
-	} else {
-		removeAllNodes(roomSelector);
+		removeNodes(roomSelector,2,3);									// Removes nodes that don't correspond to district 1.
+	}
+	
+	if (districtSelector.selectedIndex == 1) {							// If district two is selected.
+		removeNodes(roomSelector,0,1);									// Removes nodes that don't correspond to district 2.
 	}
 }
 /*
