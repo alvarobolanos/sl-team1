@@ -272,20 +272,20 @@ function validateDepartureDate() {
 	var summaryDepartureDate = document.getElementById("summaryDepartureDate");// Gets and stores departureDate in summary.
 
 	try {																	// Attempt logic.
-		if (currentDate > departureDateObject) {							// 
+		if (currentDate > departureDateObject) {							// If departure date previous to current date.
 			throw "The current departure date is not valid. Please select a new departure date";
 		} else {
-			departureDateError.style.display = "none";
-			++formCompletion;
-			(errors <= 1) ? errors = 0 : --errors;
-			bookable();
+			departureDateError.style.display = "none";						// Hide errors.
+			++formCompletion;												// Increment form completion.
+			(errors <= 1) ? errors = 0 : --errors;							// Decrease erros within positives.
+			bookable();														// Verify bookability.
 		}
 	} catch (msg) {
-		departureDateError.style.display = "block";
-		departureDateError.innerHTML = "<p>" + msg + "</p>";
-		++errors;
-		(formCompletion <= 1) ? formCompletion = 0 : --formCompletion;
-		bookable();
+		departureDateError.style.display = "block";							// Show errors.
+		departureDateError.innerHTML = "<p>" + msg + "</p>";				// Write errors.
+		++errors;															// Increment errors.
+		(formCompletion <= 1) ? formCompletion = 0 : --formCompletion;		// Decrease form completion within positives.
+		bookable();															// Verify bookability.
 	}
 }
 
@@ -296,8 +296,8 @@ function validateDepartureDate() {
  * Return Value: none
  */
 function returnDateHandler() {
-	handlePastDate();
-	dateInverter();
+	handlePastDate();												// Handle past dates if needed.
+	dateInverter();													// Invert dates if needed.
 }
 
 /*
