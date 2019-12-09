@@ -13,6 +13,7 @@
 var numNights = 0;					// Initialize number of nights as zero.
 var numAdults = 0;					// Stores number of adults.
 var numChildren = 0;				// Stores number of children.
+var party = numAdults + numChildren;// Stores the sum of people staying in room.
 var currentDate = new Date();   	// Used to store current date.
 var summaryArray = new Array(); 	// Used to store summary elements.
 var errors = 0;						// Used to store number of errors for form validation.
@@ -117,14 +118,15 @@ function validateLastName() {
  * Return Value: Int: number of tickets to purchase.
  */
 function numberOfAdults() {
-	var numberOfAdults = document.getElementById("numAdults").value;				// Gets and assigns value of number of adults input.
+	var numberOfAdults = Number(document.getElementById("numAdults").value);				// Gets and assigns value of number of adults input.
 	var numAdultsError = document.getElementById("numAdultsError");					// Gets and assigns number of adults error element for user feedback.
 	var summaryNumAdults = document.getElementById("summaryNumAdults");				// Gets and assigns number of adults in the summary element.
 	try {																			// Attempt logic.
-		if (numberOfAdults < 1) {													// Validation for negative or zero value.
-			if (numberOfAdults >2)
-				throw "Minimum number of Adults should be no less than 1 and no more than 2. Sorry our occupancy is limited by fire code.";
-		} else {																	// Validation for positive values.
+		if (numberOfAdults < 1)													// Validation for negative or zero value.
+				throw "Minimum number Adults should be 1.";
+		if (numberOfAdults >2)
+				throw "Maximum number of Adults should be no more than 2.";
+		if (numberOfAdults >= 1) {																	// Validation for positive values.
 			numAdultsError.style.display = "none";									// Hide error.
 			numAdults = numberOfAdults;												// Saves number of adults to a global variable.
 			summaryNumAdults.innerText = numberOfAdults;							// Populates number of tickets in the summary section.
@@ -149,8 +151,8 @@ function numberOfAdults() {
  * Return Value: Int: number of tickets to purchase.
  */
 function numberOfChildren() {
-	var numberOfAdults = document.getElementById("numAdults").value;				// Gets and assigns value of number of children input.
-	var numberOfChildren = document.getElementById("numChildren").value;			// Gets and assigns value of number of children input.
+	var numberOfAdults = Number(document.getElementById("numAdults").value);			// Gets and assigns value of number of children input.
+	var numberOfChildren = Number(document.getElementById("numChildren").value);			// Gets and assigns value of number of children input.
 	var numChildrenError = document.getElementById("numChildrenError");				// Gets and assigns number of children error element for user feedback.
 	var summarynumChildren = document.getElementById("summaryNumChildren");			// Gets and assigns number of children in the summary element.
 	try {																			// Attempt logic.
@@ -161,15 +163,15 @@ function numberOfChildren() {
 		if (numberOfAdults < 1 && numberOfChildren > 0)
 			throw "Children are not allowed to make reservations without an adult.";
 		if (numberOfAdults > 0) {													// Validation for positive values.
-			if (numberOfChildren > 0 && numberOfChildren <= 2)
+			if (numberOfChildren >= 0 || numberOfChildren <= 2)
 				numChildrenError.style.display = "none";							// Hide error.
 				numChildren = numberOfChildren;										// Saves number of adults to a global variable.
-				summarynumChildren.innerText = numberOfChildren;					// Populates number of tickets in the summary section.
-				summaryArray[1] = numberOfChildren;									// Sets number of adults to populate cost summary.
+				summarynumChildren.innerText = numChildren;					// Populates number of tickets in the summary section.
+				summaryArray[1] = numChildren;									// Sets number of adults to populate cost summary.
 				updateSummaryHeader();												// Updates the summary header.
 				(errors <= 1) ? errors = 0 : --errors;								// If error is greater than 1, decrease errors otherwise reset to zero.
 				++formCompletion;													// Increase form completion.
-				return numberOfChildren;
+				return numChildren;
 		}
 	} catch (msg) {
 		++errors;																	// Increase erors.
@@ -189,13 +191,14 @@ function numberOfChildren() {
 function handlePastDate() {
 	var dateFrom = document.getElementById("dateFrom");								// Gets and stores dateFrom input.
 	var dateTo = document.getElementById("dateTo");									// Gets and stores dateTo input.
-	var summaryDateFrom = document.getElementById("summaryDateFrom");				// Gets and stores dateFrom in summary.
-	var summaryDateTo = document.getElementById("summaryDateTo");					// Gets and stores dateTo in summary.
 	var dateFromObject = new Date(dateFrom.value);									// Creates a date object from the dateFrom value.
 	var dateToObject = new Date(dateTo.value);										// Creates a date object from the dateTo value.
 
 	if (dateFromObject < currentDate) {												// If selected dateFrom is less than currentDate.
 		var stringDateFrom = currentDate.getFullYear() + "-" + (currentDate.getMonth() + 1) + "-" + (currentDate.getDate() < 10 ? "0" : "") + currentDate.getDate(); 	// Converts current date to usable format by adding a zero for single digit date: i.e. yyyy-mm-d -> yyyy-mm-"0"d.
+	}
+	if (dateToObject < currentDate) {												// If selected dateFrom is less than currentDate.
+		var stringDateTo = currentDate.getFullYear() + "-" + (currentDate.getMonth() + 1) + "-" + (currentDate.getDate() < 10 ? "0" : "") + currentDate.getDate(); 	// Converts current date to usable format by adding a zero for single digit date: i.e. yyyy-mm-d -> yyyy-mm-"0"d.
 	}
 }
 
@@ -208,7 +211,7 @@ function handlePastDate() {
 function dateFromHandler() {
 	handlePastDate();						// Ensures that a past date is handled.
 	dateInverter();							// Inverts dates if necessary.
-	calculateCost();
+	calculateCost();						// Re-calculates the cost.
 }
 
 /*
@@ -224,21 +227,21 @@ function validateDateFrom() {
 	var summaryDateFrom = document.getElementById("summaryDateFrom");
 
 	try {															// Attempt logic.
-		if (currentDate > dateFromObject) {							// 
+		if (currentDate > dateFromObject) {							// If current Date is greater than dateFrom, then.
 			throw "The current departure date is not valid. Please select a new departure date";
 		} else {
-			dateFromError.style.display = "none";
-			++formCompletion;
-			(errors <= 1) ? errors = 0 : --errors;
-			summaryDateFrom.innerText = dateFrom;
-			bookable();
+			dateFromError.style.display = "none";					// Remove error notification.
+			++formCompletion;										// Increment form completion.
+			(errors <= 1) ? errors = 0 : --errors;					// Decrease error ensuring it stays positive.
+			summaryDateFrom.innerText = dateFrom;					// Populate new dateFrom in Summary.
+			bookable();												// Verify it's bookable.
 		}
 	} catch (msg) {
-		dateFromError.style.display = "block";
-		dateFromError.innerHTML = "<p>" + msg + "</p>";
-		++errors;
-		(formCompletion <= 1) ? formCompletion = 0 : --formCompletion;
-		bookable();
+		dateFromError.style.display = "block";						// Display error.
+		dateFromError.innerHTML = "<p>" + msg + "</p>";				// Write Error.
+		++errors;													// Increment error counter.
+		(formCompletion <= 1) ? formCompletion = 0 : --formCompletion;	// Decrease formCompletion ensuring it stays positive.
+		bookable();													// Verify it's bookable. 
 	}
 }
 
@@ -262,9 +265,9 @@ function dateToHandler() {
  * Return Value: none
  */
 function dateToReporter() {
-	var dateTo = document.getElementById("dateTo");
-	var summaryDateTo = document.getElementById("summaryDateTo");
-	summaryDateTo.innerText = dateTo.value;
+	var dateTo = document.getElementById("dateTo");					// Get and Store dateTo element.
+	var summaryDateTo = document.getElementById("summaryDateTo");	// Get and Store dateTo summary element.
+	summaryDateTo.innerText = dateTo.value;							// Write dateTo to summary for user display.
 }
 
 /*
@@ -274,8 +277,8 @@ function dateToReporter() {
  * Return Value: none
  */
 function dateInverter() {
-	var dateFrom = document.getElementById("dateFrom");
-	var dateTo = document.getElementById("dateTo");
+	var dateFrom = document.getElementById("dateFrom");				// Get and store dateFrom element.
+	var dateTo = document.getElementById("dateTo");					// Get and store dateTo element.
 	var summaryDateFrom = document.getElementById("summaryDateFrom");
 	var dateFromObject = new Date(dateFrom.value); 					// Creates a Date element from dateFrom value.
 	var dateTo = document.getElementById("dateTo");					// Gets and stores dateTo element.
@@ -301,14 +304,128 @@ function dateInverter() {
  * Return Value: Number of nights in stay.
  */
 function numberOfNights() {
-	var dateFrom = document.getElementById("dateFrom").value;
-	var dateFromObject = new Date(dateFrom);
-	var dateTo = document.getElementById("dateTo").value;
-	var dateToObject = new Date(dateTo);
-	var result = (dateToObject - dateFromObject)/(1000*60*60*24);
-	numNights = result;
-	summaryArray[2] = result;
-	return result;	
+	var dateFrom = document.getElementById("dateFrom").value;		// Get and store dateFrom element value.
+	var dateFromObject = new Date(dateFrom);						// Create an object from dateFrom element for comparison.
+	var dateTo = document.getElementById("dateTo").value;			// Get and store dateTo element value.
+	var dateToObject = new Date(dateTo);							// Create an object from dateTo element for comparison.
+	var result = (dateToObject - dateFromObject)/(1000*60*60*24);	// Convert millisecond comparison to number of days.
+	numNights = result;												// Store result in global vaariable.
+	summaryArray[2] = result;										// Store result in summary Array.
+	return result;
+}
+
+/*
+ * Name        : districtNodeCreator()
+ * Parameters  : none
+ * Processes   : Creates and appends option elements to the options in district selector.
+ * Return Value: none
+ */
+function districtNodeCreator(value, name) {
+	var districtSelector = document.getElementById("districtSelector");	// Gets and stores districtSelector.
+	var x = document.createElement("OPTION");							// Creates an element.
+	x.setAttribute("value", value);										// Sets the element's attributes.
+	var y = document.createTextNode(name);								// Creates the node.
+	x.appendChild(y);													// Appends the node to the option element.
+	districtSelector.appendChild(x);									// Appends the option node to the district selector.
+}
+
+/*
+ * Name        : roomNodeCreator()
+ * Parameters  : none
+ * Processes   : Creates and appends option elements to the options in room selector.
+ * Return Value: none
+ */
+function roomNodeCreator(value, name) {
+	var roomSelector = document.getElementById("roomSelector");			// Gets and stores roomSelector.
+	var x = document.createElement("OPTION");							// Creates an element.
+	x.setAttribute("value", value);										// Sets the element's attributes.
+	var y = document.createTextNode(name);								// Creates the node.
+	x.appendChild(y);													// Apends the node to the option element.
+	roomSelector.appendChild(x);										// Appends the option node to the room selector.
+}
+
+/*
+ * Name        : removeAllNodes()
+ * Parameters  : None.
+ * Processes   : Removes all options from inputSelector.
+ * Return Value: None.
+ */
+function removeAllNodes(inputSelector)
+{
+	var i;													// Creates a variable to iterate on.
+	for(i= 0; i <= inputSelector.options.length; i++) {		// Iterates over the length of the option in the input selector.
+		inputSelector.remove(i);							// Removes all nodes in range.
+	}
+}
+/*
+ * Name        : removeNodes()
+ * Parameters  : None.
+ * Processes   : Removes selected options from inputSelector.
+ * Return Value: None.
+ */
+function removeNodes(inputSelector,a,z)
+{
+	var i;													// Creates a variable to iterate on.
+	for(i= a; i <= z; i++) {									// Iterates over the range of the option in the input selector.
+		inputSelector.remove(i);							// Removes all nodes in range.
+	}
+}
+/*
+ * Name        : roomRecommendation()
+ * Parameters  : None.
+ * Processes   : Populates available rooms for stay.
+ * Return Value: None.
+ */
+function optionValidator(){
+	var districtSelector = document.getElementById("districtSelector");
+	var roomSelector = document.getElementById("roomSelector");
+	if (districtSelector.selectedIndex == 0) {							// If district one is selected.
+		removeNodes(roomSelector,2,3);
+	} else if (districtSelector.selectedIndex == 1) {
+		removeNodes(roomSelector,0,1);
+	} else {
+		removeAllNodes(roomSelector);
+	}
+}
+/*
+ * Name        : roomRecommendation()
+ * Parameters  : None.
+ * Processes   : Populates available rooms for stay.
+ * Return Value: None.
+ */
+function roomRecommendation() {
+	var districtSelector = document.getElementById("districtSelector");	// Gets and stores district selector.
+	var roomSelector = document.getElementById("roomSelector");			// Gets and stores room selector.
+	removeAllNodes(districtSelector);										// Resets nodes in district selector.
+	removeAllNodes(roomSelector);											// Resets nodes in room selector.
+	
+	// Create Nodes For Relevant Occupancy.
+	if (party == 1 && numChildren == 0) {
+		districtNodeCreator("district1", "District 1");
+		roomNodeCreator("room1", "Room Type 1");	
+	}
+
+	if (party == 2) {
+		districtNodeCreator("district1", "District 1");
+		roomNodeCreator("room1", "Room Type 1");
+		roomNodeCreator("room2", "Room Type 2");
+		districtNodeCreator("district2", "District 2");
+		roomNodeCreator("room3", "Room Type 3");
+		roomNodeCreator("room4", "Room Type 4");
+	}
+
+	if (party == 3) {
+		districtNodeCreator("district1", "District 1");
+		roomNodeCreator("room2", "Room Type 2");
+		districtNodeCreator("district2", "District 2");
+		roomNodeCreator("room4", "Room Type 4");
+	}
+
+	if (party == 4) {
+		districtNodeCreator("district1", "District 1");
+		roomNodeCreator("room2", "Room Type 2");
+	}
+
 }
 
 /*
@@ -325,7 +442,7 @@ function updateSummaryHeader() {
 		summary.innerHTML += ((summaryArray[2] > 1 ? "s.</br>" : ".</br>"));
 	}
 	if (summaryArray[3] != null) {
-		summary.innerHTML += ("You'll be staying in " + summaryArray[1] + ", ");
+		summary.innerHTML += ("You'll be staying in " + summaryArray[3] + ", ");
 	} else {
 		summary.innerHTML += "Please select a district to visit.</br>";
 	}
@@ -346,6 +463,7 @@ function calculateCost() {
 	numberOfNights();
 	numberOfAdults();
 	numberOfChildren();
+	party = numAdults + numChildren;
 	const ADULTNIGHTLYFEE = 50;								// Defines Adult nightly price constant.
 	const CHILDNIGHTLYFEE = 25;								// Defines Adult nightly price constant.
 	const TAX = 0.125										// Defines tax constant.
@@ -363,6 +481,7 @@ function calculateCost() {
 	document.getElementById("totalCost").innerText = "$" + totalCost.toLocaleString(undefined, {
 		maximumFractionDigits: 2							// Localize and write total cost amount in summary with 2 decimal positions.
 	});
+	roomRecommendation();
 	bookable();
 }
 
@@ -374,15 +493,16 @@ function calculateCost() {
  */
 function bookable() {
 	var purchaseButton = document.getElementById("purchaseButton");		// Gets and stores purchaseButton element.
-	if (errors == 0 && formCompletion >=5 ) {							// If there are no errors and form has been completed, then.
+	if (errors == 0 && formCompletion >=7 ) {							// If there are no errors and form has been completed, then.
 		if (document.getElementById("firstName").value != "")			// Double check name is not null.
 			if (document.getElementById("lastName").value != "")		// Double check last name is not null.
 				if (document.getElementById("email").value != "")		// Double check email is not null.
-					if (document.getElementById("departureDate").value !== "")	// Double check departure date is filled.
-						if (summaryArray[1]!== ""){						// Double check tripType is in summary.
-							purchaseButton.classList.add("enable");		// Enable the purchase tickets button.
+					if (document.getElementById("dateFrom").value !== "")	// Double check departure date is filled.
+						if (document.getElementById("dateTo").value !== "");// Double check tripType is in summary.
+							if (document.getElementById("districtSelector").value !== "")
+								if (document.getElementById("roomSelector").value !== "")
+									purchaseButton.classList.add("enable");		// Enable the purchase tickets button.
 							return true;
-				}
 	} else {
 		purchaseButton.classList.remove("enable");
 		return false;
@@ -451,6 +571,20 @@ function createEventListeners() {
 		dateTo.attachEvent("onchange", dateToHandler);
 	}
 
+	// Event Listener for districtSelector().
+	var districtSelector = document.getElementById("districtSelector");
+	if (districtSelector.addEventListener) {
+		districtSelector.addEventListener("change", optionValidator, false);
+	} else if (districtSelector.attachEvent) {
+		districtSelector.attachEvent("onchange", optionValidator);
+	}
+	// Event Listener for roomSelector().
+	var roomSelector = document.getElementById("roomSelector");
+	if (roomSelector.addEventListener) {
+		roomSelector.addEventListener("change", optionValidator, false);
+	} else if (roomSelector.attachEvent) {
+		roomSelector.attachEvent("onchange", optionValidator);
+	}
 }
 
 // Call createEventListeners on window load.
