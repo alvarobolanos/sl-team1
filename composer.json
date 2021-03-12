@@ -1,1 +1,10 @@
-
+{
+    "name": "root/sl-team1",
+    "authors": [
+        {
+            "name": "Alvaro Bolanos",
+            "email": "alvarobolanos@gmail.com"
+        }
+    ],
+    "require": {}
+}
